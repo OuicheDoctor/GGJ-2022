@@ -345,3 +345,6 @@ __pycache__/
 
 # OpenCover UI analysis results
 OpenCover/
+
+# Ignore Logs
+Logs/
