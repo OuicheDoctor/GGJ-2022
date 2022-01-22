@@ -1,8 +1,9 @@
-using System.Collections;
 using System.Collections.Generic;
-using UnityEngine;
 
-public interface ICharacter
+namespace GGJ.Character
 {
-    public List<ITrait> GetTrait();
+    public interface ICharacter
+    {
+        public List<ITrait> GetTraits();
+    }
 }
