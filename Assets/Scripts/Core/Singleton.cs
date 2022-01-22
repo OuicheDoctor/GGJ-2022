@@ -5,13 +5,19 @@ namespace GGJ.Core
 
     public class Singleton<T>
     {
+
+        #region Internals
         private static T instance = null;
 
         private T()
         {
+            InitializationSingleton();
         }
 
-        public static T Instance
+        #endregion
+
+        #region Exposed 
+        public static readonly T Instance
         {
             get
             {
@@ -22,6 +28,12 @@ namespace GGJ.Core
                 return instance;
             }
         }
+
+        public virtual InitializationSingleton()
+        {
+        }
+
+        #endregion
     }
 
 }
