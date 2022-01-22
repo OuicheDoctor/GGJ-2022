@@ -2,7 +2,6 @@ using GGJ.Character.ICharacter;
 
 namespace GGJ.Core
 {
-
     public class Logger : Singleton<Logger>
     {
 
