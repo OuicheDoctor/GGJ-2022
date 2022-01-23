@@ -4,8 +4,8 @@ using UnityEngine;
 using GGJ.Hobbies;
 using GGJ.Races;
 
-[CreateAssetMenu(menuName = "GGJ/Data Settings", fileName = "NewDataSettings")]
-public class DataSettings : ScriptableObject
+[CreateAssetMenu(menuName = "GGJ/Gameplay Settings", fileName = "NewGameplaySettings")]
+public class GameplaySettings : ScriptableObject
 {
     #region Exposed API
 
