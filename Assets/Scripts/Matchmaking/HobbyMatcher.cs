@@ -11,7 +11,7 @@ namespace GGJ.Matchmaking
     {
         private Dictionary<int, int> points = new Dictionary<int, int>();
 
-        public HobbyMatcher(HobbyMatcherData settings){
+        public HobbyMatcher(HobbyMatcherSettings settings){
             points.Add(0, settings.zeroMatch);
             points.Add(1, settings.oneMatch);
             points.Add(2, settings.twoMatch);

@@ -4,8 +4,8 @@ using UnityEngine;
 
 namespace GGJ.Matchmaking
 {
-    [CreateAssetMenu(fileName = "HobbyMatcherData", menuName = "GGJ/Matchmaking/Hobby Matcher Data")]
-    public class HobbyMatcherData : ScriptableObject
+    [CreateAssetMenu(fileName = "HobbyMatcherSettings", menuName = "GGJ/Matchmaking/Hobby Matcher Settings")]
+    public class HobbyMatcherSettings : ScriptableObject
     {
         [SerializeField]
         public int zeroMatch = 0;
