@@ -6,8 +6,7 @@ namespace GGJ.Character
     {
         public string Name { get; set; }
         public IRace Race { get; set; }
-        //public GenderEnum Gender { get; set; }
-        
         public List<ITrait> GetTraits();
+        public Gender Gender { get; set; }
     }
 }
