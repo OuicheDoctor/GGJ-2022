@@ -19,7 +19,27 @@ namespace GGJ.Characters
         public bool TraitJP { get; set; }
         public IList<HobbyData> Hobbies { get; set; }
 
-        #endregion
+        public bool GetMBTITrait(MBTITrait axis)
+        {
+            switch (axis)
+            {
+                case MBTITrait.ExtravertiIntraverti:
+                    return TraitEI;
+
+                case MBTITrait.SensationIntuition:
+                    return TraitSN;
+
+                case MBTITrait.PenseeSentiments:
+                    return TraitTF;
+
+                case MBTITrait.JugementPerception:
+                    return TraitTF;
+
+                default:
+                    throw new Exception("Unkown trait");
+            }
+        }
+
+        #endregion Exposed API
     }
 }
-

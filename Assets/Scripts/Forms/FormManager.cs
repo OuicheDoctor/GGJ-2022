@@ -29,7 +29,7 @@ public class FormManager : MonoBehaviour
                 if (canBeDecoy)
                     currentResponse.Response = pickedQuestion.AllResponses.PickOne();
                 else
-                    currentResponse.Response = pickedQuestion.Value0Response; // TODO get character value for this axis
+                    currentResponse.Response = character.GetMBTITrait(axis) ? pickedQuestion.Value0Response : pickedQuestion.Value1Response;
 
                 form.Responses.Add(currentResponse);
             }
