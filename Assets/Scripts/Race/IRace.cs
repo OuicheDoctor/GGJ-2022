@@ -1,7 +1,7 @@
 ﻿using System;
 using UnityEngine;
 
-namespace GGJ.Characters
+namespace GGJ.Races
 {
     public interface IRace
     {
