@@ -8,21 +8,23 @@ namespace GGJ.Matchmaking.Modifiers
     public class OppositionTraitManager
     {
 
-        private OppositionModifierData oppositionModifier;
+        private OppositionModifierData _oppositionModifier;
+
         public OppositionTraitManager(OppositionModifierData oppositionModifier)
         {
-            oppositionModifier = oppositionModifier;
+            _oppositionModifier = oppositionModifier;
         }
 
         public string Key
         {
-            get { return oppositionModifier.TriggerTrait; }
+            get { return _oppositionModifier.TriggerTrait; }
         }
+        
         public int GetScoreModifier(List<ITrait> traits)
         {
-            if (traits.Any(e => e.Name.ToLower() == oppositionModifier.TargetTrait.ToLower()))
+            if (traits.Any(e => e.Name.ToLower() == _oppositionModifier.TargetTrait.ToLower()))
             {
-                return oppositionModifier.Modifier;
+                return _oppositionModifier.Modifier;
             }
             return 0;
         }
