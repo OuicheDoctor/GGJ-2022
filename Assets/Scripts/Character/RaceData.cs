@@ -1,8 +1,11 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class RaceData : ScriptableObject
+namespace GGJ.Character
 {
-    
+    [CreateAssetMenu(menuName = "GGJ 2022 Game", fileName = "Races")]
+    public class RaceData : ScriptableObject
+    {
+        public List<Race> races = new List<Race>();
+    }
 }

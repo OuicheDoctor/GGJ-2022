@@ -1,5 +1,9 @@
 ﻿using System;
-public interface IRace
+
+namespace GGJ.Character
 {
-    public string Name { get; set; }
+    public interface IRace
+    {
+        public string Name { get; set; }
+    }
 }
