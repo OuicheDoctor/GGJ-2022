@@ -19,7 +19,8 @@ namespace GGJ.Matchmaking
         }
 
         public int Matcher(IList<HobbyData> habbiesA, IList<HobbyData> hobbiesB) {    
-            var count = habbiesA.Select(h => h.category).Union(hobbiesB.Select(h => h.category)).Count();
+            var count = habbiesA.Select(h => h.category).Intersect(hobbiesB.Select(h => h.category)).Count();
+
             return points[count];
         }
     }
