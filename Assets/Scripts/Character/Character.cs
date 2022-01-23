@@ -7,28 +7,15 @@ namespace GGJ.Characters
     [Serializable]
     public class Character : ICharacter
     {
-
         #region Exposed API
 
-        public string Name { get => _name; set => _name = value; }
-        public Sprite Drawing { get => _drawing; set => _drawing = value; }
-        public Race Race { get => _race; set => _race = value; }
-        public bool TraitEI { get => _traitEI; set => _traitEI = value; }
-        public bool TraitSN { get => _traitSN; set => _traitSN = value; }
-        public bool TraitTF { get => _traitTF; set => _traitTF = value; }
-        public bool TraitJP { get => _traitJP; set => _traitJP = value; }
-
-        #endregion
-
-        #region Inspector fields
-
-        [SerializeReference] private string _name;
-        [SerializeReference] private Sprite _drawing;
-        [SerializeReference] private Race _race;
-        [SerializeReference] private bool _traitEI;
-        [SerializeReference] private bool _traitSN;
-        [SerializeReference] private bool _traitTF;
-        [SerializeReference] private bool _traitJP;
+        public string Name { get; set; }
+        public Sprite Drawing { get; set; }
+        public Race Race { get; set; }
+        public bool TraitEI { get; set; }
+        public bool TraitSN { get; set; }
+        public bool TraitTF { get; set; }
+        public bool TraitJP { get; set; }
 
         #endregion
     }
