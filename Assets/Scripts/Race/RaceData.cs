@@ -1,7 +1,7 @@
 ﻿using System;
 using UnityEngine;
 
-namespace GGJ.Characters {
+namespace GGJ.Races {
 
     [CreateAssetMenu(menuName = "GGJ/Race", fileName = "NewRace")]
     public class RaceData : ScriptableObject, IRace

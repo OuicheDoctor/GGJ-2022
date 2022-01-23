@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using GGJ.Hobbies;
 using UnityEngine;
+using GGJ.Races;
 
 namespace GGJ.Characters
 {
