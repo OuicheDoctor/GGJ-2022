@@ -224,6 +224,24 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!1 &483726348 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2551857596955237735, guid: c623a0dbef3c4fb4991fdcd38d0e9b59, type: 3}
+  m_PrefabInstance: {fileID: 2551857595862894234}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &483726349
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 483726348}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5e39d8d05829d58499e94d2edb234bec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _settings: {fileID: 11400000, guid: dda5c9b3ea26cdf45b7ee72efcfa707b, type: 2}
 --- !u!1 &681164651
 GameObject:
   m_ObjectHideFlags: 0
@@ -755,6 +773,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2551857596955237732, guid: c623a0dbef3c4fb4991fdcd38d0e9b59, type: 3}
+      propertyPath: _settings
+      value: 
+      objectReference: {fileID: 11400000, guid: dda5c9b3ea26cdf45b7ee72efcfa707b, type: 2}
     - target: {fileID: 2551857596955237732, guid: c623a0dbef3c4fb4991fdcd38d0e9b59, type: 3}
       propertyPath: _zoomedContainer
       value: 
