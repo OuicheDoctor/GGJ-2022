@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace GGJ.Character
+namespace GGJ.Characters
 {
     public interface ICharacter
     {

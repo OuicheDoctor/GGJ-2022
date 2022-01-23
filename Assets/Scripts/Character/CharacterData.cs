@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace GGJ.Character
+namespace GGJ.Characters
 {
     [CreateAssetMenu(menuName = "GGJ 2022 Game/List of Character", fileName = "Characters")]
     public class CharacterData: ScriptableObject

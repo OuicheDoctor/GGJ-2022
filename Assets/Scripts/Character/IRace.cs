@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace GGJ.Character
+namespace GGJ.Characters
 {
     public interface IRace
     {
