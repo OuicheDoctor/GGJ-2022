@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: TraitMatcherSettings
   m_EditorClassIdentifier: 
   zeroMatch: 0
-  oneMatch: 0
-  twoMatch: 0
-  threeMatch: 0
+  oneMatch: 24
+  twoMatch: 48
+  threeMatch: 72
   fourMatch: 0
