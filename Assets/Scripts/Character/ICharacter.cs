@@ -1,10 +1,12 @@
 using System.Collections.Generic;
+using UnityEngine;
 
 namespace GGJ.Character
 {
     public interface ICharacter
     {
         public string Name { get; set; }
+        public Sprite Drawing { get; set; }
         public Race Race { get; set; }
         public bool TraitEI { get; set; }
         public bool TraitSN { get; set; }
