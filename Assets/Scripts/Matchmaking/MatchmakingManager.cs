@@ -8,15 +8,17 @@ public class MatchmakingManager : MonoBehaviour
 {
     public static MatchmakingManager Instance { get; private set; }
 
-    [SerializeField] private HobbyMatcherSettings _hobbyMatcheSettings;
+    [SerializeField] private HobbyMatcherSettings _hobbyMatcherSettings;
+    [SerializeField] private TraitMatcherSettings _traitMatcherSettings;
     private HobbyMatcher _hobbyMatcher;
-
-
+    private TraitMatcher _traitMatcher;
+    
     public int Match(ICharacter characterA, ICharacter characterB)
     {
         var score = 0;
 
         score += _hobbyMatcher.Matcher(characterA.Hobbies, characterB.Hobbies);
+        score += _traitMatcher.Matcher(characterA, characterB);
 
         return score;
     }
@@ -31,6 +33,7 @@ public class MatchmakingManager : MonoBehaviour
         }
 
         Instance = this;
-        _hobbyMatcher = new HobbyMatcher(_hobbyMatcheSettings);       
+        _hobbyMatcher = new HobbyMatcher(_hobbyMatcherSettings);   
+        _traitMatcher = new TraitMatcher(_traitMatcherSettings);
     }
 }
