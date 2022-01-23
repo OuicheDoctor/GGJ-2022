@@ -34,7 +34,7 @@ namespace GGJ.Characters
         {
             var hobbies = gameplaySettings.Hobbies;
 
-            System.Random random = new();
+            System.Random random = new System.Random();
             var maxHobbies = random.Next(1, 3);
 
             var remainingHobbies = hobbies;

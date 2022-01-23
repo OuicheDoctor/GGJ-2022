@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8d9d61b03b00c4d8b82fa3106002bfc0, type: 3}
   m_Name: Bear
   m_EditorClassIdentifier: 
-  _name: 
+  _name: Bear
   _drawing: {fileID: 0}
