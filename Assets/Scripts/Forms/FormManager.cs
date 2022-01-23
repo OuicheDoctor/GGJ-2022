@@ -1,4 +1,4 @@
-using GGJ.Character;
+using GGJ.Characters;
 using System;
 using System.Linq;
 using UnityEngine;
