@@ -9,13 +9,13 @@ namespace GGJ.Characters {
 
         #region Exposed API
 
-        public string Name { get { return name; } set { name = value; } }
+        public string Name { get { return _name; } set { _name = value; } }
 
         #endregion
 
         #region Inspector Fields
 
-        [SerializeReference] private string name;
+        [SerializeReference] private string _name;
 
         #endregion
     }
