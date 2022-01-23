@@ -1,36 +1,27 @@
-using GGJ.Character.ICharacter;
+using GGJ.Character;
 
 namespace GGJ.Core
 {
 
-    public class Singleton<T>
+    public class Singleton<T> where T : new()
     {
 
         #region Internals
-        private static T instance = null;
-
-        private T()
-        {
-            InitializationSingleton();
-        }
+        private static T _instance = default(T);
 
         #endregion
 
         #region Exposed 
-        public static readonly T Instance
+        public static T Instance
         {
             get
             {
-                if (instance == null)
+                if (_instance == null)
                 {
-                    instance = new T();
+                    _instance = new T();
                 }
-                return instance;
+                return _instance;
             }
-        }
-
-        public virtual InitializationSingleton()
-        {
         }
 
         #endregion

@@ -1,4 +1,4 @@
-using GGJ.Character.ICharacter;
+using GGJ.Character;
 
 namespace GGJ.Core
 {
