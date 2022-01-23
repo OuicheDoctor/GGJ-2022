@@ -10,8 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d5db3892ceff29f4cb2119ee949562ee, type: 3}
-  m_Name: StayUnderTheComforter
+  m_Name: Wrestling
   m_EditorClassIdentifier: 
-  hobbyName: StayUnderTheComforter
+  hobbyName: Struggle
   description: 
-  cetegory: {fileID: 11400000, guid: 0563f3429c1af3d449c16381728a5246, type: 2}
+  cetegory: {fileID: 11400000, guid: 762627fb770c4d243807253b0b4c4473, type: 2}
