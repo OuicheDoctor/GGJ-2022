@@ -13,7 +13,8 @@ namespace GGJ.Matchmaking
     {
         private Dictionary<int, int> points = new Dictionary<int, int>();
 
-        public TraitMatcher(TraitMatcherSettings settings){
+        public TraitMatcher(TraitMatcherSettings settings)
+        {
             points.Add(0, settings.zeroMatch);
             points.Add(1, settings.oneMatch);
             points.Add(2, settings.twoMatch);
@@ -21,20 +22,25 @@ namespace GGJ.Matchmaking
             points.Add(4, settings.fourMatch);
         }
 
-        public int Matcher(ICharacter characterA, ICharacter characterB) {
-            var cout = 0;
+        public int Matcher(ICharacter characterA, ICharacter characterB)
+        {
+            var count = 0;
 
-            if (characterA.TraitEI == characterB.TraitEI){
-                cout += 1;
+            if (characterA.TraitEI == characterB.TraitEI)
+            {
+                count += 1;
             }
-            if (characterA.TraitJP == characterB.TraitJP){
-                cout += 1;
+            if (characterA.TraitJP == characterB.TraitJP)
+            {
+                count += 1;
             }
-            if (characterA.TraitSN == characterB.TraitSN){
-                cout += 1;
+            if (characterA.TraitSN == characterB.TraitSN)
+            {
+                count += 1;
             }
-            if (characterA.TraitTF == characterB.TraitTF){
-                cout += 1;
+            if (characterA.TraitTF == characterB.TraitTF)
+            {
+                count += 1;
             }
             return points[count];
         }
