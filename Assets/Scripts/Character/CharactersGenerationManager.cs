@@ -10,6 +10,11 @@ namespace GGJ.Characters
 
     public class CharactersGenerationManager : MonoBehaviour
     {
+        private void Start()
+        {
+            Debug.Log(GenerateCharacters(3));
+        }
+
         public static CharactersGenerationManager Instance { get; private set; }
 
         [SerializeField] private GameplaySettings gameplaySettings;
@@ -17,11 +22,9 @@ namespace GGJ.Characters
         public List<Character> GenerateCharacters(int count) {
             var races = gameplaySettings.Races;
 
-            var characters = Enumerable.Range(1, count).Select(i => {
-                return new Character
-                {
-                    Hobbies = GetRandomHobbies()
-                };
+            var characters = Enumerable.Range(1, count).Select(_ => new Character {
+                Race = GetRandomRace(),
+                Hobbies = GetRandomHobbies()
             }).ToList();
 
             return characters;
@@ -48,6 +51,16 @@ namespace GGJ.Characters
             randomHobbies = randomHobbies.Where(h => h != null).ToList();
 
             return randomHobbies;
+        }
+
+        // Get one random race
+        private RaceData GetRandomRace()
+        {
+            var races = gameplaySettings.Races;
+
+            System.Random random = new System.Random();
+            var randomRaceIndex = random.Next(0, races.Count);
+            return races[randomRaceIndex];
         }
 
         private void Awake()
