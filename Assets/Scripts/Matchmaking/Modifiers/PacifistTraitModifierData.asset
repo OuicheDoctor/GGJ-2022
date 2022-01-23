@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac29265e1fb78b245a821fd5b58c1439, type: 3}
   m_Name: PacifistTraitModifierData
   m_EditorClassIdentifier: 
-  Modifier: 0
-  TriggerTrait: 
-  TargetTrait: 
+  Modifier: -100
+  TriggerTrait: Pacifist
+  TargetTrait: Brutal
+  Description: 

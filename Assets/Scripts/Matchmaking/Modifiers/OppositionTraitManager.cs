@@ -5,7 +5,7 @@ using GGJ.Character;
 
 namespace GGJ.Matchmaking.Modifiers
 {
-    public class OppositionTraitManager : TraitModifierBase
+    public class OppositionTraitManager
     {
 
         private OppositionModifierData oppositionModifier;
