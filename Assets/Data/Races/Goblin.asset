@@ -14,3 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _name: 
   _drawing: {fileID: 0}
+  _names: {fileID: 11400000, guid: 4493de483f9b747dbaf1dd0b14d94de9, type: 2}
