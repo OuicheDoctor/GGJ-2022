@@ -4,6 +4,7 @@ using UnityEngine;
 using GGJ.Hobbies;
 using GGJ.Races;
 using System.Linq;
+using Newtonsoft.Json;
 
 namespace GGJ.Characters
 {
@@ -12,7 +13,13 @@ namespace GGJ.Characters
     {
         private void Start()
         {
-            Debug.Log(GenerateCharacters(3));
+            var characters = GenerateCharacters(12);
+            foreach(Character character in characters)
+            {
+                var hobbiesString = "";
+                foreach (var hobby in character.Hobbies) { hobbiesString += hobby.name; };
+                Debug.Log($"{character.Race.name} {hobbiesString}");
+            }
         }
 
         public static CharactersGenerationManager Instance { get; private set; }
@@ -20,12 +27,14 @@ namespace GGJ.Characters
         [SerializeField] private GameplaySettings gameplaySettings;
 
         public List<Character> GenerateCharacters(int count) {
-            var races = gameplaySettings.Races;
-
-            var characters = Enumerable.Range(1, count).Select(_ => new Character {
-                Race = GetRandomRace(),
-                Hobbies = GetRandomHobbies()
-            }).ToList();
+            var characters = new List<Character>();
+            for(int i = 0; i < count; i++)
+            {
+                characters.Add(new Character {
+                    Race = GetRandomRace(),
+                    Hobbies = GetRandomHobbies()
+                });
+            }
 
             return characters;
         }
@@ -35,19 +44,23 @@ namespace GGJ.Characters
         // Max 1 hobby from the same category
         private List<HobbyData> GetRandomHobbies()
         {
-            var hobbies = gameplaySettings.Hobbies;
-
             System.Random random = new System.Random();
-            var maxHobbies = random.Next(1, 3);
+            var maxHobbies = random.Next(1, 4);
 
-            var remainingHobbies = hobbies;
-            var randomHobbies = Enumerable.Range(1, maxHobbies).Select(i => {
+            var remainingHobbies = new List<HobbyData>();
+            foreach (var hobby in gameplaySettings.Hobbies) { remainingHobbies.Add(hobby); }
+
+            var randomHobbies = new List<HobbyData>();
+            for (int i = 0; i < maxHobbies; i++)
+            {
+                System.Random random2 = new System.Random();
                 if (remainingHobbies.Count == 0) return null;
-                var randomHobbyIndex = random.Next(0, hobbies.Count);
-                var selectedHobby = hobbies[randomHobbyIndex];
+                var randomHobbyIndex = random2.Next(0, remainingHobbies.Count);
+                var selectedHobby = remainingHobbies[randomHobbyIndex];
                 remainingHobbies = remainingHobbies.Where(h => h.category != selectedHobby.category).ToList();
-                return selectedHobby;
-            }).ToList();
+                randomHobbies.Add(selectedHobby);
+            }
+
             randomHobbies = randomHobbies.Where(h => h != null).ToList();
 
             return randomHobbies;
@@ -56,9 +69,10 @@ namespace GGJ.Characters
         // Get one random race
         private RaceData GetRandomRace()
         {
+            System.Random random = new System.Random();
+
             var races = gameplaySettings.Races;
 
-            System.Random random = new System.Random();
             var randomRaceIndex = random.Next(0, races.Count);
             return races[randomRaceIndex];
         }
