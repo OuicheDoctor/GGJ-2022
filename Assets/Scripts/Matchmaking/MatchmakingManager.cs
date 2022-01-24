@@ -12,7 +12,8 @@ public class MatchmakingManager : MonoBehaviour
     [SerializeField] private TraitMatcherSettings _traitMatcherSettings;
     private HobbyMatcher _hobbyMatcher;
     private TraitMatcher _traitMatcher;
-    
+
+
     public int Match(ICharacter characterA, ICharacter characterB)
     {
         var score = 0;
@@ -31,9 +32,8 @@ public class MatchmakingManager : MonoBehaviour
             Destroy(gameObject);
             return;
         }
-
         Instance = this;
-        _hobbyMatcher = new HobbyMatcher(_hobbyMatcherSettings);   
+        _hobbyMatcher = new HobbyMatcher(_hobbyMatcherSettings);
         _traitMatcher = new TraitMatcher(_traitMatcherSettings);
     }
 }
