@@ -51,7 +51,7 @@ namespace GGJ.Matchmaking
             return _counters[character] >= _limit;
         }
 
-        public bool ContainsKey(Tuple<ICharacter, ICharacter> key)
+        public new bool ContainsKey(Tuple<ICharacter, ICharacter> key)
         {
             Tuple<ICharacter, ICharacter> variant = new Tuple<ICharacter, ICharacter>(key.Item2, key.Item1);
             return base.ContainsKey(key) || base.ContainsKey(variant);
