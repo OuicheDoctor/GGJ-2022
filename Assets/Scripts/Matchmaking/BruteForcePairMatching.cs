@@ -1,11 +1,8 @@
-using System;
-using System.CodeDom;
-using System.Collections;
-using System.Collections.Generic;
-using System.Linq;
 using GGJ.Characters;
 using GGJ.Core;
-using UnityEngine;
+using System;
+using System.Collections.Generic;
+using System.Linq;
 
 
 namespace GGJ.Matchmaking
@@ -22,65 +19,61 @@ namespace GGJ.Matchmaking
             }
 
             Shuffle(characters);
-            UnityEngine.Debug.Log(String.Join("; ", characters.Select(e => e.Name).ToList()));
-
-            PartenerCollection parteners = new PartenerCollection((int)Math.Pow(characters.Count, 2));
-            while (characters.Any(e => !parteners.IsPartener(e)))
+            PartenerCollection parteners = new PartenerCollection(characters.Count);
+            bool everybodyIsPaired = false;
+            while (!everybodyIsPaired)
             {
                 foreach (ICharacter characterA in characters.Where(e => !parteners.IsPartener(e)))
                 {
-                    UnityEngine.Debug.Log(characterA.Name + " processing...");
-
-                    Dictionary<ICharacter, int> scores = new Dictionary<ICharacter, int>();
-                    foreach (ICharacter characterB in characters.Where(e => e != characterA))
+                    if (parteners.IsLocked(characterA))
                     {
-                        int score = MatchmakingManager.Instance.Match(characterA, characterB);
-                        scores.Add(characterB, score);
+                        continue;
                     }
-                    scores.OrderByDescending(e => e.Value);
 
-                    UnityEngine.Debug.Log("Scores (" + scores.Count + ") :");
-
-                    foreach (KeyValuePair<ICharacter, int> item in scores)
-                    {
-                        UnityEngine.Debug.Log(characterA.Name + " x " + item.Key.Name + " : " + item.Value);
-                    }
+                    var scores = GetScores(characterA, characters);
 
                     foreach (KeyValuePair<ICharacter, int> item in scores)
                     {
                         Tuple<ICharacter, ICharacter> key = new Tuple<ICharacter, ICharacter>(characterA, item.Key);
-                        Tuple<ICharacter, ICharacter> keyVariant = new Tuple<ICharacter, ICharacter>(item.Key, characterA);
-
-                        if (parteners.IsPartener(characterA) || parteners.IsPartener(item.Key))
+                        if (parteners.IsLocked(characterA))
                         {
-                            if (parteners.ContainsKey(key) && parteners.ContainsKey(keyVariant))
-                            {
-                                continue; // Already Added
-                            }
-                            else if (parteners.IsPartener(characterA) && !parteners.IsLocked(characterA) && parteners.GetActualScore(characterA) < item.Value)
-                            {
-                                parteners.RemoveCharacter(characterA);
-                                parteners.Add(key, item.Value);
-                                UnityEngine.Debug.Log(characterA.Name + "/" + item.Key.Name + " Added (Ref Char A)");
-                            }
-                            else if (parteners.IsPartener(item.Key) && !parteners.IsLocked(item.Key) && parteners.GetActualScore(item.Key) < item.Value)
-                            {
-                                parteners.RemoveCharacter(item.Key);
-                                parteners.Add(key, item.Value);
-                                UnityEngine.Debug.Log(characterA.Name + "/" + item.Key.Name + " Added (Ref Char B)");
-                            }
-
+                            break;
                         }
-                        else
+                        if (parteners.ContainsKey(key) || parteners.IsLocked(item.Key))
+                        {
+                            continue;
+                        }
+
+                        if (parteners.IsPartener(characterA) && parteners.GetActualScore(characterA) < item.Value)
+                        {
+                            parteners.RemoveByCharacter(characterA);
+                            parteners.Add(key, item.Value);
+                        }
+                        else if (parteners.IsPartener(item.Key) && parteners.GetActualScore(item.Key) < item.Value)
+                        {
+                            parteners.RemoveByCharacter(item.Key);
+                            parteners.Add(key, item.Value);
+                        }
+                        else if (!parteners.IsPartener(characterA) && !parteners.IsPartener(item.Key))
                         {
                             parteners.Add(key, item.Value);
-                            UnityEngine.Debug.Log(characterA.Name + "/" + item.Key.Name + " Added (No Ref)");
                         }
                     }
                 }
-
+                everybodyIsPaired = characters.All(e => parteners.IsPartener(e));
             }
             return parteners;
+        }
+
+        private IOrderedEnumerable<KeyValuePair<ICharacter, int>> GetScores(ICharacter characterReference, IList<ICharacter> characters)
+        {
+            Dictionary<ICharacter, int> scores = new Dictionary<ICharacter, int>();
+            foreach (ICharacter characterTargeted in characters.Where(e => e != characterReference))
+            {
+                int score = MatchmakingManager.Instance.Match(characterReference, characterTargeted);
+                scores.Add(characterTargeted, score);
+            }
+            return scores.OrderByDescending(e => e.Value);
         }
 
         private void Shuffle(IList<ICharacter> characters)

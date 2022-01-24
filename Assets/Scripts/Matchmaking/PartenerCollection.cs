@@ -1,10 +1,7 @@
+using GGJ.Characters;
 using System;
-using System.Collections;
-using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.Linq;
-using GGJ.Characters;
-using UnityEngine;
 
 namespace GGJ.Matchmaking
 {
@@ -22,17 +19,18 @@ namespace GGJ.Matchmaking
             return Keys.ToList().Where(e => e.Item1 == character || e.Item2 == character).Any();
         }
 
-        public bool RemoveCharacter(ICharacter character)
+        public bool RemoveByCharacter(ICharacter character)
         {
             if (IsLocked(character))
             {
-                UnityEngine.Debug.Log(character.Name + " is Locked");
                 return false;
             }
+
             List<Tuple<ICharacter, ICharacter>> keysToRemove = Keys.ToList().Where(e => e.Item1 == character || e.Item2 == character).ToList();
+
             foreach (Tuple<ICharacter, ICharacter> keyToRemove in keysToRemove)
             {
-                Remove(keyToRemove);
+                base.Remove(keyToRemove);
             }
             _counters[character] += 1;
             return true;
@@ -51,6 +49,12 @@ namespace GGJ.Matchmaking
                 _counters[character] = 0;
             }
             return _counters[character] >= _limit;
+        }
+
+        public bool ContainsKey(Tuple<ICharacter, ICharacter> key)
+        {
+            Tuple<ICharacter, ICharacter> variant = new Tuple<ICharacter, ICharacter>(key.Item2, key.Item1);
+            return base.ContainsKey(key) || base.ContainsKey(variant);
         }
     }
 }
