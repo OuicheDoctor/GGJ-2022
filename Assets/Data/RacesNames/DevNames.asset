@@ -9,9 +9,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8d9d61b03b00c4d8b82fa3106002bfc0, type: 3}
-  m_Name: Goblin
+  m_Script: {fileID: 11500000, guid: d0bb3421c0e9b41188409488c9af9590, type: 3}
+  m_Name: DevNames
   m_EditorClassIdentifier: 
-  _name: Goblin
-  _drawing: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
-  _names: {fileID: 11400000, guid: 4493de483f9b747dbaf1dd0b14d94de9, type: 2}
+  _names:
+  - Corentin
+  - Yoann
+  - Lucas

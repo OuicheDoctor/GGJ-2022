@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2551857596955237733}
   - component: {fileID: 2551857596955237732}
+  - component: {fileID: 274343298403659799}
   m_Layer: 0
   m_Name: Managers
   m_TagString: Untagged
@@ -45,3 +46,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _unzoomedContainer: {fileID: 0}
   _zoomedContainer: {fileID: 0}
+  _hourDisplay: {fileID: 0}
+  _mainMenu: {fileID: 0}
+  _optionsMenu: {fileID: 0}
+  _achievementsMenu: {fileID: 0}
+  _creditsMenu: {fileID: 0}
+--- !u!114 &274343298403659799
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2551857596955237735}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0aa8426a997ee4688aa7c4b6a0bd6ba7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _gameplaySettings: {fileID: 11400000, guid: 308427a872a7a4deb97a24338a6f5aa5, type: 2}
