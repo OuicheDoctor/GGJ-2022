@@ -11,16 +11,16 @@ namespace GGJ.Characters
 
     public class CharactersGenerationManager : MonoBehaviour
     {
-        private System.Random random = new System.Random();
+        private readonly System.Random random = new System.Random();
 
         private void Start()
         {
-            var characters = GenerateCharacters(40);
-            foreach(Character character in characters)
+            var charactersWithForm = GenerateCharactersWithForm(40);
+            foreach(var characterWithForm in charactersWithForm)
             {
                 var hobbiesString = "";
-                foreach (var hobby in character.Hobbies) { hobbiesString += hobby.name; };
-                Debug.Log($"{character.Race.name} {hobbiesString}");
+                foreach (var hobby in characterWithForm.character.Hobbies) { hobbiesString += hobby.name; };
+                Debug.Log($"{characterWithForm.character.Race.name} {hobbiesString}");
             }
         }
 
@@ -28,18 +28,31 @@ namespace GGJ.Characters
 
         [SerializeField] private GameplaySettings gameplaySettings;
 
-        public List<Character> GenerateCharacters(int count) {
+        // Get a list of characters of a specified length with an associated GeneratedForm
+        public List<(Character character, GeneratedForm form)> GenerateCharactersWithForm(int count)
+        {
+            var characters = GetRandomCharacters(count);
+            var charactersWithForm = characters.Select(character => (
+                character,
+                FormManager.Instance.GenerateFormFor(character)
+            )).ToList();
+
+            return charactersWithForm;
+        }
+
+        // Get a list of random characters
+        private List<Character> GetRandomCharacters(int count) {
             var characters = new List<Character>();
             for(int i = 0; i < count; i++)
             {
-                var traits = GetRandomTraits();
+                var (traitEI, traitSN, traitTF, traitJP) = GetRandomTraits();
                 characters.Add(new Character() {
                     Race    = GetRandomRace(),
                     Hobbies = GetRandomHobbies(),
-                    TraitEI = traits.traitEI,
-                    TraitJP = traits.traitJP,
-                    TraitSN = traits.traitSN,
-                    TraitTF = traits.traitTF,
+                    TraitEI = traitEI,
+                    TraitJP = traitJP,
+                    TraitSN = traitSN,
+                    TraitTF = traitTF,
                 });
             }
 
