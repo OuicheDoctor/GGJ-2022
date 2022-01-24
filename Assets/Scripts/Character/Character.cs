@@ -20,12 +20,6 @@ namespace GGJ.Characters
         public bool TraitJP { get; set; }
         public IList<HobbyData> Hobbies { get; set; }
 
-        public Character(RaceData race, List<HobbyData> hobbies)
-        {
-            this.Race = race;
-            this.Hobbies = hobbies;
-        }
-
         public bool GetMBTITrait(MBTITrait axis)
         {
             switch (axis)

@@ -32,10 +32,15 @@ namespace GGJ.Characters
             var characters = new List<Character>();
             for(int i = 0; i < count; i++)
             {
-                characters.Add(new Character(
-                    GetRandomRace(),
-                    GetRandomHobbies()
-                ));
+                var traits = GetRandomTraits();
+                characters.Add(new Character() {
+                    Race    = GetRandomRace(),
+                    Hobbies = GetRandomHobbies(),
+                    TraitEI = traits.traitEI,
+                    TraitJP = traits.traitJP,
+                    TraitSN = traits.traitSN,
+                    TraitTF = traits.traitTF,
+                });
             }
 
             return characters;
@@ -79,6 +84,17 @@ namespace GGJ.Characters
 
             var randomRaceIndex = random.Next(0, races.Count);
             return races[randomRaceIndex];
+        }
+
+        // Get random traits values
+        private (bool traitEI, bool traitSN, bool traitTF, bool traitJP) GetRandomTraits()
+        {
+            return (
+                (random.Next() % 2) == 0,
+                (random.Next() % 2) == 0,
+                (random.Next() % 2) == 0,
+                (random.Next() % 2) == 0
+            );
         }
 
         private void Awake()
