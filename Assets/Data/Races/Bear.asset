@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: Bear
   m_EditorClassIdentifier: 
   _name: Bear
-  _drawing: {fileID: 0}
+  _drawing: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
