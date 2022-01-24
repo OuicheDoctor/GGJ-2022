@@ -30,10 +30,10 @@ namespace GGJ.Characters
             var characters = new List<Character>();
             for(int i = 0; i < count; i++)
             {
-                characters.Add(new Character {
-                    Race = GetRandomRace(),
-                    Hobbies = GetRandomHobbies()
-                });
+                characters.Add(new Character(
+                    GetRandomRace(),
+                    GetRandomHobbies()
+                ));
             }
 
             return characters;
