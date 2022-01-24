@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hobbyName: Sewing
   description: 
-  cetegory: {fileID: 11400000, guid: aaceedfcf09a78f4191fe4a31c9a1414, type: 2}
+  category: {fileID: 11400000, guid: d111c953a4ea54c4cabcdd6c8bd553a4, type: 2}
