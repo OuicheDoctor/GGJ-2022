@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace GGJ.Races
@@ -7,5 +8,6 @@ namespace GGJ.Races
     {
         public string Name { get; set; }
         public Sprite Drawing { get; set; }
+        public List<string> Names { get; set; }
     }
 }

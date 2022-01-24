@@ -4,6 +4,7 @@ using UnityEngine;
 
 namespace GGJ.Races
 {
+    [CreateAssetMenu(menuName = "GGJ/Race/Race Names Data", fileName = "NewRaceNames")]
     public class RaceNamesData: ScriptableObject
     {
         #region Exposed API
