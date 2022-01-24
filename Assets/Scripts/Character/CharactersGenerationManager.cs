@@ -13,17 +13,6 @@ namespace GGJ.Characters
     {
         private readonly System.Random random = new System.Random();
 
-        private void Start()
-        {
-            var characters = GetRandomCharacters(40);
-            foreach(var character in characters)
-            {
-                var hobbiesString = "";
-                foreach (var hobby in character.Hobbies) { hobbiesString += hobby.name; };
-                Debug.Log($"{character.Name} {character.Race.name} {hobbiesString}");
-            }
-        }
-
         public static CharactersGenerationManager Instance { get; private set; }
 
         [SerializeField] private GameplaySettings _gameplaySettings;
