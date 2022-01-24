@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hobbyName: Swimming
   description: 
-  cetegory: {fileID: 11400000, guid: d111c953a4ea54c4cabcdd6c8bd553a4, type: 2}
+  category: {fileID: 11400000, guid: 0563f3429c1af3d449c16381728a5246, type: 2}
