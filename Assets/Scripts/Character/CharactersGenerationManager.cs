@@ -15,18 +15,18 @@ namespace GGJ.Characters
 
         private void Start()
         {
-            var charactersWithForm = GenerateCharactersWithForm(40);
-            foreach(var characterWithForm in charactersWithForm)
+            var characters = GetRandomCharacters(40);
+            foreach(var character in characters)
             {
                 var hobbiesString = "";
-                foreach (var hobby in characterWithForm.character.Hobbies) { hobbiesString += hobby.name; };
-                Debug.Log($"{characterWithForm.character.Race.name} {hobbiesString}");
+                foreach (var hobby in character.Hobbies) { hobbiesString += hobby.name; };
+                Debug.Log($"{character.Name} {character.Race.name} {hobbiesString}");
             }
         }
 
         public static CharactersGenerationManager Instance { get; private set; }
 
-        [SerializeField] private GameplaySettings gameplaySettings;
+        [SerializeField] private GameplaySettings _gameplaySettings;
 
         // Get a list of characters of a specified length with an associated GeneratedForm
         public List<(Character character, GeneratedForm form)> GenerateCharactersWithForm(int count)
@@ -46,9 +46,15 @@ namespace GGJ.Characters
             for(int i = 0; i < count; i++)
             {
                 var (traitEI, traitSN, traitTF, traitJP) = GetRandomTraits();
+                var race = GetRandomRace();
+                var name = GetRandomNameFromRace(race);
+                var hobbies = GetRandomHobbies();
+
+
                 characters.Add(new Character() {
-                    Race    = GetRandomRace(),
-                    Hobbies = GetRandomHobbies(),
+                    Race    = race,
+                    Name    = name,
+                    Hobbies = hobbies,
                     TraitEI = traitEI,
                     TraitJP = traitJP,
                     TraitSN = traitSN,
@@ -68,7 +74,7 @@ namespace GGJ.Characters
             var maxHobbies = random.Next(2, 4);
 
             var remainingHobbies = new List<HobbyData>();
-            foreach (var hobby in gameplaySettings.Hobbies) { remainingHobbies.Add(hobby); }
+            foreach (var hobby in _gameplaySettings.Hobbies) { remainingHobbies.Add(hobby); }
 
             var randomHobbies = new List<HobbyData>();
             for (int i = 0; i < maxHobbies; i++)
@@ -93,10 +99,16 @@ namespace GGJ.Characters
         // Get one random race
         private RaceData GetRandomRace()
         {
-            var races = gameplaySettings.Races;
+            var races = _gameplaySettings.Races;
 
             var randomRaceIndex = random.Next(0, races.Count);
             return races[randomRaceIndex];
+        }
+
+        private string GetRandomNameFromRace(RaceData race)
+        {
+            var randomIndex = random.Next(0, race.Names.Count);
+            return race.Names[randomIndex];
         }
 
         // Get random traits values
