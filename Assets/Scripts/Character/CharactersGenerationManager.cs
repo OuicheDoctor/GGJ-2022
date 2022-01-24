@@ -15,7 +15,7 @@ namespace GGJ.Characters
 
         private void Start()
         {
-            var characters = GenerateCharacters(12);
+            var characters = GenerateCharacters(40);
             foreach(Character character in characters)
             {
                 var hobbiesString = "";
@@ -44,9 +44,10 @@ namespace GGJ.Characters
         // Get random hobbies respecting the following rules :
         // Max 3 hobbies per character
         // Max 1 hobby from the same category
+        // Hobby Nothing always alone
         private List<HobbyData> GetRandomHobbies()
         {
-            var maxHobbies = random.Next(1, 4);
+            var maxHobbies = random.Next(2, 4);
 
             var remainingHobbies = new List<HobbyData>();
             foreach (var hobby in gameplaySettings.Hobbies) { remainingHobbies.Add(hobby); }
@@ -63,6 +64,10 @@ namespace GGJ.Characters
             }
 
             randomHobbies = randomHobbies.Where(h => h != null).ToList();
+            if (randomHobbies.Any(hobby => hobby.name == "Nothing"))
+            {
+                randomHobbies = randomHobbies.Where(h => h.name == "Nothing").ToList();
+            }
 
             return randomHobbies;
         }
