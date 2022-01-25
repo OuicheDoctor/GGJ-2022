@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: DevNames
   m_EditorClassIdentifier: 
   _names:
-  - Corentin
-  - Yoann
   - Lucas
+  - Yoann
+  - Corentin
