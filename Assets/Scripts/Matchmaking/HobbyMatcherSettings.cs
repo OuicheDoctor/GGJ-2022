@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 namespace GGJ.Matchmaking
@@ -17,6 +15,9 @@ namespace GGJ.Matchmaking
         public int twoMatch = 0;
 
         [SerializeField]
-        public int threeMatch = 0;    
+        public int threeMatch = 0;
+
+        [SerializeField]
+        public int nothingMatch = 0;
     }
 }

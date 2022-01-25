@@ -1,10 +1,8 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
 using GGJ.Hobbies;
 using GGJ.Races;
+using System.Collections.Generic;
 using System.Linq;
-using System;
+using UnityEngine;
 
 namespace GGJ.Characters
 {
@@ -30,25 +28,30 @@ namespace GGJ.Characters
         }
 
         // Get a list of random characters
-        private List<Character> GetRandomCharacters(int count) {
+        private List<Character> GetRandomCharacters(int count)
+        {
             var characters = new List<Character>();
-            for(int i = 0; i < count; i++)
+            for (int i = 0; i < count; i++)
             {
                 var (traitEI, traitSN, traitTF, traitJP) = GetRandomTraits();
                 var race = GetRandomRace();
                 var name = GetRandomNameFromRace(race);
                 var hobbies = GetRandomHobbies();
 
-
-                characters.Add(new Character() {
-                    Race    = race,
-                    Name    = name,
-                    Hobbies = hobbies,
+                var character = new Character()
+                {
+                    Race = race,
+                    Name = name,
                     TraitEI = traitEI,
                     TraitJP = traitJP,
                     TraitSN = traitSN,
                     TraitTF = traitTF,
-                });
+                };
+                foreach (var hobby in hobbies)
+                {
+                    character.Hobbies.Add(hobby);
+                }
+                characters.Add(character);
             }
 
             return characters;
