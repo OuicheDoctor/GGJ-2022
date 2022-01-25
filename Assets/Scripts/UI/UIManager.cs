@@ -1,5 +1,6 @@
 using TMPro;
 using UnityEngine;
+using GGJ.Characters;
 
 public class UIManager : MonoBehaviour
 {
@@ -17,6 +18,9 @@ public class UIManager : MonoBehaviour
     [SerializeField] private GameObject _optionsMenu;
     [SerializeField] private GameObject _achievementsMenu;
     [SerializeField] private GameObject _creditsMenu;
+
+    [Header("Prefabs")]
+    [SerializeField] private GameObject _dragDropPrefab;
 
     public Transform UnzoomedContainer => _unzoomedContainer;
     public Transform ZoomedContainer => _zoomedContainer;
@@ -44,6 +48,13 @@ public class UIManager : MonoBehaviour
     public void DisplayHour(int currentHour)
     {
         _hourDisplay.text = $"{currentHour}H";
+    }
+
+    public void AddDragDropFormDoc(Character character, GeneratedForm form)
+    {
+        var dragDropDoc = Instantiate(_dragDropPrefab);
+        dragDropDoc.name = $"D&DDoc({character.Name})";
+        dragDropDoc.transform.parent = _unzoomedContainer;
     }
 
     private void Awake()

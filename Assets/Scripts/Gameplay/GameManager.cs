@@ -1,4 +1,6 @@
+using System.Collections.Generic;
 using UnityEngine;
+using GGJ.Characters;
 
 public class GameManager : MonoBehaviour
 {
@@ -16,6 +18,7 @@ public class GameManager : MonoBehaviour
 
     public int CurrentDay { get; set; }
     public int CurrentHour { get; set; }
+    public List<(Character character, GeneratedForm form)> CurrentCharactersAndForms { get; set; }
 
     public void StartGame()
     {
@@ -24,6 +27,10 @@ public class GameManager : MonoBehaviour
         _uiManager.DisplayHour(CurrentHour);
         _uiManager.SetMainMenuVisible(false);
         _secondsBuffer = 0;
+
+        CurrentCharactersAndForms = CharactersGenerationManager.Instance.GenerateCharactersWithForm(8);
+        GenerateFormsDocs();
+
         enabled = true;
     }
 
@@ -45,6 +52,14 @@ public class GameManager : MonoBehaviour
     public void OnButtonQuitClick()
     {
         Application.Quit();
+    }
+
+    private void GenerateFormsDocs()
+    {
+        foreach (var (character, form) in CurrentCharactersAndForms)
+        {
+            _uiManager.AddDragDropFormDoc(character, form);
+        }
     }
 
     private void Awake()
