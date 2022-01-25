@@ -12,9 +12,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7904bbfe7e621bc42b15cd1b0d99c7ed, type: 3}
   m_Name: FormsSettings
   m_EditorClassIdentifier: 
-  _questionCountPerAxis: 3
+  _questionCountPerAxis: 1
   _formQuestions:
   - _associatedTrait: 0
+    _question: 
+    _value0Response: 
+    _value1Response: 
+    _neutralResponse: 
+  - _associatedTrait: 1
+    _question: 
+    _value0Response: 
+    _value1Response: 
+    _neutralResponse: 
+  - _associatedTrait: 2
+    _question: 
+    _value0Response: 
+    _value1Response: 
+    _neutralResponse: 
+  - _associatedTrait: 3
     _question: 
     _value0Response: 
     _value1Response: 
