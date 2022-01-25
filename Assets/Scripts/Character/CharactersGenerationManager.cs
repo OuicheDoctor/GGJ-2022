@@ -32,13 +32,14 @@ namespace GGJ.Characters
         // Get a list of random characters
         private List<Character> GetRandomCharacters(int count) {
             var characters = new List<Character>();
+            var availableRaceNames = _gameplaySettings.Races.Select(race => (race.Name, race.Names)).ToList();
+
             for(int i = 0; i < count; i++)
             {
                 var (traitEI, traitSN, traitTF, traitJP) = GetRandomTraits();
                 var race = GetRandomRace();
-                var name = GetRandomNameFromRace(race);
+                var name = GetRandomNameFromRace(race, ref availableRaceNames);
                 var hobbies = GetRandomHobbies();
-
 
                 characters.Add(new Character() {
                     Race    = race,
@@ -94,10 +95,14 @@ namespace GGJ.Characters
             return races[randomRaceIndex];
         }
 
-        private string GetRandomNameFromRace(RaceData race)
+        // Get random name from available names of the provided race.
+        // Modify directly the remaining names
+        private string GetRandomNameFromRace(RaceData race, ref List<(string raceName, List<string> names)> availableRaceNames)
         {
-            var randomIndex = random.Next(0, race.Names.Count);
-            return race.Names[randomIndex];
+            var (raceName, names) = availableRaceNames.Find(el => el.raceName == race.Name);
+            var randomIndex = random.Next(0, names.Count);
+            var name = names.PickOneAndRemove();
+            return name;
         }
 
         // Get random traits values
