@@ -21,7 +21,7 @@ public class UIManager : MonoBehaviour
     [SerializeField] private GameObject _creditsMenu;
 
     [Header("Prefabs")]
-    [SerializeField] private GameObject _dragDropPrefab;
+    [SerializeField] private GameObject _formPrefab;
 
     public Transform UnzoomedContainer => _unzoomedContainer;
     public Transform ZoomedContainer => _zoomedContainer;
@@ -53,10 +53,11 @@ public class UIManager : MonoBehaviour
 
     public void AddDragDropFormDoc(Character character, GeneratedForm form)
     {
-        var dragDropDoc = Instantiate(_dragDropPrefab);
-        dragDropDoc.name = $"D&DDoc({character.Name})";
-        dragDropDoc.transform.parent = _unzoomedContainer;
-        dragDropDoc.transform.position = _formsSpawnLocation.position;
+        var formDoc = Instantiate(_formPrefab);
+        formDoc.name = $"D&DDoc({character.Name})";
+        formDoc.transform.parent = _unzoomedContainer;
+        formDoc.transform.position = _formsSpawnLocation.position;
+        formDoc.GetComponent<UIFormDoc>().FillForm(character, form);
     }
 
     private void Awake()
