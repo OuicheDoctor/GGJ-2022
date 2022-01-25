@@ -16,4 +16,4 @@ MonoBehaviour:
   oneMatch: 24
   twoMatch: 48
   threeMatch: 72
-  fourMatch: 0
+  fourMatch: 5

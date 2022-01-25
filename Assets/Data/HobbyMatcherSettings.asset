@@ -15,4 +15,5 @@ MonoBehaviour:
   zeroMatch: 0
   oneMatch: 14
   twoMatch: 28
-  threeMatch: 0
+  threeMatch: 5
+  nothingMatch: 28
