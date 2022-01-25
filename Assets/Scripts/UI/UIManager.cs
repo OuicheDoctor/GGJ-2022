@@ -9,6 +9,7 @@ public class UIManager : MonoBehaviour
     [Header("Drag and drop requirements")]
     [SerializeField] private Transform _unzoomedContainer;
     [SerializeField] private Transform _zoomedContainer;
+    [SerializeField] private RectTransform _formsSpawnLocation;
 
     [Header("Overlay elements")]
     [SerializeField] private TextMeshProUGUI _hourDisplay;
@@ -55,6 +56,7 @@ public class UIManager : MonoBehaviour
         var dragDropDoc = Instantiate(_dragDropPrefab);
         dragDropDoc.name = $"D&DDoc({character.Name})";
         dragDropDoc.transform.parent = _unzoomedContainer;
+        dragDropDoc.transform.position = _formsSpawnLocation.position;
     }
 
     private void Awake()
