@@ -55,8 +55,8 @@ public class UIManager : MonoBehaviour
     {
         var formDoc = Instantiate(_formPrefab);
         formDoc.name = $"D&DDoc({character.Name})";
-        formDoc.transform.parent = _unzoomedContainer;
-        formDoc.transform.position = _formsSpawnLocation.position;
+        formDoc.GetComponent<RectTransform>().SetParent(_unzoomedContainer);
+        formDoc.GetComponent<RectTransform>().position = _formsSpawnLocation.position;
         formDoc.GetComponent<UIFormDoc>().FillForm(character, form);
     }
 
