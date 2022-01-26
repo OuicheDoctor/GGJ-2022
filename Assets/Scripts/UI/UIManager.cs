@@ -1,3 +1,5 @@
+using GGJ.Matchmaking;
+using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using GGJ.Characters;
@@ -24,6 +26,12 @@ public class UIManager : MonoBehaviour
 
     [Header("Prefabs")]
     [SerializeField] private GameObject _formPrefab;
+    
+    [Header("Results")]
+    [SerializeField] private GameObject _resultPanel;
+    [SerializeField] private List<ResultRow> _playerRows;
+    [SerializeField] private List<ResultRow> _expectedRows;
+    [SerializeField] private TextMeshProUGUI _scoreText;
 
     public Transform UnzoomedContainer => _unzoomedContainer;
     public Transform ZoomedContainer => _zoomedContainer;
@@ -48,6 +56,26 @@ public class UIManager : MonoBehaviour
     public void SetCreditsMenuVisible(bool visible)
     {
         _creditsMenu.SetActive(visible);
+    }
+
+    public void DisplayResult(PartenerCollection player, PartenerCollection expected)
+    {
+        MatchmakingManager matchmakingMgr = MatchmakingManager.Instance;
+        int i = 0;
+        foreach (var p in player)
+        {
+            _playerRows[i].Setup(p.Character1, p.Character2, matchmakingMgr.Settings.GetMatchingClassification(p.Score));
+            i++;
+        }
+
+        i = 0;
+        foreach (var e in expected)
+        {
+            _expectedRows[i].Setup(e.Character1, e.Character2, matchmakingMgr.Settings.GetMatchingClassification(e.Score));
+            i++;
+        }
+
+        _scoreText.text = $"{player.AverageMatching}/{expected.AverageMatching}";
     }
 
     public void DisplayHour(int currentHour)
