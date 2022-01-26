@@ -18,8 +18,14 @@ public class UIFormDoc : MonoBehaviour
     [Header("Prefabs")]
     [SerializeField] private GameObject _questionItemPrefab;
 
+    public Character Character { get; set; }
+    public GeneratedForm Form { get; set; }
+
     public void FillForm(Character character, GeneratedForm form)
     {
+        Character = character;
+        Form = form;
+
         _characterImage.sprite = character.Race.Drawing;
         _characterNameText.text = character.Name;
         _characterRaceText.text = character.Race.Name;
