@@ -10,14 +10,19 @@ public class GameManager : MonoBehaviour
 
     [Header("Dependencies")]
     [SerializeField] private UIManager _uiManager;
+    [SerializeField] private PlayerActionsManager _playerActionsManager;
 
     [Header("Time params")]
     [SerializeField] private float _secondsPerHour = 60f;
     [SerializeField] private int _startingHour = 9;
     [SerializeField] private int _endingHour = 19;
 
-    private float _secondsBuffer = 0f;
+	private IList<ICharacter> _characters;
+    private PartenerCollection _expectedResult;
+    private PartenerCollection _playerResult;
 
+    private float _secondsBuffer = 0f;
+	
     public int CurrentDay { get; set; }
     public int CurrentHour { get; set; }
     public List<(Character character, GeneratedForm form)> CurrentCharactersAndForms { get; set; }
@@ -32,24 +37,23 @@ public class GameManager : MonoBehaviour
 
         CurrentCharactersAndForms = CharactersGenerationManager.Instance.GenerateCharactersWithForm(8);
         GenerateFormsDocs();
-
-        enabled = true;
         GenerateMonstersAndSolution();
+        enabled = true;
     }
 
     public void OnButtonNextDayClick()
     {
         enabled = false;
-        CurrentDay++;
         CurrentHour = _startingHour;
         _secondsBuffer = 0;
-        enabled = true;
+        Resolve();
     }
     public void GenerateMonstersAndSolution()
     {
         var generation = CharactersGenerationManager.Instance.GenerateCharactersWithForm(8);
-        IList<ICharacter> characters = generation.ConvertAll<ICharacter>(e => e.character);
-        PartenerCollection parteners = BruteForcePairMatching.Instance.Process(characters);
+        _characters = generation.ConvertAll<ICharacter>(e => e.character);
+        _expectedResult = BruteForcePairMatching.Instance.Process(_characters);
+        _playerResult = new PartenerCollection(_characters.Count);
         foreach (var partener in parteners)
         {
             Debug.Log(partener);
@@ -59,12 +63,25 @@ public class GameManager : MonoBehaviour
     public void OnButtonBackToMainMenuClick()
     {
         enabled = false;
+        _playerActionsManager.Clear();
         _uiManager.SetMainMenuVisible(true);
     }
 
     public void OnButtonQuitClick()
     {
         Application.Quit();
+    }
+    
+    private void Resolve()
+    {
+        //int score;
+        //foreach (var pairing in _playerActionsManager.StoredMatches)
+        //{
+        //    score = MatchmakingManager.Instance.Match(pairing[0], pairing[1]);
+        //    _playerResult.Add(pairing[0], pairing[1], score);
+        //}
+
+        _uiManager.DisplayResult(_expectedResult, _expectedResult);
     }
 
     private void GenerateFormsDocs()
