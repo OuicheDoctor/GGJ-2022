@@ -15,22 +15,29 @@ MonoBehaviour:
   _questionCountPerAxis: 1
   _formQuestions:
   - _associatedTrait: 0
-    _question: 
-    _value0Response: 
-    _value1Response: 
-    _neutralResponse: 
+    _question: You regularly make new friends.
+    _value0Response: Oh no gods no.
+    _value1Response: Heck yeah I do! I'm a social butterfly superstar baby!
+    _neutralResponse: Yeah sure, why not?
   - _associatedTrait: 1
-    _question: 
-    _value0Response: 
-    _value1Response: 
-    _neutralResponse: 
+    _question: You spend a lot of your free time exploring various random topics
+      that pique your interest.
+    _value0Response: I prefer to enjoy what I have rather than wishing for what I
+      have not.
+    _value1Response: Of course! Sadly, my main concern is that a day is only 24 hours,
+      and it's not enough!
+    _neutralResponse: I do, but I also love to take the time to enjoy what I already
+      have in my life.
   - _associatedTrait: 2
-    _question: 
-    _value0Response: 
-    _value1Response: 
-    _neutralResponse: 
+    _question: Seeing other people cry can easily make you feel like you want to
+      cry too.
+    _value0Response: Seeing other people cry can easily make me feel like I want
+      to puke.
+    _value1Response: '*Sob* How do you know me so well? Are you following me? *sob*'
+    _neutralResponse: It depends on whether I know them or not, I guess.
   - _associatedTrait: 3
-    _question: 
-    _value0Response: 
-    _value1Response: 
-    _neutralResponse: 
+    _question: You often make a backup plan for a backup plan.
+    _value0Response: And sometimes backup plan for the backup plan of a backup plan,
+      yes.
+    _value1Response: What is a plan? Meh, I'll do it tomorrow.
+    _neutralResponse: I can plan when it's necessary!
