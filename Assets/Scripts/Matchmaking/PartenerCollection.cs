@@ -3,10 +3,10 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using UnityEngine;
 
 namespace GGJ.Matchmaking
 {
-
     public struct Partener
     {
         public Partener(ICharacter character1, ICharacter character2, int score)
@@ -35,6 +35,7 @@ namespace GGJ.Matchmaking
             _parteners = new Dictionary<Tuple<ICharacter, ICharacter>, int>();
             _limit = limit;
         }
+
         public bool IsPartener(ICharacter character)
         {
             return _parteners.Keys.ToList().Where(e => e.Item1 == character || e.Item2 == character).Any();
@@ -92,6 +93,8 @@ namespace GGJ.Matchmaking
             Tuple<ICharacter, ICharacter> key = new Tuple<ICharacter, ICharacter>(character1, character2);
             _parteners.Add(key, score);
         }
+
+        public int AverageMatching => Mathf.FloorToInt((float)_parteners.Values.Average());
 
         IEnumerator IEnumerable.GetEnumerator()
         {

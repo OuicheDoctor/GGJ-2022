@@ -10,7 +10,7 @@ public class MatchmakingManager : MonoBehaviour
     private HobbyMatcher _hobbyMatcher;
     private TraitMatcher _traitMatcher;
 
-
+    public MatchmakingSettings Settings => _settings;
 
     public int Match(ICharacter characterA, ICharacter characterB)
     {
@@ -21,7 +21,6 @@ public class MatchmakingManager : MonoBehaviour
 
         return score;
     }
-
 
     private void Awake()
     {
