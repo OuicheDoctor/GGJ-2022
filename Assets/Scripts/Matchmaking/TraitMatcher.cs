@@ -1,25 +1,16 @@
-using System.Collections;
-using System.Collections.Concurrent;
+using GGJ.Characters;
 using System.Collections.Generic;
 using System.Linq;
-using System.Net.Sockets;
-using GGJ.Characters;
-using GGJ.Hobbies;
-using UnityEngine;
 
 namespace GGJ.Matchmaking
 {
     public class TraitMatcher
     {
-        private Dictionary<int, int> points = new Dictionary<int, int>();
+        private Dictionary<int, int> _percents;
 
-        public TraitMatcher(TraitMatcherSettings settings)
+        public TraitMatcher(List<Counter> scoreDefinitions)
         {
-            points.Add(0, settings.zeroMatch);
-            points.Add(1, settings.oneMatch);
-            points.Add(2, settings.twoMatch);
-            points.Add(3, settings.threeMatch);
-            points.Add(4, settings.fourMatch);
+            _percents = scoreDefinitions.ToDictionary(d => d.Count, d => d.Percent);
         }
 
         public int Matcher(ICharacter characterA, ICharacter characterB)
@@ -42,7 +33,7 @@ namespace GGJ.Matchmaking
             {
                 count += 1;
             }
-            return points[count];
+            return _percents[count];
         }
     }
 }
