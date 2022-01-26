@@ -13,6 +13,10 @@ public class UIFormDoc : MonoBehaviour
     [SerializeField] private TextMeshProUGUI _characterNameText;
     [SerializeField] private TextMeshProUGUI _characterRaceText;
     [SerializeField] private TextMeshProUGUI _characterHobbiesText;
+    [SerializeField] private RectTransform _questionsContainer;
+
+    [Header("Prefabs")]
+    [SerializeField] private GameObject _questionItemPrefab;
 
     public void FillForm(Character character, GeneratedForm form)
     {
@@ -22,7 +26,11 @@ public class UIFormDoc : MonoBehaviour
 
         var hobbiesName = (character.Hobbies as List<HobbyData>).ConvertAll(h => h.hobbyName);
         _characterHobbiesText.text = string.Join(", ", hobbiesName);
-        
-        
+
+        foreach (FormResponse formResponse in form.Responses) {
+            var questionItem = Instantiate(_questionItemPrefab);
+            questionItem.GetComponent<RectTransform>().SetParent(_questionsContainer, false);
+            questionItem.GetComponent<UIFormQuestion>().FillFields(formResponse);
+        }
     }
 }
