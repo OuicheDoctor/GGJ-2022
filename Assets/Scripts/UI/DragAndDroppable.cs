@@ -1,16 +1,18 @@
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.UI;
 
 public class DragAndDroppable : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDragHandler
 {
-    private bool _dragging = false;
+    [SerializeField] private Graphic _targetGraphic;
+
     private Vector3 _mouseDeltaOnGrab;
 
     public void OnBeginDrag(PointerEventData eventData)
     {
+        _targetGraphic.raycastTarget = false;
         _mouseDeltaOnGrab = transform.position - Input.mousePosition;
         transform.SetAsLastSibling();
-        _dragging = true;
     }
 
     public void OnDrag(PointerEventData eventData)
@@ -20,6 +22,6 @@ public class DragAndDroppable : MonoBehaviour, IDragHandler, IBeginDragHandler, 
 
     public void OnEndDrag(PointerEventData eventData)
     {
-        _dragging = false;
+        _targetGraphic.raycastTarget = true;
     }
 }

@@ -1,6 +1,8 @@
+using GGJ.Characters;
+using GGJ.Matchmaking;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using GGJ.Characters;
 
 public class GameManager : MonoBehaviour
 {
@@ -32,6 +34,7 @@ public class GameManager : MonoBehaviour
         GenerateFormsDocs();
 
         enabled = true;
+        GenerateMonstersAndSolution();
     }
 
     public void OnButtonNextDayClick()
@@ -41,6 +44,16 @@ public class GameManager : MonoBehaviour
         CurrentHour = _startingHour;
         _secondsBuffer = 0;
         enabled = true;
+    }
+    public void GenerateMonstersAndSolution()
+    {
+        var generation = CharactersGenerationManager.Instance.GenerateCharactersWithForm(8);
+        IList<ICharacter> characters = generation.ConvertAll<ICharacter>(e => e.character);
+        PartenerCollection parteners = BruteForcePairMatching.Instance.Process(characters);
+        foreach (var partener in parteners)
+        {
+            Debug.Log(partener);
+        }
     }
 
     public void OnButtonBackToMainMenuClick()

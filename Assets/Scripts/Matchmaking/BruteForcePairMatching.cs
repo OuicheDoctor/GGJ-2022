@@ -9,7 +9,7 @@ namespace GGJ.Matchmaking
 {
     public class BruteForcePairMatching : Singleton<BruteForcePairMatching>
     {
-        private System.Random rng = new System.Random();
+        private System.Random _random = new System.Random();
 
         public PartenerCollection Process(IList<ICharacter> characters)
         {
@@ -31,15 +31,13 @@ namespace GGJ.Matchmaking
                     }
 
                     var scores = GetScores(characterA, characters);
-
                     foreach (KeyValuePair<ICharacter, int> item in scores)
                     {
-                        Tuple<ICharacter, ICharacter> key = new Tuple<ICharacter, ICharacter>(characterA, item.Key);
                         if (parteners.IsLocked(characterA))
                         {
                             break;
                         }
-                        if (parteners.ContainsKey(key) || parteners.IsLocked(item.Key))
+                        if (parteners.ContainsKey(characterA, item.Key) || parteners.IsLocked(item.Key))
                         {
                             continue;
                         }
@@ -47,16 +45,16 @@ namespace GGJ.Matchmaking
                         if (parteners.IsPartener(characterA) && parteners.GetActualScore(characterA) < item.Value)
                         {
                             parteners.RemoveByCharacter(characterA);
-                            parteners.Add(key, item.Value);
+                            parteners.Add(characterA, item.Key, item.Value);
                         }
                         else if (parteners.IsPartener(item.Key) && parteners.GetActualScore(item.Key) < item.Value)
                         {
                             parteners.RemoveByCharacter(item.Key);
-                            parteners.Add(key, item.Value);
+                            parteners.Add(characterA, item.Key, item.Value);
                         }
                         else if (!parteners.IsPartener(characterA) && !parteners.IsPartener(item.Key))
                         {
-                            parteners.Add(key, item.Value);
+                            parteners.Add(characterA, item.Key, item.Value);
                         }
                     }
                 }
@@ -82,7 +80,7 @@ namespace GGJ.Matchmaking
             while (n > 1)
             {
                 n--;
-                int k = rng.Next(n + 1);
+                int k = _random.Next(n + 1);
                 ICharacter value = characters[k];
                 characters[k] = characters[n];
                 characters[n] = value;

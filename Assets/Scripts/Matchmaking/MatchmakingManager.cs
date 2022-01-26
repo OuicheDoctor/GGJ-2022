@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using GGJ.Characters;
 using GGJ.Matchmaking;
 using UnityEngine;
@@ -8,10 +6,10 @@ public class MatchmakingManager : MonoBehaviour
 {
     public static MatchmakingManager Instance { get; private set; }
 
-    [SerializeField] private HobbyMatcherSettings _hobbyMatcherSettings;
-    [SerializeField] private TraitMatcherSettings _traitMatcherSettings;
+    [SerializeField] private MatchmakingSettings _settings;
     private HobbyMatcher _hobbyMatcher;
     private TraitMatcher _traitMatcher;
+
 
 
     public int Match(ICharacter characterA, ICharacter characterB)
@@ -33,7 +31,7 @@ public class MatchmakingManager : MonoBehaviour
             return;
         }
         Instance = this;
-        _hobbyMatcher = new HobbyMatcher(_hobbyMatcherSettings);
-        _traitMatcher = new TraitMatcher(_traitMatcherSettings);
+        _hobbyMatcher = new HobbyMatcher(_settings.HobbyScoring, _settings.NothingHobbyScoring);
+        _traitMatcher = new TraitMatcher(_settings.TraitScoring);
     }
 }
