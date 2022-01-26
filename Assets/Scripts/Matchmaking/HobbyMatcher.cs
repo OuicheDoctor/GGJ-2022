@@ -6,17 +6,13 @@ namespace GGJ.Matchmaking
 {
     public class HobbyMatcher
     {
-        private Dictionary<int, int> points = new Dictionary<int, int>();
-        private int _nothingMatch;
+        private Dictionary<int, int> _percents;
+        private int _nothingPercents;
 
-        public HobbyMatcher(HobbyMatcherSettings settings)
+        public HobbyMatcher(List<Counter> scoreDefinitions, int nothingPercents)
         {
-            points.Add(0, settings.zeroMatch);
-            points.Add(1, settings.oneMatch);
-            points.Add(2, settings.twoMatch);
-            points.Add(3, settings.threeMatch);
-            _nothingMatch = settings.nothingMatch;
-
+            _percents = scoreDefinitions.ToDictionary(d => d.Count, d => d.Percent);
+            _nothingPercents = nothingPercents;
         }
 
         public int Matcher(IList<HobbyData> habbiesA, IList<HobbyData> hobbiesB)
@@ -25,15 +21,15 @@ namespace GGJ.Matchmaking
             if (habbiesA.Count == 1 && habbiesA[0].name == "Nothing")
             {
                 count = habbiesA.Select(h => h.category).Intersect(hobbiesB.Select(h => h.category)).Count();
-                return count == 1 ? _nothingMatch : 0;
+                return count == 1 ? _nothingPercents : 0;
             }
             if (hobbiesB.Count == 1 && habbiesA[0].name == "Nothing")
             {
                 count = habbiesA.Select(h => h.category).Intersect(hobbiesB.Select(h => h.category)).Count();
-                return count == 1 ? _nothingMatch : 0;
+                return count == 1 ? _nothingPercents : 0;
             }
             count = habbiesA.Select(h => h.category).Intersect(hobbiesB.Select(h => h.category)).Count();
-            return points[count];
+            return _percents[count];
         }
     }
 }

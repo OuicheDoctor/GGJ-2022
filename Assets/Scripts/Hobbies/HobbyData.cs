@@ -7,7 +7,7 @@ namespace GGJ.Hobbies
     {
         [SerializeField]
         public string hobbyName = "";
-        
+
         [SerializeField]
         public string description = "";
 
