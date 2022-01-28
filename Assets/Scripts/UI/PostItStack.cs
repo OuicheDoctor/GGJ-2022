@@ -1,40 +1,44 @@
 using DG.Tweening;
 using UnityEngine;
 
-public class PostItHolder : MonoBehaviour
+public class PostItStack : MonoBehaviour
 {
-    [SerializeField] private DragAndDroppable _postItPrefab;
+    [SerializeField] private PostIt _postItPrefab;
     [SerializeField] private Transform _dragContainer;
     [SerializeField] private float _returnDuration = .2f;
     [SerializeField] private Ease _returnEasing = Ease.InOutQuad;
+    [SerializeField] private Color _postItColor;
+    [SerializeField] private GameObject _placeHolder;
 
-    public DragAndDroppable ActivePostIt { get; private set; }
+    public PostIt ActivePostIt { get; private set; }
 
     private void Start()
     {
+        Destroy(_placeHolder);
         SpawnPostIt();
     }
 
     private void SpawnPostIt()
     {
         var postIt = Instantiate(_postItPrefab, transform);
-        postIt.OnPointerDownCallback += () =>
+        postIt.Background.color = _postItColor;
+        postIt.DndComp.OnPointerDownCallback += () =>
         {
             postIt.transform.SetParent(_dragContainer);
         };
 
-        postIt.OnPointerUpCallback += wasDragged =>
+        postIt.DndComp.OnPointerUpCallback += wasDragged =>
         {
             if (!wasDragged)
                 postIt.transform.SetParent(transform);
         };
 
-        postIt.OnBeginDragCallback += () =>
+        postIt.DndComp.OnBeginDragCallback += () =>
         {
             SpawnPostIt();
         };
 
-        postIt.OnEndDragCallback += validDrop =>
+        postIt.DndComp.OnEndDragCallback += validDrop =>
         {
             if (!validDrop)
             {

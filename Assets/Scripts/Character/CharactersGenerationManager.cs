@@ -6,7 +6,6 @@ using UnityEngine;
 
 namespace GGJ.Characters
 {
-
     public class CharactersGenerationManager : MonoBehaviour
     {
         private readonly System.Random random = new System.Random();
@@ -32,12 +31,15 @@ namespace GGJ.Characters
         {
             var characters = new List<Character>();
             var availableRaceNames = _gameplaySettings.Races.Select(race => (race.Name, race.Names)).ToList();
+            List<string> usedNames = new List<string>();
 
             for (int i = 0; i < count; i++)
             {
                 var (traitEI, traitSN, traitTF, traitJP) = GetRandomTraits();
                 var race = GetRandomRace();
-                var name = GetRandomNameFromRace(race, ref availableRaceNames);
+                var name = GetRandomNameFromRace(race, ref availableRaceNames, usedNames);
+                usedNames.Add(name);
+
                 var hobbies = GetRandomHobbies();
 
                 var character = new Character()
@@ -101,11 +103,11 @@ namespace GGJ.Characters
 
         // Get random name from available names of the provided race.
         // Modify directly the remaining names
-        private string GetRandomNameFromRace(RaceData race, ref List<(string raceName, List<string> names)> availableRaceNames)
+        private string GetRandomNameFromRace(RaceData race, ref List<(string raceName, List<string> names)> availableRaceNames, List<string> usedNames)
         {
             var (raceName, names) = availableRaceNames.Find(el => el.raceName == race.Name);
             var randomIndex = random.Next(0, names.Count);
-            var name = names.PickOneAndRemove();
+            var name = names.Where(n => !usedNames.Contains(n)).PickOne();
             return name;
         }
 
@@ -131,6 +133,4 @@ namespace GGJ.Characters
             Instance = this;
         }
     }
-
 }
-

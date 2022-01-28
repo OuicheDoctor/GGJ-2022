@@ -13,63 +13,11 @@ MonoBehaviour:
   m_Name: DevNames
   m_EditorClassIdentifier: 
   _names:
-  - Plan Thearveth
-  - Star Chennoss
-  - Min Chrill
-  - Shetcar Cror
-  - Matwech Sprosh
-  - Sapt Reggen
-  - Prell Nannogg
-  - Yull Shabmeeck
-  - Lorcheddlain Gelch
-  - Soppeck Novuld
-  - Cheerrabbess Chabbeck
-  - Sobrank Scrickealk
-  - Honniclir Rommaight
-  - Chepped Cheld
-  - Nettusp Zarld
-  - Ciffesp Sogg
-  - Gostrosh Slotsod
-  - Nuve Shauck
-  - Durtight Gich
-  - Bolceaff Dell
-  - Loacheth Sechesp
-  - Thrun Nock
-  - Nurtesh Shan
-  - Farp Eght
-  - Thrussar Tess
-  - Gonsink Ler
-  - Spretto Thelsh
-  - Mursh Netterld
-  - Glir Gat
-  - Porld Bangreng
-  - Tagrall Reshress
-  - Neld Tock
-  - Shochen Nash
-  - Choshuss Gimplerp
-  - Splathen Scarth
-  - Doclock Holth
-  - Splorp Meer
-  - Anvell Tot
-  - Shont Noorld
-  - Twar Thosk
-  - Venven Gidd
-  - Mettlaffork Pochad
-  - Shrebbim Thottash
-  - Bothell Hopt
-  - Shreshe Charg
-  - Rastnall Thralvodd
-  - Perrotfon Recren
-  - Hopt Worpo
-  - Tounk Zom
-  - Terren Gierch
-  - Chorsh Askolsh
-  - Blestneng Shaurth
-  - Choush Thobbest
-  - Mosseck Shreck
-  - Chockor Nuddor
-  - Moggapp Son
-  - Honglech Ammoss
-  - Gaun Chen
-  - Long Scrabblass
-  - Holl Sammarp
+  - Test1
+  - Test2
+  - Test3
+  - Test4
+  - Test5
+  - Test6
+  - Test7
+  - Test8

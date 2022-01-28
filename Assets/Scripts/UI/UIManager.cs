@@ -1,6 +1,8 @@
 using TMPro;
 using UnityEngine;
 using GGJ.Characters;
+using System.Collections.Generic;
+using System.Linq;
 
 public class UIManager : MonoBehaviour
 {
@@ -9,7 +11,7 @@ public class UIManager : MonoBehaviour
     [Header("Drag and drop requirements")]
     [SerializeField] private Transform _unzoomedContainer;
     [SerializeField] private Transform _zoomedContainer;
-    [SerializeField] private RectTransform _formsSpawnLocation;
+    [SerializeField] private Transform[] _formsSpawnLocations;
 
     [Header("Overlay elements")]
     [SerializeField] private TextMeshProUGUI _hourDisplay;
@@ -25,6 +27,8 @@ public class UIManager : MonoBehaviour
 
     public Transform UnzoomedContainer => _unzoomedContainer;
     public Transform ZoomedContainer => _zoomedContainer;
+
+    private List<Transform> _availableFormSpawns;
 
     public void SetMainMenuVisible(bool visible)
     {
@@ -55,8 +59,9 @@ public class UIManager : MonoBehaviour
     {
         var formDoc = Instantiate(_formPrefab);
         formDoc.name = $"D&DDoc({character.Name})";
-        formDoc.GetComponent<RectTransform>().SetParent(_unzoomedContainer, false);
-        formDoc.GetComponent<RectTransform>().position = _formsSpawnLocation.position;
+        formDoc.transform.position = _availableFormSpawns.First().position;
+        _availableFormSpawns.RemoveAt(0);
+        formDoc.transform.SetParent(_unzoomedContainer);
         formDoc.GetComponent<UIFormDoc>().FillForm(character, form);
     }
 
@@ -70,5 +75,6 @@ public class UIManager : MonoBehaviour
 
         Instance = this;
         _mainMenu.SetActive(true);
+        _availableFormSpawns = new List<Transform>(_formsSpawnLocations);
     }
 }
