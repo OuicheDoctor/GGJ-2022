@@ -77,12 +77,12 @@ public class UIManager : MonoBehaviour
             i++;
         }
 
-        playerScore += matchmakingMgr.Settings.SingleClassification.Scoring * player.Singles.Count / 2;
-        for (var p = 0; p < player.Singles.Count - 1; p++)
+        if (player.Singles.Any())
         {
-            _playerRows[i].Setup(player.Singles[p], player.Singles[p + 1], matchmakingMgr.Settings.SingleClassification);
-            if (p % 2 > 0)
+            playerScore += matchmakingMgr.Settings.SingleClassification.Scoring * player.Singles.Count / 2;
+            for (var p = 0; p < player.Singles.Count - 1; p += 2)
             {
+                _playerRows[i].Setup(player.Singles[p], player.Singles[p + 1], matchmakingMgr.Settings.SingleClassification);
                 i++;
             }
         }
@@ -96,12 +96,14 @@ public class UIManager : MonoBehaviour
             i++;
         }
 
-        bestScore += matchmakingMgr.Settings.SingleClassification.Scoring * expected.Singles.Count / 2;
-        for (var p = 0; p < expected.Singles.Count - 1; p++)
+        if (expected.Singles.Any())
         {
-            _expectedRows[i].Setup(expected.Singles[p], expected.Singles[p + 1], matchmakingMgr.Settings.SingleClassification);
-            if (p % 2 > 0)
+            bestScore += matchmakingMgr.Settings.SingleClassification.Scoring * expected.Singles.Count / 2;
+            for (var p = 0; p < expected.Singles.Count - 1; p += 2)
+            {
+                _expectedRows[i].Setup(expected.Singles[p], expected.Singles[p + 1], matchmakingMgr.Settings.SingleClassification);
                 i++;
+            }
         }
 
         _scoreText.text = $"{playerScore}/{bestScore}";

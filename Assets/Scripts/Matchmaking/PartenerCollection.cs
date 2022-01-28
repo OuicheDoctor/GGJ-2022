@@ -102,6 +102,21 @@ namespace GGJ.Matchmaking
             Singles.Add(character);
         }
 
+        public void Purify()
+        {
+            var tempPairs = _parteners.ToDictionary(p => p.Key, p => p.Value);
+
+            foreach (var pair in tempPairs)
+            {
+                if (pair.Value <= 0)
+                {
+                    _parteners.Remove(pair.Key);
+                    AddSingle(pair.Key.Item1);
+                    AddSingle(pair.Key.Item2);
+                }
+            }
+        }
+
         IEnumerator IEnumerable.GetEnumerator()
         {
             return GetEnumerator();

@@ -96,7 +96,7 @@ public class GameManager : MonoBehaviour
             }
         }
 
-        _uiManager.DisplayResult(_expectedResult, _playerResult);
+        _uiManager.DisplayResult(_playerResult, _expectedResult);
     }
 
     private void GenerateFormsDocs()

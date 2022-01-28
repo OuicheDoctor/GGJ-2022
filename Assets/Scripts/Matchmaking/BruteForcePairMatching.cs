@@ -62,6 +62,9 @@ namespace GGJ.Matchmaking
                 }
                 everybodyIsPaired = characters.All(e => parteners.IsPartener(e) || parteners.Singles.Contains(e));
             }
+
+            parteners.Purify();
+
             return parteners;
         }
 
