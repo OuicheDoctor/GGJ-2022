@@ -31,6 +31,13 @@ public class Zoomable : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, I
         }
     }
 
+    public void ResetZoom()
+    {
+        transform.SetParent(_uiManager.UnzoomedContainer);
+        transform.DOScale(_unzoomedScale, _zoomingDuration);
+        _zoomed = false;
+    }
+
     public void ToggleZoom()
     {
         transform.SetParent(_zoomed ? _uiManager.UnzoomedContainer : _uiManager.ZoomedContainer);
