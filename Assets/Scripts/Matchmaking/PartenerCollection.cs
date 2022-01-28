@@ -44,6 +44,26 @@ namespace GGJ.Matchmaking
             return _parteners.Keys.ToList().Where(e => e.Item1 == character || e.Item2 == character).Any();
         }
 
+        public bool IntegrityCheck()
+        {
+            List<ICharacter> chars = new List<ICharacter>();
+            foreach (var pair in _parteners)
+            {
+                if (chars.Contains(pair.Key.Item1) || chars.Contains(pair.Key.Item2))
+                    return false;
+
+                chars.Add(pair.Key.Item1);
+                chars.Add(pair.Key.Item2);
+            }
+
+            return !Singles.Any(s => chars.Contains(s));
+        }
+
+        public int GetEstimation()
+        {
+            return _parteners.Sum(p => p.Value);
+        }
+
         public bool RemoveByCharacter(ICharacter character)
         {
             if (IsLocked(character))
