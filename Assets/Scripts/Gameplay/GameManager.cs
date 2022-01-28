@@ -2,6 +2,7 @@ using GGJ.Characters;
 using GGJ.Matchmaking;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
@@ -17,18 +18,19 @@ public class GameManager : MonoBehaviour
     [SerializeField] private int _startingHour = 9;
     [SerializeField] private int _endingHour = 19;
 
-	private IList<ICharacter> _characters;
+    private IList<ICharacter> _characters;
     private PartenerCollection _expectedResult;
     private PartenerCollection _playerResult;
 
     private float _secondsBuffer = 0f;
-	
+
     public int CurrentDay { get; set; }
     public int CurrentHour { get; set; }
     public List<(Character character, GeneratedForm form)> CurrentCharactersAndForms { get; set; }
 
     public void StartGame()
     {
+        _uiManager.Reset();
         CurrentDay = 1;
         CurrentHour = _startingHour;
         _uiManager.DisplayHour(CurrentHour);
@@ -36,8 +38,8 @@ public class GameManager : MonoBehaviour
         _secondsBuffer = 0;
 
         CurrentCharactersAndForms = CharactersGenerationManager.Instance.GenerateCharactersWithForm(8);
+        GenerateSolution();
         GenerateFormsDocs();
-        GenerateMonstersAndSolution();
         enabled = true;
     }
 
@@ -48,13 +50,13 @@ public class GameManager : MonoBehaviour
         _secondsBuffer = 0;
         Resolve();
     }
-    public void GenerateMonstersAndSolution()
+
+    public void GenerateSolution()
     {
-        var generation = CharactersGenerationManager.Instance.GenerateCharactersWithForm(8);
-        _characters = generation.ConvertAll<ICharacter>(e => e.character);
+        _characters = CurrentCharactersAndForms.ConvertAll<ICharacter>(e => e.character);
         _expectedResult = BruteForcePairMatching.Instance.Process(_characters);
         _playerResult = new PartenerCollection(_characters.Count);
-        foreach (var partener in parteners)
+        foreach (var partener in _expectedResult)
         {
             Debug.Log(partener);
         }
@@ -71,17 +73,30 @@ public class GameManager : MonoBehaviour
     {
         Application.Quit();
     }
-    
+
     private void Resolve()
     {
-        //int score;
-        //foreach (var pairing in _playerActionsManager.StoredMatches)
-        //{
-        //    score = MatchmakingManager.Instance.Match(pairing[0], pairing[1]);
-        //    _playerResult.Add(pairing[0], pairing[1], score);
-        //}
+        int score;
 
-        _uiManager.DisplayResult(_expectedResult, _expectedResult);
+        // Treat unmatched as singles
+        foreach (var unmatched in _characters.Where(c => !_playerActionsManager.StoredMatches.SelectMany(m => m).Contains(c)))
+            _playerResult.AddSingle(unmatched);
+
+        foreach (var pairing in _playerActionsManager.StoredMatches)
+        {
+            if (pairing.Count > 1)
+            {
+                score = MatchmakingManager.Instance.Match(pairing[0], pairing[1]);
+                _playerResult.Add(pairing[0], pairing[1], score);
+            }
+            else
+            {
+                foreach (var single in pairing) // might be empty
+                    _playerResult.AddSingle(single);
+            }
+        }
+
+        _uiManager.DisplayResult(_expectedResult, _playerResult);
     }
 
     private void GenerateFormsDocs()

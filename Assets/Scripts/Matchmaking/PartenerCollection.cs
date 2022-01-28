@@ -30,10 +30,13 @@ namespace GGJ.Matchmaking
         private Dictionary<ICharacter, int> _counters = new Dictionary<ICharacter, int>();
         private int _limit = 0;
 
+        public List<ICharacter> Singles { get; private set; }
+
         public PartenerCollection(int limit)
         {
             _parteners = new Dictionary<Tuple<ICharacter, ICharacter>, int>();
             _limit = limit;
+            Singles = new List<ICharacter>();
         }
 
         public bool IsPartener(ICharacter character)
@@ -94,7 +97,15 @@ namespace GGJ.Matchmaking
             _parteners.Add(key, score);
         }
 
-        public int AverageMatching => Mathf.FloorToInt((float)_parteners.Values.Average());
+        public void AddSingle(ICharacter character)
+        {
+            Singles.Add(character);
+        }
+
+        public int GetTotalScore()
+        {
+            return 10;
+        }
 
         IEnumerator IEnumerable.GetEnumerator()
         {

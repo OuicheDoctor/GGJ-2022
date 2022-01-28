@@ -36,12 +36,14 @@ namespace GGJ.Matchmaking
         [SerializeField] private List<Counter> _hobbyScoring;
         [SerializeField] private int _nothingHobbyScoring;
         [SerializeField] private List<Range> _classification;
+        [SerializeField] private Range _singleClassification;
 
         public List<Counter> TraitScoring => _traitScoring;
         public List<Counter> HobbyScoring => _hobbyScoring;
         public int NothingHobbyScoring => _nothingHobbyScoring;
 
         public List<Range> Classification => _classification;
+        public Range SingleClassification => _singleClassification;
 
         public Range GetMatchingClassification(int value)
         {

@@ -4,7 +4,6 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 
-
 namespace GGJ.Matchmaking
 {
     public class BruteForcePairMatching : Singleton<BruteForcePairMatching>
@@ -57,8 +56,11 @@ namespace GGJ.Matchmaking
                             parteners.Add(characterA, item.Key, item.Value);
                         }
                     }
+
+                    if (!parteners.IsPartener(characterA))
+                        parteners.AddSingle(characterA); // Handle singles
                 }
-                everybodyIsPaired = characters.All(e => parteners.IsPartener(e));
+                everybodyIsPaired = characters.All(e => parteners.IsPartener(e) || parteners.Singles.Contains(e));
             }
             return parteners;
         }
@@ -86,6 +88,5 @@ namespace GGJ.Matchmaking
                 characters[n] = value;
             }
         }
-
     }
 }

@@ -3,7 +3,9 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using GGJ.Characters;
+
 using System.Collections.Generic;
+
 using System.Linq;
 
 public class UIManager : MonoBehaviour
@@ -26,7 +28,7 @@ public class UIManager : MonoBehaviour
 
     [Header("Prefabs")]
     [SerializeField] private GameObject _formPrefab;
-    
+
     [Header("Results")]
     [SerializeField] private GameObject _resultPanel;
     [SerializeField] private List<ResultRow> _playerRows;
@@ -37,6 +39,7 @@ public class UIManager : MonoBehaviour
     public Transform ZoomedContainer => _zoomedContainer;
 
     private List<Transform> _availableFormSpawns;
+    private List<GameObject> _formDocs = new List<GameObject>();
 
     public void SetMainMenuVisible(bool visible)
     {
@@ -68,6 +71,13 @@ public class UIManager : MonoBehaviour
             i++;
         }
 
+        for (var p = 0; p < player.Singles.Count - 1; p++)
+        {
+            _playerRows[i].Setup(player.Singles[p], player.Singles[p + 1], matchmakingMgr.Settings.SingleClassification);
+            if (p % 2 > 0)
+                i++;
+        }
+
         i = 0;
         foreach (var e in expected)
         {
@@ -75,7 +85,25 @@ public class UIManager : MonoBehaviour
             i++;
         }
 
-        _scoreText.text = $"{player.AverageMatching}/{expected.AverageMatching}";
+        for (var p = 0; p < expected.Singles.Count - 1; p++)
+        {
+            _expectedRows[i].Setup(expected.Singles[p], expected.Singles[p + 1], matchmakingMgr.Settings.SingleClassification);
+            if (p % 2 > 0)
+                i++;
+        }
+
+        _scoreText.text = $"{player.GetTotalScore()}/{expected.GetTotalScore()}";
+        _resultPanel.SetActive(true);
+    }
+
+    public void Reset()
+    {
+        foreach (var doc in _formDocs)
+        {
+            Destroy(doc);
+        }
+        _availableFormSpawns = new List<Transform>(_formsSpawnLocations);
+        _resultPanel.SetActive(false);
     }
 
     public void DisplayHour(int currentHour)
@@ -91,6 +119,7 @@ public class UIManager : MonoBehaviour
         _availableFormSpawns.RemoveAt(0);
         formDoc.transform.SetParent(_unzoomedContainer);
         formDoc.GetComponent<UIFormDoc>().FillForm(character, form);
+        _formDocs.Add(formDoc);
     }
 
     private void Awake()
@@ -103,6 +132,5 @@ public class UIManager : MonoBehaviour
 
         Instance = this;
         _mainMenu.SetActive(true);
-        _availableFormSpawns = new List<Transform>(_formsSpawnLocations);
     }
 }
