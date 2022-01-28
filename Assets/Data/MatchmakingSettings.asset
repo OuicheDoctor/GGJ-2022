@@ -37,12 +37,26 @@ MonoBehaviour:
   - _low: -200
     _hight: 10
     _result: Entretue
+    _resultIcon: {fileID: 0}
+    _scoring: -100
   - _low: 11
     _hight: 60
     _result: Match Pas
+    _resultIcon: {fileID: 0}
+    _scoring: -50
   - _low: 61
     _hight: 80
     _result: "\xE7a matche"
+    _resultIcon: {fileID: 0}
+    _scoring: 50
   - _low: 81
     _hight: 200
     _result: Couple parfait
+    _resultIcon: {fileID: 0}
+    _scoring: 100
+  _singleClassification:
+    _low: 0
+    _hight: 0
+    _result: "C\xE9libataire"
+    _resultIcon: {fileID: 0}
+    _scoring: 0

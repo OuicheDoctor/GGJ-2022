@@ -102,11 +102,6 @@ namespace GGJ.Matchmaking
             Singles.Add(character);
         }
 
-        public int GetTotalScore()
-        {
-            return 10;
-        }
-
         IEnumerator IEnumerable.GetEnumerator()
         {
             return GetEnumerator();

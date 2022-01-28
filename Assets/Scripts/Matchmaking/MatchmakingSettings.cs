@@ -22,11 +22,13 @@ namespace GGJ.Matchmaking
         [SerializeField] private int _hight;
         [SerializeField] private string _result;
         [SerializeField] private Sprite _resultIcon;
+        [SerializeField] private int _scoring;
 
         public int Low => _low;
         public int Hight => _hight;
         public string Result => _result;
         public Sprite ResultIcon => _resultIcon;
+        public int Scoring => _scoring;
     }
 
     [CreateAssetMenu(fileName = "MatchmakingSettings", menuName = "GGJ/Matchmaking Settings")]

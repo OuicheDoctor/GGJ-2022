@@ -16,6 +16,7 @@ public class UIManager : MonoBehaviour
     [SerializeField] private Transform _unzoomedContainer;
     [SerializeField] private Transform _zoomedContainer;
     [SerializeField] private Transform[] _formsSpawnLocations;
+    [SerializeField] private MatchFolder[] _folders;
 
     [Header("Overlay elements")]
     [SerializeField] private TextMeshProUGUI _hourDisplay;
@@ -63,28 +64,39 @@ public class UIManager : MonoBehaviour
 
     public void DisplayResult(PartenerCollection player, PartenerCollection expected)
     {
+        int playerScore = 0;
+        int bestScore = 0;
         MatchmakingManager matchmakingMgr = MatchmakingManager.Instance;
         int i = 0;
+        Range currentRange;
         foreach (var p in player)
         {
-            _playerRows[i].Setup(p.Character1, p.Character2, matchmakingMgr.Settings.GetMatchingClassification(p.Score));
+            currentRange = matchmakingMgr.Settings.GetMatchingClassification(p.Score);
+            playerScore += currentRange.Scoring;
+            _playerRows[i].Setup(p.Character1, p.Character2, currentRange);
             i++;
         }
 
+        playerScore += matchmakingMgr.Settings.SingleClassification.Scoring * player.Singles.Count / 2;
         for (var p = 0; p < player.Singles.Count - 1; p++)
         {
             _playerRows[i].Setup(player.Singles[p], player.Singles[p + 1], matchmakingMgr.Settings.SingleClassification);
             if (p % 2 > 0)
+            {
                 i++;
+            }
         }
 
         i = 0;
         foreach (var e in expected)
         {
-            _expectedRows[i].Setup(e.Character1, e.Character2, matchmakingMgr.Settings.GetMatchingClassification(e.Score));
+            currentRange = matchmakingMgr.Settings.GetMatchingClassification(e.Score);
+            bestScore += currentRange.Scoring;
+            _expectedRows[i].Setup(e.Character1, e.Character2, currentRange);
             i++;
         }
 
+        bestScore += matchmakingMgr.Settings.SingleClassification.Scoring * expected.Singles.Count / 2;
         for (var p = 0; p < expected.Singles.Count - 1; p++)
         {
             _expectedRows[i].Setup(expected.Singles[p], expected.Singles[p + 1], matchmakingMgr.Settings.SingleClassification);
@@ -92,11 +104,11 @@ public class UIManager : MonoBehaviour
                 i++;
         }
 
-        _scoreText.text = $"{player.GetTotalScore()}/{expected.GetTotalScore()}";
+        _scoreText.text = $"{playerScore}/{bestScore}";
         _resultPanel.SetActive(true);
     }
 
-    public void Reset()
+    public void Clear()
     {
         foreach (var doc in _formDocs)
         {
@@ -104,6 +116,10 @@ public class UIManager : MonoBehaviour
         }
         _availableFormSpawns = new List<Transform>(_formsSpawnLocations);
         _resultPanel.SetActive(false);
+        foreach (var f in _folders)
+        {
+            f.Clear();
+        }
     }
 
     public void DisplayHour(int currentHour)

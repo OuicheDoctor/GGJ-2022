@@ -30,7 +30,7 @@ public class GameManager : MonoBehaviour
 
     public void StartGame()
     {
-        _uiManager.Reset();
+        _uiManager.Clear();
         CurrentDay = 1;
         CurrentHour = _startingHour;
         _uiManager.DisplayHour(CurrentHour);
