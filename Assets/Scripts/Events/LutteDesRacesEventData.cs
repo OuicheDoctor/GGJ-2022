@@ -24,4 +24,12 @@ public class LutteDesRacesEventData : WorldEventData
             }
         }
     }
+
+    public override int ImpactOnScore(ICharacter mateA, ICharacter mateB, int initialScoring)
+    {
+        if (mateA.Race == mateB.Race && ConflictedRaces.Contains(mateA.Race))
+            return initialScoring - 80;
+        else
+            return initialScoring;
+    }
 }

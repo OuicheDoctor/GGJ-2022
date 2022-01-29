@@ -13,4 +13,9 @@ public class AffrontementsEventData : WorldEventData
     {
         // TODO WHEN REGION READY
     }
+
+    public override int ImpactOnScore(ICharacter mateA, ICharacter mateB, int initialScoring)
+    {
+        throw new System.NotImplementedException();
+    }
 }

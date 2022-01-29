@@ -13,4 +13,9 @@ public class AmourInterditEventData : WorldEventData
     {
         // Does nothing
     }
+
+    public override int ImpactOnScore(ICharacter mateA, ICharacter mateB, int initialScoring)
+    {
+        throw new System.NotImplementedException();
+    }
 }

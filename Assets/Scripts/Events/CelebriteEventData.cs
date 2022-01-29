@@ -34,4 +34,9 @@ public class CelebriteEventData : WorldEventData
         var mate = characters.Where(c => c != Celebrity).PickOne();
         mate.ForgeMatchingFor(Celebrity, bestClassfication);
     }
+
+    public override int ImpactOnScore(ICharacter mateA, ICharacter mateB, int initialScoring)
+    {
+        return initialScoring;
+    }
 }

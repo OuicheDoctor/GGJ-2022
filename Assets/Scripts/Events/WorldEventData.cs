@@ -18,6 +18,8 @@ public abstract class WorldEventData : ScriptableObject
     public abstract WorldEventType Type { get; }
 
     public abstract void FixGeneration(List<Character> characters);
+
+    public abstract int ImpactOnScore(ICharacter mateA, ICharacter mateB, int initialScoring);
 }
 
 public enum WorldEventType

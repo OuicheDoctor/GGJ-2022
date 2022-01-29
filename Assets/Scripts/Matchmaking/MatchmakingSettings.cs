@@ -23,7 +23,7 @@ namespace GGJ.Matchmaking
         [SerializeField] private string _result;
         [SerializeField] private Sprite _resultIcon;
         [SerializeField] private int _scoring;
-        [SerializeField] private ClassificationName _classificationName;
+        [SerializeField] private Classification _classificationName;
         [SerializeField] private LoveStatus _status;
 
         public int Low => _low;
@@ -32,15 +32,16 @@ namespace GGJ.Matchmaking
         public Sprite ResultIcon => _resultIcon;
         public int Scoring => _scoring;
         public LoveStatus Status => _status;
-        public ClassificationName ClassificationName => _classificationName;
+        public Classification ClassificationName => _classificationName;
     }
 
-    public enum ClassificationName
+    public enum Classification
     {
-        Perfect,
-        Match,
-        NoMatch,
-        Kill
+        Single = -1,
+        Kill = 0,
+        NoMatch = 1,
+        Match = 2,
+        Perfect = 3,
     }
 
     [CreateAssetMenu(fileName = "MatchmakingSettings", menuName = "GGJ/Matchmaking Settings")]
@@ -59,7 +60,7 @@ namespace GGJ.Matchmaking
         public List<Rating> Classification => _classification;
         public Rating SingleClassification => _singleClassification;
 
-        public Rating BestClassification => _classification.FirstOrDefault(c => c.ClassificationName == ClassificationName.Perfect);
+        public Rating BestClassification => _classification.FirstOrDefault(c => c.ClassificationName == Matchmaking.Classification.Perfect);
 
         public Rating GetMatchingClassification(int value)
         {

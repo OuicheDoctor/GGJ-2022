@@ -13,4 +13,9 @@ public class DiversiteEventData : WorldEventData
     {
         // TODO
     }
+
+    public override int ImpactOnScore(ICharacter mateA, ICharacter mateB, int initialScoring)
+    {
+        throw new System.NotImplementedException();
+    }
 }

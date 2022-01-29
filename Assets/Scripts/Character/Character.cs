@@ -39,7 +39,7 @@ namespace GGJ.Characters
         {
             switch (classification.ClassificationName)
             {
-                case ClassificationName.Perfect:
+                case Classification.Perfect:
                     {
                         MatchTraits(mate, 3);
                         // Special case for hobby "Nothing"

@@ -92,6 +92,8 @@ MonoBehaviour:
   - id: 19
   _maxByRace: 2
   _stressLess: 0
+  _events:
+  - {fileID: 11400000, guid: 49080a1fed4a29e44a260931095d4851, type: 2}
   references:
     version: 1
     00000000:
