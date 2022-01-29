@@ -18,6 +18,7 @@ public class UIFormDoc : MonoBehaviour
     [SerializeField] private RectTransform _questionsContainer;
     [SerializeField] private DropZone[] _pages;
     [SerializeField] private Zoomable _zoomable;
+    [SerializeField] private DragAndDroppable _dndComp;
 
     [Header("Prefabs")]
     [SerializeField] private GameObject _questionItemPrefab;
@@ -26,6 +27,7 @@ public class UIFormDoc : MonoBehaviour
     public GeneratedForm Form { get; set; }
 
     private int _pageIndex = 0;
+    private List<Image> _pageGraphics;
 
     public void FillForm(Character character, GeneratedForm form)
     {
@@ -71,7 +73,22 @@ public class UIFormDoc : MonoBehaviour
     private void Start()
     {
         foreach (var page in _pages)
+        {
             page.OnDropCallback += go => ProcessDrop(go, page.transform);
+        }
+        _pageGraphics = _pages.Select(p => p.GetComponent<Image>()).ToList();
+
+        _dndComp.OnBeginDragCallback += () =>
+        {
+            foreach (var gr in _pageGraphics)
+                gr.raycastTarget = false;
+        };
+
+        _dndComp.OnEndDragCallback += _ =>
+        {
+            foreach (var gr in _pageGraphics)
+                gr.raycastTarget = true;
+        };
     }
 
     private void ProcessDrop(GameObject go, Transform page)

@@ -1365,6 +1365,7 @@ MonoBehaviour:
   - {fileID: 4344132579159453560}
   - {fileID: 5283223681173391296}
   _zoomable: {fileID: 8086049433149130887}
+  _dndComp: {fileID: 8086049433149130886}
   _questionItemPrefab: {fileID: 2923815502783500444, guid: e7fc7f7958ae544e398596efe3d46cde, type: 3}
 --- !u!1 &8226145850064405295
 GameObject:
