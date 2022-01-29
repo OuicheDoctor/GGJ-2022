@@ -7,4 +7,9 @@ public class UIRadio: MonoBehaviour
     {
         RadioManager.Instance.ChangeChannel(channelIndex);
     }
+
+    public void OnOnOffButtonClick()
+    {
+        RadioManager.Instance.ToggleOnOff();
+    }
 }

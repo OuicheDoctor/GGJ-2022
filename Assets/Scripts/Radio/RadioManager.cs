@@ -8,6 +8,7 @@ public class RadioManager: MonoBehaviour
 
     private RadioChannelSource _activeChannelSource = null;
     private List<RadioChannelSource> _radioChannelSources = new List<RadioChannelSource>();
+    private bool isRadioOn = true;
 
     [SerializeField] private AudioSettings _audioSettings;
     [SerializeField] private List<AudioSource> _audioSources;
@@ -18,6 +19,17 @@ public class RadioManager: MonoBehaviour
         var newChannelSource = _radioChannelSources[channelIndex];
         newChannelSource.AudioSource.mute = false;
         _activeChannelSource = newChannelSource;
+    }
+
+    public void ToggleOnOff()
+    {
+        if (isRadioOn) {
+            MuteAllRadioChannelSources();
+        } else if (_activeChannelSource != null) {
+            _activeChannelSource.AudioSource.mute = false;
+        }
+
+        isRadioOn = !isRadioOn;
     }
 
     private void Start()
@@ -48,6 +60,14 @@ public class RadioManager: MonoBehaviour
         foreach (var radioChannelSource in _radioChannelSources)
         {
             radioChannelSource.AudioSource.Play();
+        }
+    }
+
+    private void MuteAllRadioChannelSources()
+    {
+        foreach (var radioChannelSource in _radioChannelSources)
+        {
+            radioChannelSource.AudioSource.mute = true;
         }
     }
 
