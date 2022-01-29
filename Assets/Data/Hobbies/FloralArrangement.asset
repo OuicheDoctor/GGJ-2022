@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5db3892ceff29f4cb2119ee949562ee, type: 3}
   m_Name: FloralArrangement
   m_EditorClassIdentifier: 
-  hobbyName: FloralArrangement
+  hobbyName: Floral Arrangement
   description: 
   category: {fileID: 11400000, guid: f5c62dbee5006e141ac71ef850a49bea, type: 2}
   stressful: 0

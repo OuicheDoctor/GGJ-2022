@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5db3892ceff29f4cb2119ee949562ee, type: 3}
   m_Name: WildlifeObservation
   m_EditorClassIdentifier: 
-  hobbyName: WildlifeObservation
+  hobbyName: Wildlife Observation
   description: 
   category: {fileID: 11400000, guid: d111c953a4ea54c4cabcdd6c8bd553a4, type: 2}
   stressful: 0
