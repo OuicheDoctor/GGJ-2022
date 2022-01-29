@@ -11,6 +11,7 @@ public class GameplaySettings : ScriptableObject
     #region Exposed API
 
     public List<RaceData> Races => _races;
+    public int MaxByRace => _maxByRace;
     public List<HobbyData> Hobbies => _hobbies;
     public List<string> Regions => _regions;
     public bool StressLess => _stressLess;
@@ -22,7 +23,7 @@ public class GameplaySettings : ScriptableObject
     [SerializeReference] private List<RaceData> _races;
     [SerializeReference] private List<HobbyData> _hobbies;
     [SerializeField] private List<string> _regions;
-
+    [SerializeField] int _maxByRace;
     [SerializeField] bool _stressLess;
 
     #endregion

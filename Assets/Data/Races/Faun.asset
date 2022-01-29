@@ -10,8 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8d9d61b03b00c4d8b82fa3106002bfc0, type: 3}
-  m_Name: Goblin
+  m_Name: Faun
   m_EditorClassIdentifier: 
-  _name: Goblin
-  _drawing: {fileID: 21300000, guid: 8c0172f523e4b6142984bdbff8820cbc, type: 3}
+  _name: Faun
+  _drawing: {fileID: 21300000, guid: 9a0e5938ab079304790d80c98a0f8800, type: 3}
   _names: {fileID: 11400000, guid: 4493de483f9b747dbaf1dd0b14d94de9, type: 2}
