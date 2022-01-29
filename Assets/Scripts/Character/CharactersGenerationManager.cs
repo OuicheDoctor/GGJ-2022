@@ -14,10 +14,14 @@ namespace GGJ.Characters
 
         [SerializeField] private GameplaySettings _gameplaySettings;
 
+        private WorldEventData _worldEventData;
+
         // Get a list of characters of a specified length with an associated GeneratedForm
-        public List<(Character character, GeneratedForm form)> GenerateCharactersWithForm(int count)
+        public List<(Character character, GeneratedForm form)> GenerateCharactersWithForm(int count, WorldEventData worldEvent)
         {
+            _worldEventData = worldEvent;
             var characters = GetRandomCharacters(count);
+            worldEvent.FixGeneration(characters);
             var charactersWithForm = characters.Select(character => (
                 character,
                 FormManager.Instance.GenerateFormFor(character)

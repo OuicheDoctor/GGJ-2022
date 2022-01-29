@@ -1,12 +1,10 @@
+using GGJ.Characters;
 using GGJ.Matchmaking;
 using System.Collections.Generic;
+using System.Linq;
 using TMPro;
 using UnityEngine;
-using GGJ.Characters;
-
-using System.Collections.Generic;
-
-using System.Linq;
+using UnityEngine.UI;
 
 public class UIManager : MonoBehaviour
 {
@@ -38,8 +36,18 @@ public class UIManager : MonoBehaviour
     [SerializeField] private List<ResultRow> _expectedRows;
     [SerializeField] private TextMeshProUGUI _scoreText;
 
+    [Header("Achivements")]
+    [SerializeField] private List<LovePolaroid> _lovePolaroids;
+    [SerializeReference] private Button _previousButton;
+    [SerializeReference] private Button _nextButton;
+    [SerializeReference] private Button _megaHeartFilterButton;
+    [SerializeReference] private Button _heartFilterButton;
+    [SerializeReference] private Button _brokenHeartFilterButton;
+    [SerializeReference] private Button _skullFilterButton;
+
     public Transform UnzoomedContainer => _unzoomedContainer;
     public Transform ZoomedContainer => _zoomedContainer;
+    public List<LovePolaroid> LovePolaroids => _lovePolaroids;
 
     private List<Transform> _availableFormSpawns;
     private List<GameObject> _formDocs = new List<GameObject>();
@@ -57,6 +65,7 @@ public class UIManager : MonoBehaviour
 
     public void SetAchievementMenuVisible(bool visible)
     {
+        AchivementManager.Instance.Refresh(reset: true);
         _achievementsMenu.SetActive(visible);
         _mainMenu.SetActive(!visible);
     }
@@ -73,13 +82,16 @@ public class UIManager : MonoBehaviour
         int bestScore = 0;
         MatchmakingManager matchmakingMgr = MatchmakingManager.Instance;
         int i = 0;
-        Range currentRange;
+        Rating currentRange;
         foreach (var p in player)
         {
-            currentRange = matchmakingMgr.Settings.GetMatchingClassification(p.Score);
+            currentRange = p.Rating;
             playerScore += currentRange.Scoring;
             _playerRows[i].Setup(p.Character1, p.Character2, currentRange);
             i++;
+
+            var polaroidData = new LovePolaroidData(nameA: p.Character1.Name, nameB: p.Character2.Name, status: currentRange.Status);
+            AchivementManager.Instance.Collection.Add(polaroidData);
         }
 
         if (player.Singles.Any())
@@ -95,7 +107,7 @@ public class UIManager : MonoBehaviour
         i = 0;
         foreach (var e in expected)
         {
-            currentRange = matchmakingMgr.Settings.GetMatchingClassification(e.Score);
+            currentRange = e.Rating;
             bestScore += currentRange.Scoring;
             _expectedRows[i].Setup(e.Character1, e.Character2, currentRange);
             i++;
@@ -127,6 +139,27 @@ public class UIManager : MonoBehaviour
         {
             f.Clear();
         }
+    }
+
+    public void EnableAchivementsButtons(bool previousEnabled, bool nextEnabled, bool megaHeartEnabled, bool heartEnabled, bool borkenHeartEnabled, bool skullEnabled)
+    {
+        _previousButton.interactable = previousEnabled;
+        _nextButton.interactable = nextEnabled;
+
+        _megaHeartFilterButton.interactable = megaHeartEnabled;
+        _heartFilterButton.interactable = heartEnabled;
+        _brokenHeartFilterButton.interactable = borkenHeartEnabled;
+        _skullFilterButton.interactable = skullEnabled;
+    }
+
+    public void ToogleFilterButtons(bool megaHeartSelected, bool heartSelected, bool borkenHeartSelected, bool skullSelected)
+    {
+        /*
+        _megaHeartFilterButton.() = megaHeartEnabled;
+        _heartFilterButton.interactable = heartEnabled;
+        _brokenHeartFilterButton.interactable = borkenHeartEnabled;
+        _skullFilterButton.interactable = skullEnabled;
+        */
     }
 
     public void DisplayHour(int currentHour)

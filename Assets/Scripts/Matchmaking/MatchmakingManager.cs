@@ -12,14 +12,14 @@ public class MatchmakingManager : MonoBehaviour
 
     public MatchmakingSettings Settings => _settings;
 
-    public int Match(ICharacter characterA, ICharacter characterB)
+    public Rating Match(ICharacter characterA, ICharacter characterB)
     {
         var score = 0;
 
         score += _hobbyMatcher.Matcher(characterA.Hobbies, characterB.Hobbies);
         score += _traitMatcher.Matcher(characterA, characterB);
 
-        return score;
+        return _settings.GetMatchingClassification(score);
     }
 
     private void Awake()
