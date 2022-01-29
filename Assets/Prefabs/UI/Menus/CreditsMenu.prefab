@@ -241,7 +241,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5134150032969771867}
   - component: {fileID: 518725018800026090}
-  - component: {fileID: 5186679701239419362}
+  - component: {fileID: 8178012653039319960}
   m_Layer: 5
   m_Name: CreditsMenu
   m_TagString: Untagged
@@ -283,7 +283,7 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1237255910360869566}
   m_CullTransparentMesh: 1
---- !u!114 &5186679701239419362
+--- !u!114 &8178012653039319960
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -447,7 +447,7 @@ GameObject:
   - component: {fileID: 3671576124870274145}
   - component: {fileID: 8433300160581969062}
   m_Layer: 5
-  m_Name: ButonClose
+  m_Name: CloseButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
