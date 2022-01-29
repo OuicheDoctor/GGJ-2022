@@ -27,48 +27,22 @@ public class GameManager : MonoBehaviour
 
     public int CurrentDay { get; set; }
     public int CurrentHour { get; set; }
+    public WorldEventData CurrentEvent { get; set; }
     public List<(Character character, GeneratedForm form)> CurrentCharactersAndForms { get; set; }
     public GameplaySettings Settings => _settings;
 
     public void StartGame()
     {
+        _uiManager.Clear();
         CurrentDay = 1;
         CurrentHour = _startingHour;
-        _uiManager.Clear();
         _uiManager.DisplayHour(CurrentHour);
         SetupStressLevel(!_settings.StressLess);
         _uiManager.SetMainMenuVisible(false);
         _secondsBuffer = 0;
-
-        int brutForceFail = 0;
-        int tenFail = 0;
-        int brutForceBetterThanTen = 0;
-        int tenBetterThanBrutforce = 0;
-        for (var i = 0; i < 1000; i++)
-        {
-            CurrentCharactersAndForms = CharactersGenerationManager.Instance.GenerateCharactersWithForm(8);
-            GenerateSolution();
-            if (!_expectedResult.IntegrityCheck())
-                brutForceFail++;
-
-            var bestTenResult = BestTenPairMatching.Instance.Process(_characters);
-            if (!bestTenResult.IntegrityCheck())
-                tenFail++;
-
-            var tenScore = bestTenResult.GetEstimation();
-            var brutScore = _expectedResult.GetEstimation();
-
-            if (tenScore > brutScore)
-                tenBetterThanBrutforce++;
-            else if (brutScore > tenScore)
-                brutForceBetterThanTen++;
-        }
-
-        Debug.Log($"brut fail {brutForceFail * 100 / 1000}%");
-        Debug.Log($"ten fail {tenFail * 100 / 1000}%");
-        Debug.Log($"brut better {brutForceBetterThanTen * 100 / 1000}%");
-        Debug.Log($"ten better {tenBetterThanBrutforce * 100 / 1000}%");
-
+        CurrentEvent = PickEvent();
+        CurrentCharactersAndForms = CharactersGenerationManager.Instance.GenerateCharactersWithForm(8, CurrentEvent);
+        GenerateSolution();
         GenerateFormsDocs();
         enabled = true;
     }
@@ -97,13 +71,7 @@ public class GameManager : MonoBehaviour
     public void GenerateSolution()
     {
         _characters = CurrentCharactersAndForms.ConvertAll<ICharacter>(e => e.character);
-        _expectedResult = BruteForcePairMatching.Instance.Process(_characters);
-        //foreach (var partener in _expectedResult)
-        //{
-        //    Debug.Log(partener);
-        //}
-        //Debug.Log(_expectedResult.Singles.Select(s => s.Name).Aggregate((s1, s2) => $"{s1},{s2}"));
-
+        _expectedResult = BestTenPairMatching.Instance.Process(_characters, CurrentEvent);
         _playerResult = new PartenerCollection(_characters.Count);
     }
 
@@ -121,7 +89,7 @@ public class GameManager : MonoBehaviour
 
     private void Resolve()
     {
-        int score;
+        Rating rating;
 
         // Treat unmatched as singles
         foreach (var unmatched in _characters.Where(c => !_playerActionsManager.StoredMatches.SelectMany(m => m).Contains(c)))
@@ -131,8 +99,8 @@ public class GameManager : MonoBehaviour
         {
             if (pairing.Count > 1)
             {
-                score = MatchmakingManager.Instance.Match(pairing[0], pairing[1]);
-                _playerResult.Add(pairing[0], pairing[1], score);
+                rating = MatchmakingManager.Instance.Match(pairing[0], pairing[1]);
+                _playerResult.Add(pairing[0], pairing[1], rating);
             }
             else
             {
@@ -140,6 +108,7 @@ public class GameManager : MonoBehaviour
                     _playerResult.AddSingle(single);
             }
         }
+
         _uiManager.DisplayResult(_playerResult, _expectedResult);
     }
 
@@ -149,6 +118,22 @@ public class GameManager : MonoBehaviour
         {
             _uiManager.AddDragDropFormDoc(character, form);
         }
+    }
+
+    private WorldEventData PickEvent()
+    {
+        var availableEvents = new List<WorldEventData>(_settings.Events);
+        availableEvents.Shuffle();
+        int rand = Random.Range(0, 100);
+        float current = 0;
+        foreach (var ev in availableEvents)
+        {
+            current += ev.Probability;
+            if (rand < current)
+                return ev;
+        }
+
+        return availableEvents.Last();
     }
 
     private void Awake()

@@ -6,9 +6,9 @@ using System.Linq;
 
 public class BestTenPairMatching : Singleton<BestTenPairMatching>
 {
-    public PartenerCollection Process(IList<ICharacter> characters)
+    public PartenerCollection Process(IList<ICharacter> characters, WorldEventData currentEvent)
     {
-        Dictionary<(ICharacter, ICharacter), int> matches = new Dictionary<(ICharacter, ICharacter), int>();
+        Dictionary<(ICharacter, ICharacter), Rating> matches = new Dictionary<(ICharacter, ICharacter), Rating>();
         foreach (var characA in characters)
         {
             foreach (var characB in characters)
@@ -17,15 +17,15 @@ public class BestTenPairMatching : Singleton<BestTenPairMatching>
             }
         }
 
-        Dictionary<(ICharacter, ICharacter), int> availableMatches = matches
-            .OrderByDescending(m => m.Value)
+        Dictionary<(ICharacter, ICharacter), Rating> availableMatches = matches
+            .OrderByDescending(m => m.Value.Scoring)
             .ToDictionary(m => m.Key, m => m.Value);
         int score = 0;
         List<(ICharacter, ICharacter)> keepedMatches;
         Dictionary<List<(ICharacter, ICharacter)>, int> bestMatches = new Dictionary<List<(ICharacter, ICharacter)>, int>();
         foreach (var match in availableMatches)
         {
-            score = match.Value;
+            score = match.Value.Scoring;
             keepedMatches = new List<(ICharacter, ICharacter)>() { match.Key };
 
             foreach (var other in availableMatches)
@@ -35,7 +35,7 @@ public class BestTenPairMatching : Singleton<BestTenPairMatching>
                     continue;
 
                 keepedMatches.Add(other.Key);
-                score += other.Value;
+                score += other.Value.Scoring;
 
                 if (keepedMatches.SelectMany(m => new List<ICharacter>() { m.Item1, m.Item2 }).Count() >= characters.Count)
                     break;

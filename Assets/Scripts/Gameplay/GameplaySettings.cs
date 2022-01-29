@@ -3,8 +3,6 @@ using GGJ.Races;
 using System.Collections.Generic;
 using UnityEngine;
 
-
-
 [CreateAssetMenu(menuName = "GGJ/Gameplay Settings", fileName = "NewGameplaySettings")]
 public class GameplaySettings : ScriptableObject
 {
@@ -16,6 +14,7 @@ public class GameplaySettings : ScriptableObject
     public List<HobbyData> Hobbies => _hobbies;
     public List<string> Regions => _regions;
     public bool StressLess => _stressLess;
+    public List<WorldEventData> Events => _events;
 
     public List<LovePolaroidData> LovePolaroids => _lovePolaroids;
 
@@ -30,6 +29,7 @@ public class GameplaySettings : ScriptableObject
     [SerializeReference] private List<LovePolaroidData> _lovePolaroids;
     [SerializeField] int _maxByRace;
     [SerializeField] bool _stressLess;
+    [SerializeField] List<WorldEventData> _events;
 
-    #endregion
+    #endregion Inspector Fields
 }
