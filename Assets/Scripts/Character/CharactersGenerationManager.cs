@@ -74,8 +74,6 @@ namespace GGJ.Characters
         // Hobby Nothing always alone
         private List<HobbyData> GetRandomHobbies()
         {
-            var maxHobbies = random.Next(2, 4);
-
             var remainingHobbies = new List<HobbyData>();
             _gameplaySettings.Hobbies
                 .Where(h => !_gameplaySettings.StressLess || (!h.stressful && !h.category.stressful))
@@ -83,7 +81,7 @@ namespace GGJ.Characters
                 .ForEach(h => remainingHobbies.Add(h));
 
             var randomHobbies = new List<HobbyData>();
-            for (int i = 0; i < maxHobbies; i++)
+            for (int i = 0; i < _gameplaySettings.HobbiesCountPerCharacter; i++)
             {
                 if (remainingHobbies.Count == 0) return null;
 
