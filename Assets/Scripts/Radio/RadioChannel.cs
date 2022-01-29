@@ -6,7 +6,7 @@ using UnityEngine;
 public class RadioChannel: ScriptableObject
 {
     public List<AudioClip> Musics => _musics;
-    public List<RadioJingle> jingles => _jingles;
+    public List<RadioJingle> Jingles => _jingles;
 
     [SerializeReference] private List<AudioClip> _musics;
     [SerializeField] private List<RadioJingle> _jingles;

@@ -29,6 +29,7 @@ public class RadioManager: MonoBehaviour
     private void Update()
     {
         CheckEndOfPlay();
+        CheckJingles();
     }
 
     private void InitRadioChannelSources()
@@ -50,14 +51,32 @@ public class RadioManager: MonoBehaviour
         }
     }
 
-    // Check the end of each audio source clip to launch another clip directly
+    // Check the end of each audio source clip to start or restart another clip directly
     private void CheckEndOfPlay()
     {
         foreach (var radioChannelSource in _radioChannelSources) {
             if (!radioChannelSource.AudioSource.isPlaying)
             {
-                radioChannelSource.ChooseNextMusic();
-                radioChannelSource.AudioSource.Play();
+                if (radioChannelSource.IsCurrentClipAJingle()) radioChannelSource.RestartPausedClip();
+                else {
+                    radioChannelSource.ChooseNextMusic();
+                    radioChannelSource.AudioSource.Play();
+                }
+            }
+        }
+    }
+
+    private void CheckJingles()
+    {
+        foreach (var radioChannelSource in _radioChannelSources)
+        {
+            if (!radioChannelSource.IsCurrentClipAJingle())
+            {
+                var jingle = radioChannelSource.RadioChannel.Jingles.FirstOrDefault(jingle => jingle.Hour == GameManager.Instance.CurrentHour);
+                if (!jingle.Equals(default(RadioJingle)))
+                {
+                    radioChannelSource.LaunchJingle(jingle);
+                }
             }
         }
     }
