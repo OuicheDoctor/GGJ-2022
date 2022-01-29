@@ -12,4 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d4f6e73ef54ef4c09b0c6f132a4b37c3, type: 3}
   m_Name: NewRadioChannel
   m_EditorClassIdentifier: 
-  musics: []
+  _musics:
+  - {fileID: 8300000, guid: c52b91bfd7b074ebeb6d72126c7c2093, type: 3}
+  - {fileID: 8300000, guid: 7c51e6d07781c4f1a9b914bb1c20c656, type: 3}
+  - {fileID: 8300000, guid: 59a6d135d0bbb461d92a58bd25bbd499, type: 3}
+  _jingles:
+  - _hour: 11
+    _audio: {fileID: 8300000, guid: 5fd39bec4aa404aef878c7ea669151c3, type: 3}
+  - _hour: 14
+    _audio: {fileID: 8300000, guid: 2fa686fd780c24bc78440c0cec5434a0, type: 3}
