@@ -50,11 +50,13 @@ public class UIManager : MonoBehaviour
     public void SetOptionsMenuVisible(bool visible)
     {
         _optionsMenu.SetActive(visible);
+        _mainMenu.SetActive(!visible);
     }
 
     public void SetAchievementMenuVisible(bool visible)
     {
         _achievementsMenu.SetActive(visible);
+        _mainMenu.SetActive(!visible);
     }
 
     public void SetCreditsMenuVisible(bool visible)
