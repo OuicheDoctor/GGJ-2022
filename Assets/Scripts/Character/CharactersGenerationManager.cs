@@ -32,11 +32,15 @@ namespace GGJ.Characters
             var characters = new List<Character>();
             var availableRaceNames = _gameplaySettings.Races.Select(race => (race.Name, race.Names)).ToList();
             List<string> usedNames = new List<string>();
-
+            Dictionary<string, int> _raceCounter = new Dictionary<string, int>();
             for (int i = 0; i < count; i++)
             {
                 var (traitEI, traitSN, traitTF, traitJP) = GetRandomTraits();
-                var race = GetRandomRace();
+                var race = GetRandomRace(_raceCounter);
+                if (!_raceCounter.ContainsKey(race.Name)) {
+                    _raceCounter.Add(race.Name, 0);
+                }
+                _raceCounter[race.Name] += 1;
                 var region = GetRandomRegion();
                 var name = GetRandomNameFromRace(race, ref availableRaceNames, usedNames);
                 usedNames.Add(name);
@@ -95,10 +99,10 @@ namespace GGJ.Characters
         }
 
         // Get one random race
-        private RaceData GetRandomRace()
+        private RaceData GetRandomRace(Dictionary<string, int> raceCounter)
         {
-            var races = _gameplaySettings.Races;
-
+            var excludedRaces = raceCounter.Where(e => e.Value >= _gameplaySettings.MaxByRace).Select(e => e.Key).ToList();
+            var races = _gameplaySettings.Races.Where(e => !excludedRaces.Contains(e.name)).ToList();
             var randomRaceIndex = random.Next(0, races.Count);
             return races[randomRaceIndex];
         }
