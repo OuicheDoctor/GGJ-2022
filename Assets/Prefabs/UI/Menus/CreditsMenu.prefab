@@ -1988,6 +1988,10 @@ PrefabInstance:
       propertyPath: m_Text
       value: Louis
       objectReference: {fileID: 0}
+    - target: {fileID: 4632282100563778749, guid: 2d696d2e5e8c8f240b5f66bf824d1b4a, type: 3}
+      propertyPath: m_text
+      value: Louis
+      objectReference: {fileID: 0}
     - target: {fileID: 5790012895925306085, guid: 2d696d2e5e8c8f240b5f66bf824d1b4a, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -2054,7 +2058,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9223285535335094345, guid: 2d696d2e5e8c8f240b5f66bf824d1b4a, type: 3}
       propertyPath: m_Name
-      value: Polaroid
+      value: Louis
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2d696d2e5e8c8f240b5f66bf824d1b4a, type: 3}
