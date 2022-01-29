@@ -52,6 +52,12 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 9dbc2232cee9b4d4fa7123d06c5bf449, type: 2}
   - {fileID: 11400000, guid: 40473fe996fb68641a414e5954a29c96, type: 2}
   _regions:
-  - France
+  - Askule
+  - Jepral
+  - Duclington
+  - Odrea
+  - Drioland
+  - Scuyg Aggra
+  - Osmium
   _maxByRace: 2
   _stressLess: 0
