@@ -70,13 +70,10 @@ public class RadioManager: MonoBehaviour
     {
         foreach (var radioChannelSource in _radioChannelSources)
         {
-            if (!radioChannelSource.IsCurrentClipAJingle())
+            var jingle = radioChannelSource.RadioChannel.Jingles.FirstOrDefault(jingle => jingle.Hour == GameManager.Instance.CurrentHour);
+            if (!jingle.Equals(default(RadioJingle)) && !radioChannelSource.IsJingleAlreadyLaunched(jingle))
             {
-                var jingle = radioChannelSource.RadioChannel.Jingles.FirstOrDefault(jingle => jingle.Hour == GameManager.Instance.CurrentHour);
-                if (!jingle.Equals(default(RadioJingle)))
-                {
-                    radioChannelSource.LaunchJingle(jingle);
-                }
+                radioChannelSource.LaunchJingle(jingle);
             }
         }
     }

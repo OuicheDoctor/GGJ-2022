@@ -9,6 +9,7 @@ public class RadioChannelSource
     public List<AudioClip> RemainingClips { get; set;  }
 
     private (AudioClip clip, float time) _pausedClip = default;
+    private List<RadioJingle> _alreadyLaunchedJingles = new List<RadioJingle>();
 
     public RadioChannelSource(RadioChannel radioChannel, AudioSource audioSource)
     {
@@ -34,6 +35,7 @@ public class RadioChannelSource
 
     public void LaunchJingle(RadioJingle jingle)
     {
+        _alreadyLaunchedJingles.Add(jingle);
         _pausedClip = (AudioSource.clip, AudioSource.time);
         AudioSource.clip = jingle.Audio;
         AudioSource.Play();
@@ -43,6 +45,11 @@ public class RadioChannelSource
     {
         return RadioChannel.Jingles.Any(jingle => jingle.Audio == AudioSource.clip);
     }
+
+    public bool IsJingleAlreadyLaunched(RadioJingle jingle)
+    {
+        return _alreadyLaunchedJingles.Any(j => j == jingle);
+    } 
 
     public void RestartPausedClip()
     {

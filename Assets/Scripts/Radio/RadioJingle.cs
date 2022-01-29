@@ -2,7 +2,7 @@
 using UnityEngine;
 
 [Serializable]
-public struct RadioJingle
+public class RadioJingle
 {
     public int Hour => _hour;
     public AudioClip Audio => _audio;
