@@ -12,4 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c75d699a285784c3db08f6219faf28ee, type: 3}
   m_Name: AudioSettings
   m_EditorClassIdentifier: 
-  _radioChannels: []
+  _radioChannels:
+  - {fileID: 11400000, guid: 956d0cee11a2f4628bfdaea2a3570918, type: 2}
+  - {fileID: 11400000, guid: 956d0cee11a2f4628bfdaea2a3570918, type: 2}
+  - {fileID: 11400000, guid: 956d0cee11a2f4628bfdaea2a3570918, type: 2}
