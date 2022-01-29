@@ -15,7 +15,7 @@ public class LovePolaroidData
 
     public LovePolaroidData(string nameA, string nameB, LoveStatus status)
     {
-        _date = DateTime.Now.ToShortDateString();
+        _date = DateTime.Now.ToFileTimeUtc().ToString();
         _nameA = nameA;
         _nameB = nameB;
         _status = status;
@@ -112,9 +112,10 @@ public class LovePolaroidCollection
         }
     }
 
-    public void GotFirstPage()
+    public void Reset()
     {
         _offset = 0;
+        _filter = LoveStatus.All;
     }
 
     private List<LovePolaroidData> WithFilter
@@ -125,7 +126,7 @@ public class LovePolaroidCollection
             {
                 return _polaroids;
             }
-            return _polaroids.Where(p => p.Status == _filter).ToList();
+            return _polaroids.GroupBy(e => e.Status).FirstOrDefault(e=> e.Key == _filter).ToList();
         }
     }
 
@@ -137,7 +138,9 @@ public class LovePolaroidCollection
             return WithFilter;
         }
         var currentSize = count - (_offset * _size);
-        return WithFilter.GetRange(_offset * _size, currentSize < _size ? currentSize : _size);
+        var items = WithFilter.GetRange(_offset * _size, currentSize < _size ? currentSize : _size);
+        items.ForEach(i => Debug.Log(i.Status));
+        return items;
     }
 
     public void Add(LovePolaroidData data)
@@ -163,11 +166,16 @@ public class AchivementManager : MonoBehaviour
     void Start()
     {
         _collection = new LovePolaroidCollection(_settings.LovePolaroids);
-        Refresh();
+        Refresh(reset: true);
     }
 
-    public void Refresh()
+    public void Refresh(bool reset = false)
     {
+        if (reset)
+        {
+            _collection.Reset();
+        }
+
         UIManager.Instance.EnableAchivementsButtons(
             !_collection.FirstPage,
             !_collection.LastPage,
@@ -244,14 +252,14 @@ public class AchivementManager : MonoBehaviour
     {
         var polaroid = UIManager.Instance.LovePolaroids[index];
         polaroid.Unlock = true;
-        polaroid.Visible = true;
+        UIManager.Instance.LovePolaroids[index].gameObject.SetActive(true);
         polaroid.CurrentStatus = data.Status;
         polaroid.Label = $"{data.NameA} & {data.NameB}\n{data.Date}";
     }
 
     private void DeactivatePolaroid(int index)
     {
-        UIManager.Instance.LovePolaroids[index].Visible = false;
+        UIManager.Instance.LovePolaroids[index].gameObject.SetActive(false);
     }
 
     public void ClearAchivements()

@@ -65,8 +65,7 @@ public class UIManager : MonoBehaviour
 
     public void SetAchievementMenuVisible(bool visible)
     {
-        AchivementManager.Instance.Collection.GotFirstPage();
-        AchivementManager.Instance.Refresh();
+        AchivementManager.Instance.Refresh(reset: true);
         _achievementsMenu.SetActive(visible);
         _mainMenu.SetActive(!visible);
     }
@@ -142,15 +141,25 @@ public class UIManager : MonoBehaviour
         }
     }
 
-    public void EnableAchivementsButtons(bool previousEnable, bool nextEnable, bool megaHeartEnable, bool heartEnable, bool borkenHeartEnable, bool skullEnable)
+    public void EnableAchivementsButtons(bool previousEnabled, bool nextEnabled, bool megaHeartEnabled, bool heartEnabled, bool borkenHeartEnabled, bool skullEnabled)
     {
-        _previousButton.interactable = previousEnable;
-        _nextButton.interactable = nextEnable;
+        _previousButton.interactable = previousEnabled;
+        _nextButton.interactable = nextEnabled;
 
-        _megaHeartFilterButton.interactable = megaHeartEnable;
-        _heartFilterButton.interactable = heartEnable;
-        _brokenHeartFilterButton.interactable = borkenHeartEnable;
-        _skullFilterButton.interactable = skullEnable;
+        _megaHeartFilterButton.interactable = megaHeartEnabled;
+        _heartFilterButton.interactable = heartEnabled;
+        _brokenHeartFilterButton.interactable = borkenHeartEnabled;
+        _skullFilterButton.interactable = skullEnabled;
+    }
+
+    public void ToogleFilterButtons(bool megaHeartSelected, bool heartSelected, bool borkenHeartSelected, bool skullSelected)
+    {
+        /*
+        _megaHeartFilterButton.() = megaHeartEnabled;
+        _heartFilterButton.interactable = heartEnabled;
+        _brokenHeartFilterButton.interactable = borkenHeartEnabled;
+        _skullFilterButton.interactable = skullEnabled;
+        */
     }
 
     public void DisplayHour(int currentHour)
