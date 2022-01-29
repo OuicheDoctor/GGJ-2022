@@ -14,4 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hobbyName: Archery
   description: 
-  category: {fileID: 11400000, guid: aaceedfcf09a78f4191fe4a31c9a1414, type: 2}
+  category: {fileID: 11400000, guid: 762627fb770c4d243807253b0b4c4473, type: 2}
+  stressful: 0

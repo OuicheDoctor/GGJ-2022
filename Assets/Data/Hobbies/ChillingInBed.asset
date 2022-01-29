@@ -14,4 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hobbyName: StayUnderTheComforter
   description: 
-  category: {fileID: 11400000, guid: aaceedfcf09a78f4191fe4a31c9a1414, type: 2}
+  category: {fileID: 11400000, guid: 0563f3429c1af3d449c16381728a5246, type: 2}
+  stressful: 0

@@ -15,3 +15,4 @@ MonoBehaviour:
   hobbyName: Sunbathing
   description: 
   category: {fileID: 11400000, guid: 0563f3429c1af3d449c16381728a5246, type: 2}
+  stressful: 0

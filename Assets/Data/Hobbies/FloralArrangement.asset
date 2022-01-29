@@ -15,3 +15,4 @@ MonoBehaviour:
   hobbyName: FloralArrangement
   description: 
   category: {fileID: 11400000, guid: f5c62dbee5006e141ac71ef850a49bea, type: 2}
+  stressful: 0
