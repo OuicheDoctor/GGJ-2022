@@ -16,13 +16,16 @@ public class GameplaySettings : ScriptableObject
     public List<string> Regions => _regions;
     public bool StressLess => _stressLess;
 
+    public List<LovePolaroidData> LovePolaroids => _lovePolaroids;
+
     #endregion
 
     #region Inspector Fields
 
     [SerializeReference] private List<RaceData> _races;
     [SerializeReference] private List<HobbyData> _hobbies;
-    [SerializeField] private List<string> _regions;
+    [SerializeReference] private List<string> _regions;
+    [SerializeReference] private List<LovePolaroidData> _lovePolaroids;
     [SerializeField] int _maxByRace;
     [SerializeField] bool _stressLess;
 
