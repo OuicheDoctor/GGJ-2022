@@ -27,23 +27,13 @@ public class LovePolaroid : MonoBehaviour
 
     void Start()
     {
-        if (_hidden)
+        HiddenOverlay.gameObject.SetActive(_hidden);
+        _icon.sprite = _settings.GetSprite(_currentStatus);
+        if (_currentStatus == LoveStatus.None)
         {
-            HiddenOverlay.color = GetColor(false);
+            _icon.gameObject.SetActive(false);
         }
-        else
-        {
-            HiddenOverlay.color = GetColor(true);
-            _icon.color = GetColor(_currentStatus == LoveStatus.None);
-            _icon.sprite = _settings.GetSprite(_currentStatus);
-        }
-    }
 
-    private Color GetColor(bool transparent)
-    {
-        var color = Color.white;
-        color.a = transparent ? 0f : 1f;
-        return color;
     }
 
 }

@@ -13,5 +13,8 @@ namespace GGJ.Hobbies
 
         [SerializeField]
         public CategoryData category;
+
+        [SerializeField]
+        public bool stressful = false;
     }
 }
