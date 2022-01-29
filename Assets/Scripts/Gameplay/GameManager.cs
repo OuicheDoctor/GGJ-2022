@@ -35,6 +35,7 @@ public class GameManager : MonoBehaviour
         CurrentDay = 1;
         CurrentHour = _startingHour;
         _uiManager.DisplayHour(CurrentHour);
+        SetupStressLevel(!_settings.StressLess);
         _uiManager.SetMainMenuVisible(false);
         _secondsBuffer = 0;
 
@@ -42,6 +43,13 @@ public class GameManager : MonoBehaviour
         GenerateSolution();
         GenerateFormsDocs();
         enabled = true;
+    }
+
+    public void SetupStressLevel(bool visible)
+    {
+        _uiManager.ShowHour(visible);
+        _uiManager.ShowScore(visible);
+        _uiManager.ShowResultRightColumn(visible);
     }
 
     public void OnButtonNextDayClick()

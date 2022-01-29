@@ -32,6 +32,8 @@ public class UIManager : MonoBehaviour
 
     [Header("Results")]
     [SerializeField] private GameObject _resultPanel;
+    [SerializeField] private GameObject _leftColumn;
+    [SerializeField] private GameObject _rightColumn;
     [SerializeField] private List<ResultRow> _playerRows;
     [SerializeField] private List<ResultRow> _expectedRows;
     [SerializeField] private TextMeshProUGUI _scoreText;
@@ -130,6 +132,21 @@ public class UIManager : MonoBehaviour
     public void DisplayHour(int currentHour)
     {
         _hourDisplay.text = $"{currentHour}H";
+    }
+
+    public void ShowHour(bool visible)
+    {
+        _hourDisplay.gameObject.SetActive(visible);
+    }
+
+    public void ShowScore(bool visible)
+    {
+        _scoreText.gameObject.SetActive(visible);
+    }
+
+    public void ShowResultRightColumn(bool visible)
+    {
+        _rightColumn.SetActive(visible);
     }
 
     public void AddDragDropFormDoc(Character character, GeneratedForm form)

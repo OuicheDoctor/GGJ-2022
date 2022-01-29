@@ -1407,6 +1407,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 386cf8f2cf2a54b49a7f80dc6eec7f76, type: 3}
+--- !u!1 &834559942 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2511458945154519259, guid: 761ba60f77f9bf34b9a2924d96edac1f, type: 3}
+  m_PrefabInstance: {fileID: 16497946}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &963194225
 GameObject:
   m_ObjectHideFlags: 0
@@ -1528,6 +1533,11 @@ MonoBehaviour:
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 4607433379745794743, guid: 6d356412d637415499d4d23b2669f30b, type: 3}
   m_PrefabInstance: {fileID: 4607433379583560964}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1006121023 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8436385755610954937, guid: 761ba60f77f9bf34b9a2924d96edac1f, type: 3}
+  m_PrefabInstance: {fileID: 16497946}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1166821626
 PrefabInstance:
@@ -2397,6 +2407,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 8086049433149130907, guid: 1dd7379b12dc64d45bf7c7dad3fcea3e, type: 3}
     - target: {fileID: 2551857596955237732, guid: c623a0dbef3c4fb4991fdcd38d0e9b59, type: 3}
+      propertyPath: _leftColumn
+      value: 
+      objectReference: {fileID: 1006121023}
+    - target: {fileID: 2551857596955237732, guid: c623a0dbef3c4fb4991fdcd38d0e9b59, type: 3}
       propertyPath: _creditsMenu
       value: 
       objectReference: {fileID: 6911442216573048523}
@@ -2412,6 +2426,10 @@ PrefabInstance:
       propertyPath: _resultPanel
       value: 
       objectReference: {fileID: 16497957}
+    - target: {fileID: 2551857596955237732, guid: c623a0dbef3c4fb4991fdcd38d0e9b59, type: 3}
+      propertyPath: _rightColumn
+      value: 
+      objectReference: {fileID: 834559942}
     - target: {fileID: 2551857596955237732, guid: c623a0dbef3c4fb4991fdcd38d0e9b59, type: 3}
       propertyPath: _zoomedContainer
       value: 
@@ -2853,6 +2871,10 @@ PrefabInstance:
     - target: {fileID: 4828053468955091623, guid: e223c80c608efe347bdc364c47fc58a6, type: 3}
       propertyPath: m_Name
       value: Overlay
+      objectReference: {fileID: 0}
+    - target: {fileID: 4828053468955091623, guid: e223c80c608efe347bdc364c47fc58a6, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7587339893540748131, guid: e223c80c608efe347bdc364c47fc58a6, type: 3}
       propertyPath: m_AnchorMax.y
@@ -3635,6 +3657,10 @@ PrefabInstance:
     - target: {fileID: 5926655989634025418, guid: a55e651600a4c164599f4aba4522cb6f, type: 3}
       propertyPath: m_Name
       value: SpawnPositions
+      objectReference: {fileID: 0}
+    - target: {fileID: 5926655989634025418, guid: a55e651600a4c164599f4aba4522cb6f, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a55e651600a4c164599f4aba4522cb6f, type: 3}

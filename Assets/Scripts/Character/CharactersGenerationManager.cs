@@ -37,7 +37,8 @@ namespace GGJ.Characters
             {
                 var (traitEI, traitSN, traitTF, traitJP) = GetRandomTraits();
                 var race = GetRandomRace(_raceCounter);
-                if (!_raceCounter.ContainsKey(race.Name)) {
+                if (!_raceCounter.ContainsKey(race.Name))
+                {
                     _raceCounter.Add(race.Name, 0);
                 }
                 _raceCounter[race.Name] += 1;
@@ -76,7 +77,10 @@ namespace GGJ.Characters
             var maxHobbies = random.Next(2, 4);
 
             var remainingHobbies = new List<HobbyData>();
-            foreach (var hobby in _gameplaySettings.Hobbies) { remainingHobbies.Add(hobby); }
+            _gameplaySettings.Hobbies
+                .Where(h => !_gameplaySettings.StressLess || (!h.stressful && !h.category.stressful))
+                .ToList()
+                .ForEach(h => remainingHobbies.Add(h));
 
             var randomHobbies = new List<HobbyData>();
             for (int i = 0; i < maxHobbies; i++)
