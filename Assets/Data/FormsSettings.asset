@@ -19,6 +19,33 @@ MonoBehaviour:
     _value0Response: Oh no gods no.
     _value1Response: Heck yeah I do! I'm a social butterfly superstar baby!
     _neutralResponse: Yeah sure, why not?
+  - _associatedTrait: 0
+    _question: At social events, you rarely try to introduce yourself to new monster
+      and mostly talk to the ones you already know.
+    _value0Response: Why would I ever go to a social event?
+    _value1Response: I introduce myself to EVERYONE AND EVERYBODY. PROFUSELY.
+    _neutralResponse: I can be a bit shy, but I'd be down for a few more friends.I
+      can be a bit shy, but I'd be down for a few more friends.
+  - _associatedTrait: 0
+    _question: You feel comfortable just walking up to someone you find interesting
+      and striking up a conversation.
+    _value0Response: 'No. I definitly don''t. '
+    _value1Response: It's an excellent way to meet new people you would never meet
+      otherwise!
+    _neutralResponse: With one or two beers in my belly, I can do that.
+  - _associatedTrait: 0
+    _question: You avoid leadership roles in group settings.
+    _value0Response: I am not avoiding leadership roles, leadership roles are avoiding
+      me.
+    _value1Response: I must confess, I am born to lead. I can't fight against nature.
+    _neutralResponse: I can do that! Sometimes.
+  - _associatedTrait: 0
+    _question: After a long and exhausting week, a lively social event is just what
+      you need.
+    _value0Response: I enjoy my own company, does this count as a social event?
+    _value1Response: YES!!! Until the sun disappears! But then I am even more tired,
+      but at least I had fun!
+    _neutralResponse: Sure, I can enjoy a chill evening with one or two friends.
   - _associatedTrait: 1
     _question: You spend a lot of your free time exploring various random topics
       that pique your interest.
@@ -28,6 +55,28 @@ MonoBehaviour:
       and it's not enough!
     _neutralResponse: I do, but I also love to take the time to enjoy what I already
       have in my life.
+  - _associatedTrait: 1
+    _question: You are interested in so many things that you find it difficult to
+      choose what to try next.
+    _value0Response: 'That''s not me. Not at all. '
+    _value1Response: 1000% accurate.
+    _neutralResponse: That's true that I love to do many things, but I can also channel
+      myself.
+  - _associatedTrait: 1
+    _question: I solve problems by working through facts until I understand the problem.
+    _value0Response: Is there another way to solve a problem?
+    _value1Response: I instead prefer to follow my intuition.
+    _neutralResponse: er, er, I guess it depends on the problem?
+  - _associatedTrait: 1
+    _question: I remember events by what I read "between the lines" about their meaning.
+    _value0Response: This is quite true indeed.
+    _value1Response: I don't understand the question.
+    _neutralResponse: It depends on the circumstances, I would say.
+  - _associatedTrait: 1
+    _question: When you are lost in your toughts, you are thinking of...
+    _value0Response: Love & the beauty of everyday life.
+    _value1Response: What my next adventure will be.
+    _neutralResponse: Um... I think about the meaning of life?
   - _associatedTrait: 2
     _question: Seeing other people cry can easily make you feel like you want to
       cry too.
@@ -35,9 +84,54 @@ MonoBehaviour:
       to puke.
     _value1Response: '*Sob* How do you know me so well? Are you following me? *sob*'
     _neutralResponse: It depends on whether I know them or not, I guess.
+  - _associatedTrait: 2
+    _question: Your happiness comes more from helping others accomplish things than
+      your own accomplishments.
+    _value0Response: 'No. Does that make me egotistical? '
+    _value1Response: Is there anything better in life than seeing people happy and
+      proud of themselves?
+    _neutralResponse: I need a balance between the two.
+  - _associatedTrait: 2
+    _question: You are definitely not an artistic type of person.
+    _value0Response: If logic and justice are not arts, then it's true.
+    _value1Response: 'I would die if I couldn''t create. And I''m not even exaggerating. '
+    _neutralResponse: Not sure I am good at it, but I enjoy creating.
+  - _associatedTrait: 2
+    _question: You rarely feel insecure.
+    _value0Response: Feeling insecure doesn't help you to be safe.
+    _value1Response: I feel insecure in a lot of different situations...
+    _neutralResponse: No. Except if I am walking alone in the dark.
+  - _associatedTrait: 2
+    _question: Your emotions control you more than you control them.
+    _value0Response: No, and it's a good thing.
+    _value1Response: This is how all my friends describe me. Like ALL of them.
+    _neutralResponse: If there is a kitten in the story, it's out of my hands.
   - _associatedTrait: 3
     _question: You often make a backup plan for a backup plan.
     _value0Response: And sometimes backup plan for the backup plan of a backup plan,
       yes.
     _value1Response: What is a plan? Meh, I'll do it tomorrow.
     _neutralResponse: I can plan when it's necessary!
+  - _associatedTrait: 3
+    _question: You prefer to completely finish one project before starting another.
+    _value0Response: How can you do several things at the same time? It's too energy-consuming.
+    _value1Response: I rarely finish anything. And yes, I am ashamed to confess it.
+    _neutralResponse: I guess it depends on how much I like the project I am working
+      on.
+  - _associatedTrait: 3
+    _question: You like to use organizing tools like schedules and lists.
+    _value0Response: I only spend 2 hours per day on schedules & tasks list. That's
+      not that much.
+    _value1Response: HAHAHAHA. I can't even name one tool like that.
+    _neutralResponse: I think it can be a real help sometimes.
+  - _associatedTrait: 3
+    _question: You usually prefer just doing what you feel like at any given moment
+      instead of planning a particular daily routine.
+    _value0Response: I could die to keep my daily routine.
+    _value1Response: I fuk**** hare daily routine. I go where the wind takes me.
+    _neutralResponse: I think the best is the right balance between the two.
+  - _associatedTrait: 3
+    _question: You are still bothered by mistakes that you made a long time ago.
+    _value0Response: It's sometimes tough to move on for me.
+    _value1Response: 'No. Regretting the past is like chasing after the wind. '
+    _neutralResponse: I have one or two regrets in my life, yes.
