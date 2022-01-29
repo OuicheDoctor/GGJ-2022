@@ -74,7 +74,6 @@ public class MatchFolder : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
             _storedFormDocs.Remove(last);
             _playerMgr.RemoveCharacterFromFile(last.Character, _folderIndex);
             _draggedObj = last.GetComponent<DragAndDroppable>();
-            _draggedObj.ValidDrop = false;
             last.gameObject.SetActive(true);
             _draggedObj.OnBeginDrag(eventData);
         }

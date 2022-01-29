@@ -14,22 +14,29 @@ public class DragAndDroppable : MonoBehaviour, IDragHandler, IBeginDragHandler, 
     public Action<bool> OnEndDragCallback { get; set; }
 
     public bool ValidDrop { get; set; } = false;
+    public Graphic TargetGraphic => _targetGraphic;
+    public Vector3 StartPosDrag => _startPosDrag;
+    public Transform StartParent => _startParent;
+    public Vector3 MouseDeltaOnGrab { get; set; }
 
-    private Vector3 _mouseDeltaOnGrab;
+    private Vector3 _startPosDrag;
+    private Transform _startParent;
     private bool _wasDragged;
 
     public void OnBeginDrag(PointerEventData eventData)
     {
         _wasDragged = true;
         _targetGraphic.raycastTarget = false;
-        _mouseDeltaOnGrab = transform.position - Input.mousePosition;
+        _startPosDrag = transform.position;
+        MouseDeltaOnGrab = _startPosDrag - Input.mousePosition;
         transform.SetAsLastSibling();
+        ValidDrop = false;
         OnBeginDragCallback?.Invoke();
     }
 
     public void OnDrag(PointerEventData eventData)
     {
-        transform.position = Input.mousePosition + _mouseDeltaOnGrab;
+        transform.position = Input.mousePosition + MouseDeltaOnGrab;
     }
 
     public void OnEndDrag(PointerEventData eventData)
@@ -44,6 +51,7 @@ public class DragAndDroppable : MonoBehaviour, IDragHandler, IBeginDragHandler, 
 
     public void OnPointerDown(PointerEventData eventData)
     {
+        _startParent = transform.parent;
         OnPointerDownCallback?.Invoke();
     }
 

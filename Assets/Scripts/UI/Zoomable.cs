@@ -12,6 +12,8 @@ public class Zoomable : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, I
     private bool _wasPointerDownOnIt = false;
     private UIManager _uiManager;
 
+    public bool Zoomed => _zoomed;
+
     public void OnBeginDrag(PointerEventData eventData)
     {
         _wasPointerDownOnIt = false;
