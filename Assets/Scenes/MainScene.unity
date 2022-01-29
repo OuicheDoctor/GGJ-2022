@@ -3863,13 +3863,45 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5188524638986721437, guid: c1667cb8e14ef654a91b9009496b76bf, type: 3}
+      propertyPath: _hidden
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8863896744239184763, guid: c1667cb8e14ef654a91b9009496b76bf, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8863896744239184763, guid: c1667cb8e14ef654a91b9009496b76bf, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 8863896744239184763, guid: c1667cb8e14ef654a91b9009496b76bf, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 483726352}
+    - target: {fileID: 8863896744239184763, guid: c1667cb8e14ef654a91b9009496b76bf, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8863896744239184763, guid: c1667cb8e14ef654a91b9009496b76bf, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: SetAchievementMenuVisible
+      objectReference: {fileID: 0}
+    - target: {fileID: 8863896744239184763, guid: c1667cb8e14ef654a91b9009496b76bf, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: UIManager, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 8863896744239184763, guid: c1667cb8e14ef654a91b9009496b76bf, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 9167073203985489578, guid: c1667cb8e14ef654a91b9009496b76bf, type: 3}
       propertyPath: m_Name
       value: AchievementsMenu
       objectReference: {fileID: 0}
     - target: {fileID: 9167073203985489578, guid: c1667cb8e14ef654a91b9009496b76bf, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c1667cb8e14ef654a91b9009496b76bf, type: 3}
