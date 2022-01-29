@@ -24,6 +24,8 @@ public class RadioChannelSource
 
     public void ChooseNextMusic()
     {
+        if (RemainingClips.Count == 0) ResetRemainingClips();
+
         var selectedClip = RemainingClips.PickOneAndRemove();
         this.AudioSource.clip = selectedClip;
     }

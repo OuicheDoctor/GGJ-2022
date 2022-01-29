@@ -26,6 +26,11 @@ public class RadioManager: MonoBehaviour
         StartAllRadioChannelSources();
     }
 
+    private void Update()
+    {
+        CheckEndOfPlay();
+    }
+
     private void InitRadioChannelSources()
     {
         foreach (var item in _audioSettings.RadioChannels.Select((value, i) => new { value, i }))
@@ -42,6 +47,18 @@ public class RadioManager: MonoBehaviour
         foreach (var radioChannelSource in _radioChannelSources)
         {
             radioChannelSource.AudioSource.Play();
+        }
+    }
+
+    // Check the end of each audio source clip to launch another clip directly
+    private void CheckEndOfPlay()
+    {
+        foreach (var radioChannelSource in _radioChannelSources) {
+            if (!radioChannelSource.AudioSource.isPlaying)
+            {
+                radioChannelSource.ChooseNextMusic();
+                radioChannelSource.AudioSource.Play();
+            }
         }
     }
 
