@@ -11,6 +11,7 @@ public class GameManager : MonoBehaviour
     [Header("Dependencies")]
     [SerializeField] private UIManager _uiManager;
     [SerializeField] private PlayerActionsManager _playerActionsManager;
+    [SerializeField] private AchivementManager _achivementManager;
     [SerializeField] private GameplaySettings _settings;
 
     [Header("Time params")]
@@ -71,10 +72,6 @@ public class GameManager : MonoBehaviour
         _characters = CurrentCharactersAndForms.ConvertAll<ICharacter>(e => e.character);
         _expectedResult = BruteForcePairMatching.Instance.Process(_characters);
         _playerResult = new PartenerCollection(_characters.Count);
-        foreach (var partener in _expectedResult)
-        {
-            Debug.Log(partener);
-        }
     }
 
     public void OnButtonBackToMainMenuClick()
@@ -110,7 +107,6 @@ public class GameManager : MonoBehaviour
                     _playerResult.AddSingle(single);
             }
         }
-
         _uiManager.DisplayResult(_playerResult, _expectedResult);
     }
 
