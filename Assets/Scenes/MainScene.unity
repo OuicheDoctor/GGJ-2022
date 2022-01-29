@@ -935,10 +935,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _uiManager: {fileID: 483726352}
   _playerActionsManager: {fileID: 483726353}
-  _settings: {fileID: 0}
+  _settings: {fileID: 11400000, guid: 308427a872a7a4deb97a24338a6f5aa5, type: 2}
   _secondsPerHour: 60
   _startingHour: 9
-  _endingHour: 19
+  _endingHour: 17
 --- !u!114 &483726352 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 2551857596955237732, guid: c623a0dbef3c4fb4991fdcd38d0e9b59, type: 3}

@@ -1,6 +1,5 @@
 using GGJ.Characters;
 using GGJ.Matchmaking;
-using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
@@ -12,11 +11,12 @@ public class GameManager : MonoBehaviour
     [Header("Dependencies")]
     [SerializeField] private UIManager _uiManager;
     [SerializeField] private PlayerActionsManager _playerActionsManager;
+    [SerializeField] private GameplaySettings _settings;
 
     [Header("Time params")]
-    [SerializeField] private float _secondsPerHour = 60f;
+    [SerializeField] private int _secondsPerHour = 60;
     [SerializeField] private int _startingHour = 9;
-    [SerializeField] private int _endingHour = 19;
+    [SerializeField] private int _endingHour = 17;
 
     private IList<ICharacter> _characters;
     private PartenerCollection _expectedResult;
@@ -27,6 +27,7 @@ public class GameManager : MonoBehaviour
     public int CurrentDay { get; set; }
     public int CurrentHour { get; set; }
     public List<(Character character, GeneratedForm form)> CurrentCharactersAndForms { get; set; }
+    public GameplaySettings Settings => _settings;
 
     public void StartGame()
     {
@@ -46,9 +47,15 @@ public class GameManager : MonoBehaviour
     public void OnButtonNextDayClick()
     {
         enabled = false;
-        CurrentHour = _startingHour;
-        _secondsBuffer = 0;
+        InitiateNewDay();
         Resolve();
+    }
+
+    private void InitiateNewDay()
+    {
+        _secondsBuffer = 0;
+        CurrentHour = _startingHour;
+        CurrentDay += 1;
     }
 
     public void GenerateSolution()
@@ -121,16 +128,20 @@ public class GameManager : MonoBehaviour
     private void Update()
     {
         _secondsBuffer += Time.deltaTime;
-        if (_secondsBuffer > _secondsPerHour)
+        if ((int)_secondsBuffer > _secondsPerHour)
         {
             CurrentHour++;
-            if (CurrentHour > _endingHour)
+            if (Settings.StressLess && CurrentHour > 23)
+            {
+                InitiateNewDay();
+            }
+            else if (!Settings.StressLess && CurrentHour > _endingHour)
             {
                 OnButtonNextDayClick();
             }
-            _uiManager.DisplayHour(CurrentHour);
 
-            _secondsBuffer -= _secondsPerHour;
+            _uiManager.DisplayHour(CurrentHour);
+            _secondsBuffer -= (float)_secondsPerHour;
         }
     }
 }
