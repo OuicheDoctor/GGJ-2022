@@ -23,6 +23,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 50cc6fb2f9f0dcb48bbb9a1d8b512ae5, type: 2}
   - {fileID: 11400000, guid: bcbdaa6e74f640449bc51054529c89aa, type: 2}
   - {fileID: 11400000, guid: 78161e6a53a518c4d90813461ba4390e, type: 2}
+  _hobbiesCountPerCharacter: 3
   _hobbies:
   - {fileID: 11400000, guid: 01ad593ceeea0a74fb550673a247c6b8, type: 2}
   - {fileID: 11400000, guid: 255143d4f3b31e14ba4875de85cd24f2, type: 2}

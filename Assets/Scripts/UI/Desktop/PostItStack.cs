@@ -26,7 +26,8 @@ public class PostItStack : MonoBehaviour
         postIt.Background.color = _postItColor;
         postIt.DndComp.OnPointerDownCallback += () =>
         {
-            postIt.transform.SetParent(_dragContainer);
+            //if (ActivePostIt == postIt)
+            //    postIt.transform.SetParent(_dragContainer);
         };
 
         postIt.DndComp.OnPointerUpCallback += wasDragged =>
@@ -37,6 +38,8 @@ public class PostItStack : MonoBehaviour
 
         postIt.DndComp.OnBeginDragCallback += () =>
         {
+            postIt.transform.SetParent(_dragContainer);
+
             if (postIt.transform.localScale.x > 1f)
             {
                 postIt.DndComp.MouseDeltaOnGrab = Vector3.zero;

@@ -16,7 +16,7 @@ public class UIFormDoc : MonoBehaviour
     [SerializeField] private TextMeshProUGUI _characterRegionText;
     [SerializeField] private TextMeshProUGUI _characterHobbiesText;
     [SerializeField] private RectTransform _questionsContainer;
-    [SerializeField] private DropZone _dropzone;
+    [SerializeField] private DropZone[] _pages;
     [SerializeField] private Zoomable _zoomable;
 
     [Header("Prefabs")]
@@ -24,6 +24,8 @@ public class UIFormDoc : MonoBehaviour
 
     public Character Character { get; set; }
     public GeneratedForm Form { get; set; }
+
+    private int _pageIndex = 0;
 
     public void FillForm(Character character, GeneratedForm form)
     {
@@ -46,18 +48,39 @@ public class UIFormDoc : MonoBehaviour
         }
     }
 
-    private void Start()
+    public void NextPage()
     {
-        _dropzone.OnDropCallback += ProcessDrop;
+        if (_pageIndex < _pages.Length - 1)
+        {
+            _pages[_pageIndex].gameObject.SetActive(false);
+            _pageIndex++;
+            _pages[_pageIndex].gameObject.SetActive(true);
+        }
     }
 
-    private void ProcessDrop(GameObject go)
+    public void PreviousPage()
+    {
+        if (_pageIndex > 0)
+        {
+            _pages[_pageIndex].gameObject.SetActive(false);
+            _pageIndex--;
+            _pages[_pageIndex].gameObject.SetActive(true);
+        }
+    }
+
+    private void Start()
+    {
+        foreach (var page in _pages)
+            page.OnDropCallback += go => ProcessDrop(go, page.transform);
+    }
+
+    private void ProcessDrop(GameObject go, Transform page)
     {
         var postIt = go.GetComponent<PostIt>();
         if (postIt != null)
         {
             postIt.DndComp.ValidDrop = true;
-            postIt.transform.SetParent(transform);
+            postIt.transform.SetParent(page);
             postIt.DndComp.TargetGraphic.raycastTarget = true;
             if (_zoomable.Zoomed)
                 postIt.transform.DOScale(2f, .1f);
