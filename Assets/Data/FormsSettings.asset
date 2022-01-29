@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7904bbfe7e621bc42b15cd1b0d99c7ed, type: 3}
   m_Name: FormsSettings
   m_EditorClassIdentifier: 
-  _questionCountPerAxis: 1
+  _questionCountPerAxis: 3
   _formQuestions:
   - _associatedTrait: 0
     _question: You regularly make new friends.
