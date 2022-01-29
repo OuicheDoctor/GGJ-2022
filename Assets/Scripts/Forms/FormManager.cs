@@ -21,7 +21,7 @@ public class FormManager : MonoBehaviour
             for (var i = 0; i < _settings.QuestionCountPerAxis; i++)
             {
                 // If more than half have the correct answer, then the rest can be random
-                canBeDecoy = i > Mathf.CeilToInt(_settings.QuestionCountPerAxis / 2f);
+                canBeDecoy = i >= Mathf.CeilToInt(_settings.QuestionCountPerAxis / 2f);
                 pickedQuestion = availableQuestions.PickOneAndRemove();
                 currentResponse = new FormResponse();
                 currentResponse.QuestionReference = pickedQuestion;
