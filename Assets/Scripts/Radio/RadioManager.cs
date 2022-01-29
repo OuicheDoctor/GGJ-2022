@@ -60,18 +60,20 @@ public class RadioManager: MonoBehaviour
                 if (radioChannelSource.IsCurrentClipAJingle()) radioChannelSource.RestartPausedClip();
                 else {
                     radioChannelSource.ChooseNextMusic();
+                    radioChannelSource.AudioSource.time = 0;
                     radioChannelSource.AudioSource.Play();
                 }
             }
         }
     }
 
+    // Check if a jingle should be launched
     private void CheckJingles()
     {
         foreach (var radioChannelSource in _radioChannelSources)
         {
             var jingle = radioChannelSource.RadioChannel.Jingles.FirstOrDefault(jingle => jingle.Hour == GameManager.Instance.CurrentHour);
-            if (!jingle.Equals(default(RadioJingle)) && !radioChannelSource.IsJingleAlreadyLaunched(jingle))
+            if (jingle != null && !radioChannelSource.IsJingleAlreadyLaunched(jingle))
             {
                 radioChannelSource.LaunchJingle(jingle);
             }
