@@ -60,6 +60,7 @@ public class UIManager : MonoBehaviour
     public void SetCreditsMenuVisible(bool visible)
     {
         _creditsMenu.SetActive(visible);
+        _mainMenu.SetActive(!visible);
     }
 
     public void DisplayResult(PartenerCollection player, PartenerCollection expected)
