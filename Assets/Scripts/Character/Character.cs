@@ -19,6 +19,7 @@ namespace GGJ.Characters
         public bool TraitTF { get; set; }
         public bool TraitJP { get; set; }
         public IList<HobbyData> Hobbies { get; private set; }
+        public string Region { get; set; }
 
 
         public Character()

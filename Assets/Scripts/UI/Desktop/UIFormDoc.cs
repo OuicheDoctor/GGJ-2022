@@ -12,6 +12,7 @@ public class UIFormDoc : MonoBehaviour
     [SerializeField] private Image _characterImage;
     [SerializeField] private TextMeshProUGUI _characterNameText;
     [SerializeField] private TextMeshProUGUI _characterRaceText;
+    [SerializeField] private TextMeshProUGUI _characterRegionText;
     [SerializeField] private TextMeshProUGUI _characterHobbiesText;
     [SerializeField] private RectTransform _questionsContainer;
 
@@ -28,6 +29,7 @@ public class UIFormDoc : MonoBehaviour
 
         _characterImage.sprite = character.Race.Drawing;
         _characterNameText.text = character.Name;
+        _characterRegionText.text = character.Region;
         _characterRaceText.text = character.Race.Name;
 
         var hobbiesName = (character.Hobbies as List<HobbyData>).ConvertAll(h => h.hobbyName);

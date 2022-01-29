@@ -37,6 +37,7 @@ namespace GGJ.Characters
             {
                 var (traitEI, traitSN, traitTF, traitJP) = GetRandomTraits();
                 var race = GetRandomRace();
+                var region = GetRandomRegion();
                 var name = GetRandomNameFromRace(race, ref availableRaceNames, usedNames);
                 usedNames.Add(name);
 
@@ -46,6 +47,7 @@ namespace GGJ.Characters
                 {
                     Race = race,
                     Name = name,
+                    Region = region,
                     TraitEI = traitEI,
                     TraitJP = traitJP,
                     TraitSN = traitSN,
@@ -99,6 +101,13 @@ namespace GGJ.Characters
 
             var randomRaceIndex = random.Next(0, races.Count);
             return races[randomRaceIndex];
+        }
+
+        private string GetRandomRegion()
+        {
+            var regions = _gameplaySettings.Regions;
+            var randomRegionIndex = random.Next(0, regions.Count);
+            return regions[randomRegionIndex];
         }
 
         // Get random name from available names of the provided race.
