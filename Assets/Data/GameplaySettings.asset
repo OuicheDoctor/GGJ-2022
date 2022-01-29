@@ -26,7 +26,12 @@ MonoBehaviour:
   _hobbies:
   - {fileID: 11400000, guid: 01ad593ceeea0a74fb550673a247c6b8, type: 2}
   - {fileID: 11400000, guid: 255143d4f3b31e14ba4875de85cd24f2, type: 2}
+  - {fileID: 11400000, guid: a5124e6f821a9bb46bf31f462db9d882, type: 2}
+  - {fileID: 11400000, guid: 749a5cac13138ca4bb77f96b51a0e33b, type: 2}
+  - {fileID: 11400000, guid: bf3a4cf8e71b1814d8420fe61f788d7d, type: 2}
   - {fileID: 11400000, guid: 29ee046bad7baae4691e92cca386365f, type: 2}
+  - {fileID: 11400000, guid: bf07eec2e5c4ff14cb324ad11b1bb876, type: 2}
+  - {fileID: 11400000, guid: bf526f4fccdcaf243b7b42c1b30eec3c, type: 2}
   - {fileID: 11400000, guid: ed3d1cbcff9d3a64aa056a48cd04f744, type: 2}
   - {fileID: 11400000, guid: 0d43974ab59311d40b30b63593b741fa, type: 2}
   - {fileID: 11400000, guid: 6d60d7cea93e0fa4cbfc61f63e103e1d, type: 2}
@@ -42,6 +47,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 0332183ca935eaf439758051cc923cfa, type: 2}
   - {fileID: 11400000, guid: e9e5f7768f1ffc147ba97aff10f9730d, type: 2}
   - {fileID: 11400000, guid: ea2403e41fd9eb74194aa59e9e338af5, type: 2}
+  - {fileID: 11400000, guid: 458243649aa0ee14f84f727f1350fd9e, type: 2}
   - {fileID: 11400000, guid: aedec62a63844904983711ed08e8dfa1, type: 2}
   - {fileID: 11400000, guid: e7ebf51519faf2348a70f3db848b3fad, type: 2}
   - {fileID: 11400000, guid: 0ae78c5566554eb46af411b187631af6, type: 2}
@@ -49,9 +55,18 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 93c6b31e9a8b4594fb62ce66827de6e3, type: 2}
   - {fileID: 11400000, guid: 0d659e9fbbe987a419385c71e6abade6, type: 2}
   - {fileID: 11400000, guid: 5986e05ded5088140b436146d9bfc322, type: 2}
+  - {fileID: 11400000, guid: ce8e55f3b9b90af45bc08edd01b4b75f, type: 2}
+  - {fileID: 11400000, guid: 672ebb14feba3964f8fc20c4f1a24093, type: 2}
+  - {fileID: 11400000, guid: 2d37ee6f56ba8429ead7b4016938846d, type: 2}
   - {fileID: 11400000, guid: 9dbc2232cee9b4d4fa7123d06c5bf449, type: 2}
   - {fileID: 11400000, guid: 40473fe996fb68641a414e5954a29c96, type: 2}
   _regions:
-  - France
+  - Askule
+  - Jepral
+  - Duclington
+  - Odrea
+  - Drioland
+  - Scuyg Aggra
+  - Osmium
   _maxByRace: 2
   _stressLess: 0
