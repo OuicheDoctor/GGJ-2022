@@ -7,9 +7,11 @@ public class RadioChannelSource
     public RadioChannel RadioChannel { get; }
     public AudioSource AudioSource { get; }
     public List<AudioClip> RemainingClips { get; set;  }
+    public bool HasAlreadyLaunchedFlashInfo { get => _hasAlreadyLaunchedFlashInfo; }
 
     private (AudioClip clip, float time) _pausedClip = default;
     private List<RadioJingle> _alreadyLaunchedJingles = new List<RadioJingle>();
+    private bool _hasAlreadyLaunchedFlashInfo = false;
 
     public RadioChannelSource(RadioChannel radioChannel, AudioSource audioSource)
     {
@@ -52,6 +54,7 @@ public class RadioChannelSource
     }
 
     public void LaunchFlashInfo(WorldEventData worldEvent) {
+        _hasAlreadyLaunchedFlashInfo = true;
         AudioSource.clip = worldEvent.Announcement;
         AudioSource.Play();
     }

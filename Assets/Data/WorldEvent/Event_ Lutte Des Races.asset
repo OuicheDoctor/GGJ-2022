@@ -12,8 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62bf31c3c1623b648aea64430ade21c9, type: 3}
   m_Name: Event_ Lutte Des Races
   m_EditorClassIdentifier: 
-  _type: 0
   _probability: 100
   _headline: 
   _picture: {fileID: 0}
-  _announcement: {fileID: 0}
+  _announcement: {fileID: 8300000, guid: 7c110d9393f7f4e459efd01084902e3f, type: 3}

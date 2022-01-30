@@ -101,8 +101,11 @@ public class RadioManager: MonoBehaviour
                     // End of a flash info, restart paused clip
                     radioChannelSource.RestartPausedClip();
                 } else if (radioChannelSource.IsCurrentClipAJingle()) {
-                    // End of a jingle, launch flash info
-                    radioChannelSource.LaunchFlashInfo(GameManager.Instance.CurrentEvent);
+                    // End of a jingle, launch flash info or restart music
+                    if (!radioChannelSource.HasAlreadyLaunchedFlashInfo)
+                        radioChannelSource.LaunchFlashInfo(GameManager.Instance.CurrentEvent);
+                    else radioChannelSource.RestartPausedClip();
+
                 } else {
                     // End of a music, launch next music
                     radioChannelSource.ChooseNextMusic();
