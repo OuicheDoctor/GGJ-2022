@@ -35,9 +35,6 @@ public class LovePolaroid : MonoBehaviour
 
     void Start()
     {
-        SetStatus(LoveStatus.All);
-        SetVisible(true);
-        SetUnlock(false);
     }
 
     private void SetStatus(LoveStatus status)

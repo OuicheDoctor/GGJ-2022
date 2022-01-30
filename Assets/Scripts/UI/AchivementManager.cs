@@ -7,7 +7,7 @@ using UnityEngine;
 [Serializable]
 public class LovePolaroidData
 {
-    [SerializeField] private string _date;
+    [SerializeField] private int _timestamp;
     [SerializeField] private Sprite _couple;
     [SerializeField] private string _nameA;
     [SerializeField] private string _nameB;
@@ -15,25 +15,37 @@ public class LovePolaroidData
 
     public LovePolaroidData(string nameA, string nameB, LoveStatus status)
     {
-        _date = DateTime.Now.ToFileTimeUtc().ToString();
+        _timestamp = (int)DateTime.UtcNow.Subtract(new DateTime(1970, 1, 1)).TotalSeconds;
         _nameA = nameA;
         _nameB = nameB;
         _status = status;
         _couple = null;
     }
 
-    public string Date => _date;
+    public DateTime At
+    {
+        get
+        {
+            return DateTimeOffset.FromUnixTimeSeconds(_timestamp).DateTime;
+        }
+    }
     public Sprite Couple => _couple;
     public string NameA => _nameA;
     public string NameB => _nameB;
 
     public LoveStatus Status => _status;
+
+    public new virtual string ToString()
+    {
+        return $"{NameA} & {NameB} at {At.ToShortDateString()} {At.ToLongTimeString()}";
+    }
+
 }
 
 public class LovePolaroidCollection
 {
     private int _size;
-    private List<LovePolaroidData> _polaroids;
+    [SerializeField] private List<LovePolaroidData> _polaroids;
     private int _offset;
     private LoveStatus _filter;
 
@@ -76,17 +88,16 @@ public class LovePolaroidCollection
 
     public int Size => _size;
 
-    public LovePolaroidCollection(List<LovePolaroidData> data)
+    public LovePolaroidCollection()
     {
         _size = 18;
-        _polaroids = data;
-        _offset = 0;
-        _filter = LoveStatus.All;
+        Clear();
     }
 
     public void Clear()
     {
-        _polaroids.Clear();
+        _polaroids = new List<LovePolaroidData>();
+        _filter = LoveStatus.All;
         _offset = 0;
     }
 
@@ -124,9 +135,9 @@ public class LovePolaroidCollection
         {
             if (_filter == LoveStatus.All)
             {
-                return _polaroids;
+                return _polaroids.ToList();
             }
-            return _polaroids.GroupBy(e => e.Status).FirstOrDefault(e=> e.Key == _filter).ToList();
+            return _polaroids.GroupBy(e => e.Status).FirstOrDefault(e => e.Key == _filter).ToList();
         }
     }
 
@@ -155,6 +166,7 @@ public class AchivementManager : MonoBehaviour
 
     public static AchivementManager Instance { get; private set; }
     private LovePolaroidCollection _collection;
+    const string PLAYER_PREF_NAME = "achievements";
 
     [SerializeField] private GameplaySettings _settings;
 
@@ -165,8 +177,9 @@ public class AchivementManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        _collection = new LovePolaroidCollection(_settings.LovePolaroids);
-        Refresh(reset: true);
+        _collection = new LovePolaroidCollection();
+        Load();
+        Refresh(true);
     }
 
     public void Refresh(bool reset = false)
@@ -185,6 +198,27 @@ public class AchivementManager : MonoBehaviour
             _collection.contains(LoveStatus.Skull) || _collection.Filter == LoveStatus.Skull
         );
         UpdatePolaroids();
+    }
+
+    public void Load()
+    {
+        var json = PlayerPrefs.GetString(PLAYER_PREF_NAME);
+        if (json != "")
+        {
+            var data = JsonUtility.FromJson<LovePolaroidCollection>(json);
+            _collection = data;
+        }
+        else
+        {
+            _collection = new LovePolaroidCollection();
+        }
+    }
+
+    public void Save()
+    {
+        var json = JsonUtility.ToJson(_collection);
+        PlayerPrefs.SetString(PLAYER_PREF_NAME, json);
+        PlayerPrefs.Save();
     }
 
 
@@ -213,6 +247,7 @@ public class AchivementManager : MonoBehaviour
     public void OnButtonMegaHeartFilterClick()
     {
         ToggleFilter(LoveStatus.MegaHeart);
+        UIManager.Instance.ResetFilterButtons(false, true, true, true);
         Refresh();
     }
 
@@ -220,18 +255,21 @@ public class AchivementManager : MonoBehaviour
     public void OnButtonHeartFilterClick()
     {
         ToggleFilter(LoveStatus.Heart);
+        UIManager.Instance.ResetFilterButtons(true, false, true, true);
         Refresh();
     }
 
     public void OnButtonBrokenHeartFilterClick()
     {
         ToggleFilter(LoveStatus.HeartBrock);
+        UIManager.Instance.ResetFilterButtons(true, true, false, true);
         Refresh();
     }
 
     public void OnButtonSkullFilterClick()
     {
         ToggleFilter(LoveStatus.Skull);
+        UIManager.Instance.ResetFilterButtons(true, true, true, false);
         Refresh();
     }
 
@@ -252,9 +290,10 @@ public class AchivementManager : MonoBehaviour
     {
         var polaroid = UIManager.Instance.LovePolaroids[index];
         polaroid.Unlock = true;
+        polaroid.Visible = true;
         UIManager.Instance.LovePolaroids[index].gameObject.SetActive(true);
         polaroid.CurrentStatus = data.Status;
-        polaroid.Label = $"{data.NameA} & {data.NameB}\n{data.Date}";
+        polaroid.Label = $"{data.NameA} & {data.NameB}\n{data.At.ToShortDateString()}";
     }
 
     private void DeactivatePolaroid(int index)
