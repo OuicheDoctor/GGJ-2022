@@ -1,11 +1,13 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System;
 
-public class AudioClipInfo : ScriptableObject
+[Serializable]
+public class AudioClipInfo
 {
     public string Name => _name;
     public AudioClip AudioFile => _audioFile;
 
-    [SerializeReference] string _name;
-    [SerializeReference] AudioClip _audioFile;
+    [SerializeField] string _name;
+    [SerializeField] AudioClip _audioFile;
 }

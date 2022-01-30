@@ -16,3 +16,23 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 956d0cee11a2f4628bfdaea2a3570918, type: 2}
   - {fileID: 11400000, guid: 956d0cee11a2f4628bfdaea2a3570918, type: 2}
   - {fileID: 11400000, guid: 956d0cee11a2f4628bfdaea2a3570918, type: 2}
+  _backgroundMusics:
+  - _name: Main Menu
+    _audioFile: {fileID: 8300000, guid: 8bd254088f9b649adbe6d874586359d9, type: 3}
+  - _name: End Game Win
+    _audioFile: {fileID: 8300000, guid: 8bd254088f9b649adbe6d874586359d9, type: 3}
+  - _name: End Game Loose
+    _audioFile: {fileID: 8300000, guid: 8bd254088f9b649adbe6d874586359d9, type: 3}
+  _soundEffects:
+  - _name: Post-It
+    _audioFile: {fileID: 8300000, guid: 7c110d9393f7f4e459efd01084902e3f, type: 3}
+  - _name: Added File
+    _audioFile: {fileID: 8300000, guid: 7c110d9393f7f4e459efd01084902e3f, type: 3}
+  - _name: Removed File
+    _audioFile: {fileID: 8300000, guid: 7c110d9393f7f4e459efd01084902e3f, type: 3}
+  - _name: New Perfect Pair
+    _audioFile: {fileID: 8300000, guid: 7c110d9393f7f4e459efd01084902e3f, type: 3}
+  - _name: Generic Object Button
+    _audioFile: {fileID: 8300000, guid: 7c110d9393f7f4e459efd01084902e3f, type: 3}
+  - _name: Paper Interaction
+    _audioFile: {fileID: 8300000, guid: 7c110d9393f7f4e459efd01084902e3f, type: 3}

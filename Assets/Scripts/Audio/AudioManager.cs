@@ -11,14 +11,14 @@ public class AudioManager : MonoBehaviour
 
     public void PlayBGM(string name)
     {
-        var audioClipInfo = _audioSettings.BackgroundMusics.Find(aci => aci.name == name);
+        var audioClipInfo = _audioSettings.BackgroundMusics.Find(aci => aci.Name == name);
         _bgmAudioSource.clip = audioClipInfo.AudioFile;
         _bgmAudioSource.Play();
     }
 
     public void PlaySFX(string name)
     {
-        var audioClipInfo = _audioSettings.SoundEffects.Find(aci => aci.name == name);
+        var audioClipInfo = _audioSettings.SoundEffects.Find(aci => aci.Name == name);
         AudioSource.PlayClipAtPoint(audioClipInfo.AudioFile, new Vector3(0, 0, 0));
     }
 

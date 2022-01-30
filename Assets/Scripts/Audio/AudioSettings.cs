@@ -10,6 +10,6 @@ public class AudioSettings: ScriptableObject
     public List<AudioClipInfo> SoundEffects => _soundEffects;
 
     [SerializeReference] private List<RadioChannel> _radioChannels; 
-    [SerializeReference] private List<AudioClipInfo> _backgroundMusics;
-    [SerializeReference] private List<AudioClipInfo> _soundEffects;
+    [SerializeField] private List<AudioClipInfo> _backgroundMusics;
+    [SerializeField] private List<AudioClipInfo> _soundEffects;
 }
