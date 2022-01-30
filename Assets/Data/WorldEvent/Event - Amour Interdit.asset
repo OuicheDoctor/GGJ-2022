@@ -14,5 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _probability: 5
   _headline: Love is now banned from the realms. NO LOVE ALLOWED!
+  _radioFlashInfoSubtitle: 'It''s with a heavy heart that I must annonce today the
+    newly-voted ban on all new love relationships. Lovers will be hunted as criminals
+    by Interregional forces, so stay safe dear auditors: stay alone.'
   _picture: {fileID: 0}
-  _announcement: {fileID: 0}
+  _announcement: {fileID: 8300000, guid: c52b91bfd7b074ebeb6d72126c7c2093, type: 3}

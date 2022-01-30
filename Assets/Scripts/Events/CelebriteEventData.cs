@@ -11,6 +11,8 @@ public class CelebriteEventData : WorldEventData
 
     public override string Headline => string.Format(base.Headline, Celebrity.Name);
 
+    public override string RadioFlashInfoSubtitle => string.Format(base.RadioFlashInfoSubtitle, Celebrity.Name, Celebrity.Race.Name);
+
     public override WorldEventType Type => WorldEventType.Celebrite;
 
     public override void FixGeneration(List<Character> characters)

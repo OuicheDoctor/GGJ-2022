@@ -14,5 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _probability: 15
   _headline: 'BREAKING NEWS: Some riots between {0} & {1} broke out!'
+  _radioFlashInfoSubtitle: We have just received alarming news. Massive riots between
+    {0} & {1} have broken out in {2} and are spreading to all countries. The government
+    is looking for solutions to stop this violence.
   _picture: {fileID: 0}
-  _announcement: {fileID: 0}
+  _announcement: {fileID: 8300000, guid: c52b91bfd7b074ebeb6d72126c7c2093, type: 3}

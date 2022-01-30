@@ -14,5 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _probability: 15
   _headline: Because of big city weddings, the rural {0} is losing its population.
+  _radioFlashInfoSubtitle: 'Young folks don''t want to take on family farms anymore:
+    the big city way of life is luring all youngsters out of {0} with its nightlife
+    and its gorgeous weddings. {0} governor is looking for solutions.'
   _picture: {fileID: 0}
-  _announcement: {fileID: 0}
+  _announcement: {fileID: 8300000, guid: c52b91bfd7b074ebeb6d72126c7c2093, type: 3}

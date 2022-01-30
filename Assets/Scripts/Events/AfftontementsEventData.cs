@@ -12,6 +12,8 @@ public class AffrontementsEventData : WorldEventData
 
     public override string Headline => string.Format(base.Headline, ConflictedRegions[0], ConflictedRegions[1]);
 
+    public override string RadioFlashInfoSubtitle => string.Format(base.RadioFlashInfoSubtitle, ConflictedRegions[0], ConflictedRegions[1]);
+
     public override WorldEventType Type => WorldEventType.Affrontements;
 
     public override void FixGeneration(List<Character> characters)

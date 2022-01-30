@@ -14,6 +14,8 @@ public class LutteDesRacesEventData : WorldEventData
 
     public override string Headline => string.Format(base.Headline, ConflictedRaces[0], ConflictedRaces[1]);
 
+    public override string RadioFlashInfoSubtitle => string.Format(base.RadioFlashInfoSubtitle, ConflictedRaces[0], ConflictedRaces[1], "a region");
+
     public override void FixGeneration(List<Character> characters)
     {
         var conflictedRaces = characters.Select(c => (c.Race, Count: characters.Count(cB => cB.Race == c.Race))).OrderByDescending(r => r.Count).Distinct().Take(2);
