@@ -14,5 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _probability: 10
   _headline: 'The famous {0} is looking for their soul monster! '
+  _radioFlashInfoSubtitle: '{0} wants to wave loneliness goodbye by applying to a
+    matchmaker''s program. They''ve been labelled sexiest {1} of the month, try your
+    chance and head out to the Monstermonial Agency today!'
   _picture: {fileID: 0}
   _announcement: {fileID: 8300000, guid: c52b91bfd7b074ebeb6d72126c7c2093, type: 3}

@@ -8,6 +8,7 @@ public abstract class WorldEventData : ScriptableObject
 {
     [SerializeField] protected float _probability;
     [SerializeField] protected string _headline;
+    [SerializeField] protected string _radioFlashInfoSubtitle;
     [SerializeField] protected Sprite _picture;
     [SerializeField] protected AudioClip _announcement;
 

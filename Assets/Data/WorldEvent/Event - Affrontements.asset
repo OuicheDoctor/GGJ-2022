@@ -14,5 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::AffrontementsEventData
   _probability: 15
   _headline: Major tensions between {0} & {1}.
+  _radioFlashInfoSubtitle: Significant tensions appeared between {0} & {1}. The two
+    regions, which are historical enemies, are talking about invading each other.
+    Should we prepare for war?
   _picture: {fileID: 0}
-  _announcement: {fileID: 0}
+  _announcement: {fileID: 8300000, guid: c52b91bfd7b074ebeb6d72126c7c2093, type: 3}

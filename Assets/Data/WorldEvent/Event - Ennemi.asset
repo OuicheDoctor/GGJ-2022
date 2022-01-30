@@ -14,5 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _probability: 5
   _headline: '{0} is now the most hate person of the country!'
+  _radioFlashInfoSubtitle: 'BREAKING NEWS: On-the run corrupted politician {0} has
+    been sighted looking for love in a local dating agency. They''re wanted dead
+    or alive, don''t miss your chance to take them down!'
   _picture: {fileID: 0}
   _announcement: {fileID: 8300000, guid: c52b91bfd7b074ebeb6d72126c7c2093, type: 3}
