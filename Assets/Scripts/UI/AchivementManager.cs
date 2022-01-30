@@ -8,16 +8,20 @@ using UnityEngine;
 public class LovePolaroidData
 {
     [SerializeField] private int _timestamp;
-    [SerializeField] private Sprite _couple;
+    [NonSerialized] private Sprite _couple;
+    [SerializeField] private Sprite _char1;
+    [SerializeField] private Sprite _char2;
     [SerializeField] private string _nameA;
     [SerializeField] private string _nameB;
     [SerializeField] private LoveStatus _status;
 
-    public LovePolaroidData(string nameA, string nameB, LoveStatus status)
+    public LovePolaroidData(string nameA, Sprite imageA, string nameB, Sprite imageB, LoveStatus status)
     {
         _timestamp = (int)DateTime.UtcNow.Subtract(new DateTime(1970, 1, 1)).TotalSeconds;
         _nameA = nameA;
+        _char1 = imageA;
         _nameB = nameB;
+        _char2 = imageB;
         _status = status;
         _couple = null;
     }
@@ -31,7 +35,9 @@ public class LovePolaroidData
     }
     public Sprite Couple => _couple;
     public string NameA => _nameA;
+    public Sprite SpriteA => _char1;
     public string NameB => _nameB;
+    public Sprite SpriteB => _char2;
 
     public LoveStatus Status => _status;
 
@@ -294,6 +300,8 @@ public class AchivementManager : MonoBehaviour
         UIManager.Instance.LovePolaroids[index].gameObject.SetActive(true);
         polaroid.CurrentStatus = data.Status;
         polaroid.Label = $"{data.NameA} & {data.NameB}\n{data.At.ToShortDateString()}";
+        polaroid.ImageA = data.SpriteA;
+        polaroid.ImageB = data.SpriteB;
     }
 
     private void DeactivatePolaroid(int index)
@@ -316,3 +324,4 @@ public class AchivementManager : MonoBehaviour
         Instance = this;
     }
 }
+

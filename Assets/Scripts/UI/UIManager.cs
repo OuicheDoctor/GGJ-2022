@@ -90,7 +90,13 @@ public class UIManager : MonoBehaviour
             _playerRows[i].Setup(p.Character1, p.Character2, currentRange);
             i++;
 
-            var polaroidData = new LovePolaroidData(nameA: p.Character1.Name, nameB: p.Character2.Name, status: currentRange.Status);
+            var polaroidData = new LovePolaroidData(
+                nameA: p.Character1.Name,
+                imageA: p.Character1.Drawing,
+                nameB: p.Character2.Name,
+                imageB: p.Character2.Drawing,
+                status: currentRange.Status
+                );
             AchivementManager.Instance.Collection.Add(polaroidData);
         }
 

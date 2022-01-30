@@ -19,7 +19,8 @@ public class LovePolaroid : MonoBehaviour
     [SerializeField] private LoveIconSettings _settings;
     [SerializeField] private LoveStatus _currentStatus;
     [SerializeReference] private Image _icon;
-    [SerializeReference] private Image _couple;
+    [SerializeReference] private Image _imageA;
+    [SerializeReference] private Image _imageB;
     [SerializeReference] private Image _hiddenOverlay;
     [SerializeReference] private TextMeshProUGUI _label;
     [SerializeField] private bool _unlock;
@@ -30,8 +31,9 @@ public class LovePolaroid : MonoBehaviour
     public bool Unlock { get { return _unlock; } set { SetUnlock(value); } }
     public bool Visible { get { return _visible; } set { SetVisible(value); } }
     public Image HiddenOverlay => _hiddenOverlay;
-    public Image Couple { get { return _couple; } set { _couple = value; } }
     public string Label { get { return _label.text; } set { _label.text = value; } }
+    public Sprite ImageA { get { return _imageA.sprite; } set { _imageA.sprite = value; } }
+    public Sprite ImageB { get { return _imageB.sprite; } set { _imageB.sprite = value; } }
 
     void Start()
     {
