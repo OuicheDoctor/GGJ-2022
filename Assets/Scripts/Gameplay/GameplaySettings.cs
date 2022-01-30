@@ -15,10 +15,11 @@ public class GameplaySettings : ScriptableObject
     public List<string> Regions => _regions;
     public bool StressLess => _stressLess;
     public List<WorldEventData> Events => _events;
+    public List<WorldEventData> NonChillEvents => _nonChillEvents;
 
     public List<LovePolaroidData> LovePolaroids => _lovePolaroids;
 
-    #endregion
+    #endregion Exposed API
 
     #region Inspector Fields
 
@@ -30,6 +31,7 @@ public class GameplaySettings : ScriptableObject
     [SerializeField] int _maxByRace;
     [SerializeField] bool _stressLess;
     [SerializeField] List<WorldEventData> _events;
+    [SerializeField] List<WorldEventData> _nonChillEvents;
 
     #endregion Inspector Fields
 }

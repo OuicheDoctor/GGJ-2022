@@ -136,9 +136,10 @@ public class GameManager : MonoBehaviour
 
     private WorldEventData PickEvent()
     {
-        var availableEvents = new List<WorldEventData>(_settings.Events);
+        var availableEvents = _settings.Events.Concat(_settings.NonChillEvents).ToList();
+        int maxProba = Mathf.CeilToInt(availableEvents.Sum(e => e.Probability));
         availableEvents.Shuffle();
-        int rand = Random.Range(0, 100);
+        int rand = Random.Range(0, maxProba);
         float current = 0;
         foreach (var ev in availableEvents)
         {

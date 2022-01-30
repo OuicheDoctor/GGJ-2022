@@ -41,12 +41,12 @@ namespace GGJ.Matchmaking
                             continue;
                         }
 
-                        if (parteners.IsPartener(characterA) && parteners.GetActualScore(characterA).ClassificationName < item.Value.ClassificationName)
+                        if (parteners.IsPartener(characterA) && parteners.GetActualScore(characterA).Classification < item.Value.Classification)
                         {
                             parteners.RemoveByCharacter(characterA);
                             parteners.Add(characterA, item.Key, item.Value);
                         }
-                        else if (parteners.IsPartener(item.Key) && parteners.GetActualScore(item.Key).ClassificationName < item.Value.ClassificationName)
+                        else if (parteners.IsPartener(item.Key) && parteners.GetActualScore(item.Key).Classification < item.Value.Classification)
                         {
                             parteners.RemoveByCharacter(item.Key);
                             parteners.Add(characterA, item.Key, item.Value);

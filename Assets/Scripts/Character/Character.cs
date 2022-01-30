@@ -35,15 +35,47 @@ namespace GGJ.Characters
             Name = newRace.Names.Where(n => !usedNames.Contains(n)).PickOne();
         }
 
-        public void ForgeMatchingFor(Character mate, Rating classification)
+        public void ChangeRegion(string newRegion)
         {
-            switch (classification.ClassificationName)
+            Region = newRegion;
+        }
+
+        public void ForgeMatchingFor(Character mate, Classification classification)
+        {
+            switch (classification)
             {
                 case Classification.Perfect:
                     {
                         MatchTraits(mate, 3);
                         // Special case for hobby "Nothing"
                         MatchHobbies(mate, Mathf.Min(mate.Hobbies.Count, Random.Range(1, 3)));
+                        break;
+                    }
+                case Classification.Kill:
+                    {
+                        int nbSharedTrait = new List<int> { 0, 4 }.PickOne();
+                        if (nbSharedTrait == 0)
+                        {
+                            int nbHobby = mate.Hobbies.Any(m => m.name == "Nothing") ? 0 : new List<int> { 0, 3 }.PickOne();
+                            if (nbHobby == 0)
+                            {
+                                // 0 trait, 0 hobby
+                                MatchTraits(mate, 0);
+                                MatchHobbies(mate, 0);
+                            }
+                            else
+                            {
+                                // 0 trait, 3 hobbies
+                                MatchTraits(mate, 0);
+                                MatchHobbies(mate, 3);
+                            }
+                        }
+                        else
+                        {
+                            // 4 traits, 0 hobby
+                            MatchTraits(mate, 4);
+                            MatchHobbies(mate, 0);
+                        }
                         break;
                     }
             }

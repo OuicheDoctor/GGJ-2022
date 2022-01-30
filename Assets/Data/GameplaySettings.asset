@@ -74,5 +74,13 @@ MonoBehaviour:
   _stressLess: 0
   _events:
   - {fileID: 11400000, guid: 49080a1fed4a29e44a260931095d4851, type: 2}
+  - {fileID: 11400000, guid: b345927f6d31dc844aea54d3db814014, type: 2}
+  - {fileID: 11400000, guid: 514fc1f630a8a8e42b3852cb2a619864, type: 2}
+  - {fileID: 11400000, guid: 5d33beea5a9872e43a149b43ee098413, type: 2}
+  - {fileID: 11400000, guid: 0e097e8ae0acc6147affed04c208e1ed, type: 2}
+  - {fileID: 11400000, guid: f949de7b8ecfb004c8ff79431636008e, type: 2}
+  _nonChillEvents:
+  - {fileID: 11400000, guid: 7e8bc301611213f4aaa6bb92af98603f, type: 2}
+  - {fileID: 11400000, guid: efad131d36c84cc4f961dec263e3bcfb, type: 2}
   references:
     version: 1

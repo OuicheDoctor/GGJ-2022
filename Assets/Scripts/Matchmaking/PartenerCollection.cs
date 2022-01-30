@@ -128,7 +128,7 @@ namespace GGJ.Matchmaking
 
             foreach (var pair in tempPairs)
             {
-                if (pair.Value.ClassificationName < Classification.Match)
+                if (pair.Value.Classification < Classification.Match)
                 {
                     _parteners.Remove(pair.Key);
                     AddSingle(pair.Key.Item1);

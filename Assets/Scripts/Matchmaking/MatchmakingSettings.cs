@@ -32,7 +32,17 @@ namespace GGJ.Matchmaking
         public Sprite ResultIcon => _resultIcon;
         public int Scoring => _scoring;
         public LoveStatus Status => _status;
-        public Classification ClassificationName => _classificationName;
+        public Classification Classification => _classificationName;
+    }
+
+    [Serializable]
+    public class Bonus
+    {
+        public int Before5Bonus = 30;
+        public int BigBonus = 80;
+        public int NormalBonus = 40;
+        public int NormalMalus = -40;
+        public int BigMalus = -80;
     }
 
     public enum Classification
@@ -52,6 +62,7 @@ namespace GGJ.Matchmaking
         [SerializeField] private int _nothingHobbyScoring;
         [SerializeField] private List<Rating> _classification;
         [SerializeField] private Rating _singleClassification;
+        [SerializeField] private Bonus _bonus;
 
         public List<Counter> TraitScoring => _traitScoring;
         public List<Counter> HobbyScoring => _hobbyScoring;
@@ -60,7 +71,7 @@ namespace GGJ.Matchmaking
         public List<Rating> Classification => _classification;
         public Rating SingleClassification => _singleClassification;
 
-        public Rating BestClassification => _classification.FirstOrDefault(c => c.ClassificationName == Matchmaking.Classification.Perfect);
+        public Bonus Bonus => _bonus;
 
         public Rating GetMatchingClassification(int value)
         {
