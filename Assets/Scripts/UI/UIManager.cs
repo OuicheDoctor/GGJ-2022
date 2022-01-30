@@ -152,14 +152,24 @@ public class UIManager : MonoBehaviour
         _skullFilterButton.interactable = skullEnabled;
     }
 
-    public void ToogleFilterButtons(bool megaHeartSelected, bool heartSelected, bool borkenHeartSelected, bool skullSelected)
+    public void ResetFilterButtons(bool megaHeartSelected, bool heartSelected, bool borkenHeartSelected, bool skullSelected)
     {
-        /*
-        _megaHeartFilterButton.() = megaHeartEnabled;
-        _heartFilterButton.interactable = heartEnabled;
-        _brokenHeartFilterButton.interactable = borkenHeartEnabled;
-        _skullFilterButton.interactable = skullEnabled;
-        */
+        if (megaHeartSelected)
+        {
+            _megaHeartFilterButton.GetComponent<SelectedButton>().ForceState(false);
+        }
+        if (heartSelected)
+        {
+            _heartFilterButton.GetComponent<SelectedButton>().ForceState(false);
+        }
+        if (borkenHeartSelected)
+        {
+            _brokenHeartFilterButton.GetComponent<SelectedButton>().ForceState(false);
+        }
+        if (skullSelected)
+        {
+            _skullFilterButton.GetComponent<SelectedButton>().ForceState(false);
+        }
     }
 
     public void DisplayHour(int currentHour)
