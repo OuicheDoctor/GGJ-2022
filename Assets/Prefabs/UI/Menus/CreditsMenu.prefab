@@ -60,7 +60,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -215,7 +215,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -700,7 +700,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -889,7 +889,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -1084,7 +1084,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -1279,7 +1279,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -1354,7 +1354,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -1429,7 +1429,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -1452,6 +1452,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 3845180118993596226}
     m_Modifications:
+    - target: {fileID: 968560530969863595, guid: 2d696d2e5e8c8f240b5f66bf824d1b4a, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4549367412024146388, guid: 2d696d2e5e8c8f240b5f66bf824d1b4a, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4549367412024146388, guid: 2d696d2e5e8c8f240b5f66bf824d1b4a, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
+      value: www.instagram.com/shuperness
+      objectReference: {fileID: 0}
     - target: {fileID: 4632282100563778749, guid: 2d696d2e5e8c8f240b5f66bf824d1b4a, type: 3}
       propertyPath: m_text
       value: "In\xE8s \"Ness\" Lotfi"
@@ -1562,6 +1574,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8657397096633497093}
     m_Modifications:
+    - target: {fileID: 4549367412024146388, guid: 2d696d2e5e8c8f240b5f66bf824d1b4a, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
+      value: https://twitter.com/OuicheDoctor
+      objectReference: {fileID: 0}
     - target: {fileID: 4632282100563778749, guid: 2d696d2e5e8c8f240b5f66bf824d1b4a, type: 3}
       propertyPath: m_text
       value: Lucas "OuicheDoctor" Junker
@@ -1672,6 +1688,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 3845180118993596226}
     m_Modifications:
+    - target: {fileID: 4549367412024146388, guid: 2d696d2e5e8c8f240b5f66bf824d1b4a, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
+      value: https://www.artstation.com/pictfactory
+      objectReference: {fileID: 0}
     - target: {fileID: 4632282100563778749, guid: 2d696d2e5e8c8f240b5f66bf824d1b4a, type: 3}
       propertyPath: m_text
       value: Pierre "Pictfactory" Laloge
@@ -1782,6 +1802,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8657397096633497093}
     m_Modifications:
+    - target: {fileID: 4549367412024146388, guid: 2d696d2e5e8c8f240b5f66bf824d1b4a, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
+      value: https://www.linkedin.com/in/yoann-saunier-3b3b4617/
+      objectReference: {fileID: 0}
     - target: {fileID: 4632282100563778749, guid: 2d696d2e5e8c8f240b5f66bf824d1b4a, type: 3}
       propertyPath: m_text
       value: Yoann "St0rmXI" Saunier
@@ -1892,6 +1916,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 3845180118993596226}
     m_Modifications:
+    - target: {fileID: 4549367412024146388, guid: 2d696d2e5e8c8f240b5f66bf824d1b4a, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
+      value: https://twitter.com/Thobinambours
+      objectReference: {fileID: 0}
     - target: {fileID: 4632282100563778749, guid: 2d696d2e5e8c8f240b5f66bf824d1b4a, type: 3}
       propertyPath: m_text
       value: Thob
@@ -2002,6 +2030,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1968188888521567197}
     m_Modifications:
+    - target: {fileID: 4549367412024146388, guid: 2d696d2e5e8c8f240b5f66bf824d1b4a, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
+      value: https://twitter.com/louisgodart
+      objectReference: {fileID: 0}
     - target: {fileID: 4632282100563778749, guid: 2d696d2e5e8c8f240b5f66bf824d1b4a, type: 3}
       propertyPath: m_text
       value: Louis "luisoG" Godart
@@ -2048,6 +2080,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 5991078432865830684}
     m_Modifications:
+    - target: {fileID: 4549367412024146388, guid: 2d696d2e5e8c8f240b5f66bf824d1b4a, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
+      value: https://twitter.com/MandoSoen
+      objectReference: {fileID: 0}
     - target: {fileID: 4632282100563778749, guid: 2d696d2e5e8c8f240b5f66bf824d1b4a, type: 3}
       propertyPath: m_text
       value: Soen
@@ -2158,6 +2194,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 5991078432865830684}
     m_Modifications:
+    - target: {fileID: 4549367412024146388, guid: 2d696d2e5e8c8f240b5f66bf824d1b4a, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
+      value: https://twitter.com/_konala_
+      objectReference: {fileID: 0}
     - target: {fileID: 4632282100563778749, guid: 2d696d2e5e8c8f240b5f66bf824d1b4a, type: 3}
       propertyPath: m_text
       value: "Myl\xE8ne \"Konala\" Lourdel"
@@ -2268,6 +2308,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 3845180118993596226}
     m_Modifications:
+    - target: {fileID: 4549367412024146388, guid: 2d696d2e5e8c8f240b5f66bf824d1b4a, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
+      value: https://www.instagram.com/fafodill/?hl=fr
+      objectReference: {fileID: 0}
     - target: {fileID: 4632282100563778749, guid: 2d696d2e5e8c8f240b5f66bf824d1b4a, type: 3}
       propertyPath: m_text
       value: Fanny "Fafodill" Baudraz
@@ -2378,6 +2422,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 3845180118993596226}
     m_Modifications:
+    - target: {fileID: 4549367412024146388, guid: 2d696d2e5e8c8f240b5f66bf824d1b4a, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
+      value: https://linktr.ee/esokishi
+      objectReference: {fileID: 0}
     - target: {fileID: 4632282100563778749, guid: 2d696d2e5e8c8f240b5f66bf824d1b4a, type: 3}
       propertyPath: m_text
       value: Barbara "Esokishi" Ouvrard
@@ -2488,6 +2536,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8657397096633497093}
     m_Modifications:
+    - target: {fileID: 4549367412024146388, guid: 2d696d2e5e8c8f240b5f66bf824d1b4a, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
+      value: https://www.linkedin.com/in/corentin-dupont-842b99135/
+      objectReference: {fileID: 0}
     - target: {fileID: 4632282100563778749, guid: 2d696d2e5e8c8f240b5f66bf824d1b4a, type: 3}
       propertyPath: m_text
       value: Corentin "Foglol" Dupont
