@@ -30,7 +30,7 @@ namespace GGJ.Matchmaking
                     }
 
                     var scores = GetScores(characterA, characters);
-                    foreach (KeyValuePair<ICharacter, int> item in scores)
+                    foreach (KeyValuePair<ICharacter, Rating> item in scores)
                     {
                         if (parteners.IsLocked(characterA))
                         {
@@ -41,12 +41,12 @@ namespace GGJ.Matchmaking
                             continue;
                         }
 
-                        if (parteners.IsPartener(characterA) && parteners.GetActualScore(characterA) < item.Value)
+                        if (parteners.IsPartener(characterA) && parteners.GetActualScore(characterA).ClassificationName < item.Value.ClassificationName)
                         {
                             parteners.RemoveByCharacter(characterA);
                             parteners.Add(characterA, item.Key, item.Value);
                         }
-                        else if (parteners.IsPartener(item.Key) && parteners.GetActualScore(item.Key) < item.Value)
+                        else if (parteners.IsPartener(item.Key) && parteners.GetActualScore(item.Key).ClassificationName < item.Value.ClassificationName)
                         {
                             parteners.RemoveByCharacter(item.Key);
                             parteners.Add(characterA, item.Key, item.Value);
@@ -68,12 +68,12 @@ namespace GGJ.Matchmaking
             return parteners;
         }
 
-        private IOrderedEnumerable<KeyValuePair<ICharacter, int>> GetScores(ICharacter characterReference, IList<ICharacter> characters)
+        private IOrderedEnumerable<KeyValuePair<ICharacter, Rating>> GetScores(ICharacter characterReference, IList<ICharacter> characters)
         {
-            Dictionary<ICharacter, int> scores = new Dictionary<ICharacter, int>();
+            Dictionary<ICharacter, Rating> scores = new Dictionary<ICharacter, Rating>();
             foreach (ICharacter characterTargeted in characters.Where(e => e != characterReference))
             {
-                int score = MatchmakingManager.Instance.Match(characterReference, characterTargeted);
+                Rating score = MatchmakingManager.Instance.Match(characterReference, characterTargeted);
                 scores.Add(characterTargeted, score);
             }
             return scores.OrderByDescending(e => e.Value);

@@ -82,10 +82,10 @@ public class UIManager : MonoBehaviour
         int bestScore = 0;
         MatchmakingManager matchmakingMgr = MatchmakingManager.Instance;
         int i = 0;
-        Range currentRange;
+        Rating currentRange;
         foreach (var p in player)
         {
-            currentRange = matchmakingMgr.Settings.GetMatchingClassification(p.Score);
+            currentRange = p.Rating;
             playerScore += currentRange.Scoring;
             _playerRows[i].Setup(p.Character1, p.Character2, currentRange);
             i++;
@@ -93,7 +93,6 @@ public class UIManager : MonoBehaviour
             var polaroidData = new LovePolaroidData(nameA: p.Character1.Name, nameB: p.Character2.Name, status: currentRange.Status);
             AchivementManager.Instance.Collection.Add(polaroidData);
         }
-        AchivementManager.Instance.Save();
 
         if (player.Singles.Any())
         {
@@ -108,7 +107,7 @@ public class UIManager : MonoBehaviour
         i = 0;
         foreach (var e in expected)
         {
-            currentRange = matchmakingMgr.Settings.GetMatchingClassification(e.Score);
+            currentRange = e.Rating;
             bestScore += currentRange.Scoring;
             _expectedRows[i].Setup(e.Character1, e.Character2, currentRange);
             i++;
