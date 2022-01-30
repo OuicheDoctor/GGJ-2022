@@ -1,21 +1,26 @@
 using GGJ.Characters;
-using GGJ.Races;
+using GGJ.Matchmaking;
 using System.Collections.Generic;
-using System.Linq;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "Event - Lutte Des Races", menuName = "GGJ/Event/Event - Lutte Des Races")]
+[CreateAssetMenu(fileName = "Event - Natalité", menuName = "GGJ/Event/Event - Natalité")]
 public class NataliteEventData : WorldEventData
 {
     public override WorldEventType Type => WorldEventType.Natalite;
 
     public override void FixGeneration(List<Character> characters)
     {
-        // TODO
+        // Do nothing
     }
 
-    public override int ImpactOnScore(ICharacter mateA, ICharacter mateB, int initialScoring)
+    public override int ImpactOnScore(ICharacter mateA, ICharacter mateB, Rating rating, Bonus bonus)
     {
-        throw new System.NotImplementedException();
+        if (rating.Classification == Classification.Perfect)
+            return rating.Scoring + bonus.BigBonus;
+
+        if (rating.Classification == Classification.Match)
+            return rating.Scoring + bonus.NormalBonus;
+
+        return rating.Scoring;
     }
 }

@@ -3,6 +3,7 @@ using GGJ.Matchmaking;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
@@ -18,6 +19,8 @@ public class GameManager : MonoBehaviour
     [SerializeField] private int _secondsPerHour = 60;
     [SerializeField] private int _startingHour = 9;
     [SerializeField] private int _endingHour = 17;
+
+    [SerializeField] private Text _debugEvent;
 
     private IList<ICharacter> _characters;
     private PartenerCollection _expectedResult;
@@ -41,6 +44,7 @@ public class GameManager : MonoBehaviour
         _uiManager.SetMainMenuVisible(false);
         _secondsBuffer = 0;
         CurrentEvent = PickEvent();
+        _debugEvent.text = CurrentEvent.name;
         CurrentCharactersAndForms = CharactersGenerationManager.Instance.GenerateCharactersWithForm(8, CurrentEvent);
         GenerateSolution();
         GenerateFormsDocs();
@@ -132,9 +136,10 @@ public class GameManager : MonoBehaviour
 
     private WorldEventData PickEvent()
     {
-        var availableEvents = new List<WorldEventData>(_settings.Events);
+        var availableEvents = _settings.Events.Concat(_settings.NonChillEvents).ToList();
+        int maxProba = Mathf.CeilToInt(availableEvents.Sum(e => e.Probability));
         availableEvents.Shuffle();
-        int rand = Random.Range(0, 100);
+        int rand = Random.Range(0, maxProba);
         float current = 0;
         foreach (var ev in availableEvents)
         {

@@ -1,10 +1,9 @@
 using GGJ.Characters;
-using GGJ.Races;
+using GGJ.Matchmaking;
 using System.Collections.Generic;
-using System.Linq;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "Event - Lutte Des Races", menuName = "GGJ/Event/Event - Lutte Des Races")]
+[CreateAssetMenu(fileName = "Event - Amour Interdit", menuName = "GGJ/Event/Event - Amour Interdit")]
 public class AmourInterditEventData : WorldEventData
 {
     public override WorldEventType Type => WorldEventType.AmourInterdit;
@@ -14,8 +13,8 @@ public class AmourInterditEventData : WorldEventData
         // Does nothing
     }
 
-    public override int ImpactOnScore(ICharacter mateA, ICharacter mateB, int initialScoring)
+    public override int ImpactOnScore(ICharacter mateA, ICharacter mateB, Rating rating, Bonus bonus)
     {
-        throw new System.NotImplementedException();
+        return -rating.Scoring;
     }
 }

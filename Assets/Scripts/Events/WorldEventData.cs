@@ -1,4 +1,5 @@
 using GGJ.Characters;
+using GGJ.Matchmaking;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -19,7 +20,7 @@ public abstract class WorldEventData : ScriptableObject
 
     public abstract void FixGeneration(List<Character> characters);
 
-    public abstract int ImpactOnScore(ICharacter mateA, ICharacter mateB, int initialScoring);
+    public abstract int ImpactOnScore(ICharacter mateA, ICharacter mateB, Rating rating, Bonus bonus);
 }
 
 public enum WorldEventType

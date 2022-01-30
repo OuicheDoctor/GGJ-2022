@@ -1,10 +1,10 @@
 using GGJ.Characters;
-using GGJ.Races;
+using GGJ.Matchmaking;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "Event - Lutte Des Races", menuName = "GGJ/Event/Event - Lutte Des Races")]
+[CreateAssetMenu(fileName = "Event - Célébrité", menuName = "GGJ/Event/Event - Célébrité")]
 public class CelebriteEventData : WorldEventData
 {
     public Character Celebrity { get; set; }
@@ -14,17 +14,17 @@ public class CelebriteEventData : WorldEventData
     public override void FixGeneration(List<Character> characters)
     {
         var matchMaker = MatchmakingManager.Instance;
-        var bestClassfication = matchMaker.Settings.BestClassification;
         foreach (var charA in characters)
         {
             foreach (var charB in characters)
             {
-                if (matchMaker.Match(charA, charB).ClassificationName == bestClassfication.ClassificationName)
+                if (matchMaker.Match(charA, charB).Classification != Classification.Perfect)
                 {
-                    // Already a perfect match, set one member of the couple as a celebrity;
-                    Celebrity = Random.Range(0, 2) > 0 ? charA : charB;
-                    return;
+                    continue;
                 }
+                // Already a perfect match, set one member of the couple as a celebrity;
+                Celebrity = Random.Range(0, 2) > 0 ? charA : charB;
+                return;
             }
         }
 
@@ -32,11 +32,19 @@ public class CelebriteEventData : WorldEventData
         Celebrity = characters.PickOne();
         // pick random mate
         var mate = characters.Where(c => c != Celebrity).PickOne();
-        mate.ForgeMatchingFor(Celebrity, bestClassfication);
+        mate.ForgeMatchingFor(Celebrity, Classification.Perfect);
     }
 
-    public override int ImpactOnScore(ICharacter mateA, ICharacter mateB, int initialScoring)
+    public override int ImpactOnScore(ICharacter mateA, ICharacter mateB, Rating rating, Bonus bonus)
     {
-        return initialScoring;
+        if (mateA == Celebrity || mateB == Celebrity)
+        {
+            if (rating.Classification == Classification.Perfect)
+                return rating.Scoring + bonus.BigBonus;
+            else
+                return rating.Scoring + bonus.BigMalus;
+        }
+
+        return rating.Scoring;
     }
 }

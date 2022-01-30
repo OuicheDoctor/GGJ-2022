@@ -12,13 +12,14 @@ public class BestTenPairMatching : Singleton<BestTenPairMatching>
         Dictionary<(ICharacter, ICharacter), Rating> matches = new Dictionary<(ICharacter, ICharacter), Rating>();
         int scoring;
         Rating match;
+        var matchMgr = MatchmakingManager.Instance;
         foreach (var characA in characters)
         {
             foreach (var characB in characters)
             {
-                match = MatchmakingManager.Instance.Match(characA, characB);
+                match = matchMgr.Match(characA, characB);
                 scoring = match.Scoring;
-                scoring = currentEvent.ImpactOnScore(characA, characB, scoring);
+                scoring = currentEvent.ImpactOnScore(characA, characB, match, matchMgr.Settings.Bonus);
                 matches.Add((characA, characB), match);
                 scorings.Add((characA, characB), scoring);
             }

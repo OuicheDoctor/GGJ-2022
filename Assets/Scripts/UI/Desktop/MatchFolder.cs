@@ -35,6 +35,7 @@ public class MatchFolder : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
 
     public void Clear()
     {
+        _background.color = _defaultColor;
         _storedFormDocs.Clear();
     }
 

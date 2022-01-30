@@ -1,4 +1,5 @@
 ﻿using GGJ.Characters;
+using GGJ.Matchmaking;
 using GGJ.Races;
 using System.Collections.Generic;
 using System.Linq;
@@ -25,11 +26,20 @@ public class LutteDesRacesEventData : WorldEventData
         }
     }
 
-    public override int ImpactOnScore(ICharacter mateA, ICharacter mateB, int initialScoring)
+    public override int ImpactOnScore(ICharacter mateA, ICharacter mateB, Rating rating, Bonus bonus)
     {
-        if (mateA.Race == mateB.Race && ConflictedRaces.Contains(mateA.Race))
-            return initialScoring - 80;
+        if (mateA.Race != mateB.Race && ConflictedRaces.Contains(mateA.Race) && ConflictedRaces.Contains(mateB.Race))
+        {
+            switch (rating.Classification)
+            {
+                case Classification.Kill: return rating.Scoring + bonus.BigMalus;
+                case Classification.NoMatch: return rating.Scoring + bonus.NormalMalus;
+                case Classification.Match: return rating.Scoring + bonus.NormalBonus;
+                case Classification.Perfect: return rating.Scoring + bonus.BigBonus;
+                default: return rating.Scoring;
+            }
+        }
         else
-            return initialScoring;
+            return rating.Scoring;
     }
 }
