@@ -49,7 +49,17 @@ public class RadioChannelSource
     public bool IsJingleAlreadyLaunched(RadioJingle jingle)
     {
         return _alreadyLaunchedJingles.Any(j => j == jingle);
-    } 
+    }
+
+    public void LaunchFlashInfo(WorldEventData worldEvent) {
+        AudioSource.clip = worldEvent.Announcement;
+        AudioSource.Play();
+    }
+
+    public bool IsCurrentClipAFlashInfo(WorldEventData worldEvent)
+    {
+        return worldEvent.Announcement == AudioSource.clip;
+    }
 
     public void RestartPausedClip()
     {

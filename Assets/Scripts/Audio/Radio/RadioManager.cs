@@ -97,8 +97,14 @@ public class RadioManager: MonoBehaviour
         foreach (var radioChannelSource in _radioChannelSources) {
             if (!radioChannelSource.AudioSource.isPlaying)
             {
-                if (radioChannelSource.IsCurrentClipAJingle()) radioChannelSource.RestartPausedClip();
-                else {
+                if (radioChannelSource.IsCurrentClipAFlashInfo(GameManager.Instance.CurrentEvent)) {
+                    // End of a flash info, restart paused clip
+                    radioChannelSource.RestartPausedClip();
+                } else if (radioChannelSource.IsCurrentClipAJingle()) {
+                    // End of a jingle, launch flash info
+                    radioChannelSource.LaunchFlashInfo(GameManager.Instance.CurrentEvent);
+                } else {
+                    // End of a music, launch next music
                     radioChannelSource.ChooseNextMusic();
                     radioChannelSource.AudioSource.time = 0;
                     radioChannelSource.AudioSource.Play();
