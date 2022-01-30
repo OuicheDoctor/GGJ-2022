@@ -45,7 +45,7 @@ public class UIFormDoc : MonoBehaviour
         Character = character;
         Form = form;
 
-        _characterImage.sprite = character.Race.Drawing;
+        _characterImage.sprite = character.Drawing;
         _characterNameText.text = character.Name;
         _characterRegionText.text = character.Region;
         _characterRaceText.text = character.Race.Name;
@@ -55,7 +55,7 @@ public class UIFormDoc : MonoBehaviour
 
         foreach (var he in Headers)
         {
-            he.Setup(character.Race.Drawing, character.Name, character.Region, character.Race.Name, _characterHobbiesText.text);
+            he.Setup(character.Drawing, character.Name, character.Region, character.Race.Name, _characterHobbiesText.text);
         }
 
         foreach (FormResponse formResponse in form.Responses)

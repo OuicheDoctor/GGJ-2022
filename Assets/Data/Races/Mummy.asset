@@ -13,5 +13,7 @@ MonoBehaviour:
   m_Name: Mummy
   m_EditorClassIdentifier: 
   _name: Mummy
-  _drawing: {fileID: 21300000, guid: 15cae09ba66dec74db8a3a0e0f69ddd6, type: 3}
+  _drawings:
+  - {fileID: 21300000, guid: 8b6462bcd556d0749bc3a47075089578, type: 3}
+  - {fileID: 21300000, guid: cf77709aec37bac4fb402689fd990cf2, type: 3}
   _names: {fileID: 11400000, guid: e8e787d218091e94c9cc5da9e930cb73, type: 2}

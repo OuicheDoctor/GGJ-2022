@@ -13,5 +13,7 @@ MonoBehaviour:
   m_Name: Faun
   m_EditorClassIdentifier: 
   _name: Faun
-  _drawing: {fileID: 21300000, guid: 9a0e5938ab079304790d80c98a0f8800, type: 3}
+  _drawings:
+  - {fileID: 21300000, guid: da7ebb5bd0f29f14e874830797c395a9, type: 3}
+  - {fileID: 21300000, guid: da7ebb5bd0f29f14e874830797c395a9, type: 3}
   _names: {fileID: 11400000, guid: 822c45bfcc4149242be5af279d7f24df, type: 2}
