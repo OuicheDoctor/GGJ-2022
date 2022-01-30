@@ -22,6 +22,11 @@ public class AudioManager : MonoBehaviour
         AudioSource.PlayClipAtPoint(audioClipInfo.AudioFile, new Vector3(0, 0, 0));
     }
 
+    public void StopCurrentBGM()
+    {
+        _bgmAudioSource.Stop();
+    }
+
     private void Awake()
     {
         if (Instance != null)

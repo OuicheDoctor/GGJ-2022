@@ -44,6 +44,7 @@ public class GameManager : MonoBehaviour
         CurrentCharactersAndForms = CharactersGenerationManager.Instance.GenerateCharactersWithForm(8, CurrentEvent);
         GenerateSolution();
         GenerateFormsDocs();
+        AudioManager.Instance.StopCurrentBGM();
         RadioManager.Instance.InitState();
         enabled = true;
     }
@@ -112,6 +113,11 @@ public class GameManager : MonoBehaviour
             }
         }
 
+        // TODO maybe clean percentage calculation code location
+        var percentage = _playerResult.GetEstimation() * 100 / _expectedResult.GetEstimation();
+        if (percentage >= 60) AudioManager.Instance.PlayBGM("End Game Win");
+        else AudioManager.Instance.PlayBGM("End Game Loose");
+
         _uiManager.DisplayResult(_playerResult, _expectedResult);
     }
 
@@ -148,6 +154,7 @@ public class GameManager : MonoBehaviour
         }
 
         Instance = this;
+        AudioManager.Instance.PlayBGM("Main Menu");
     }
 
     private void Update()
