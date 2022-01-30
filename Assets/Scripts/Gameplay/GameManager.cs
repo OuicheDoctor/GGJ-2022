@@ -81,6 +81,7 @@ public class GameManager : MonoBehaviour
     {
         enabled = false;
         _playerActionsManager.Clear();
+        RadioManager.Instance.ResetState();
         _uiManager.SetMainMenuVisible(true);
     }
 
