@@ -10,26 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d0bb3421c0e9b41188409488c9af9590, type: 3}
-  m_Name: DevNames
+  m_Name: GoblinNames
   m_EditorClassIdentifier: 
   _names:
-  - Test1
-  - Test2
-  - Test3
-  - Test4
-  - Test5
-  - Test6
-  - Test7
-  - Test8
-  - Test9
-  - Test10
-  - Test11
-  - Test12
-  - Test13
-  - Test14
-  - Test15
-  - Test16
-  - Test17
-  - Test18
-  - Test19
-  - Test20
+  - Rakanishu
+  - Grell
+  - Nazim
+  - Varek
+  - Kahless
+  - Aki
