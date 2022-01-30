@@ -106,10 +106,12 @@ MonoBehaviour:
   _background: {fileID: 4607433379745794737}
   _folderIndex: 0
   _dropZone: {fileID: 4607433379745794736}
-  _focusedColor: {r: 0.43614277, g: 0.5909332, b: 0.764151, a: 1}
-  _fullColor: {r: 0.44313726, g: 0.094117634, b: 0.16901144, a: 1}
+  _focusedColor: {r: 0.43614277, g: 0.5909332, b: 0.764151, a: 0}
+  _fullColor: {r: 0.44313726, g: 0.094117634, b: 0.16901144, a: 0}
   _fileCount: {fileID: 3196134397147055949}
   _maxFiles: 2
+  _fileLeft: {fileID: 7494833960014671180}
+  _fileRight: {fileID: 9052626307828889982}
 --- !u!1 &7067256814652265218
 GameObject:
   m_ObjectHideFlags: 0
@@ -127,7 +129,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &663173167904729138
 RectTransform:
   m_ObjectHideFlags: 0

@@ -23,7 +23,7 @@ namespace GGJ.Matchmaking
                 count = habbiesA.Select(h => h.category).Intersect(hobbiesB.Select(h => h.category)).Count();
                 return count == 1 ? _nothingPercents : 0;
             }
-            if (hobbiesB.Count == 1 && habbiesA[0].name == "Nothing")
+            if (hobbiesB.Count == 1 && hobbiesB[0].name == "Nothing")
             {
                 count = habbiesA.Select(h => h.category).Intersect(hobbiesB.Select(h => h.category)).Count();
                 return count == 1 ? _nothingPercents : 0;

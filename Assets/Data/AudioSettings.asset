@@ -1,0 +1,38 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c75d699a285784c3db08f6219faf28ee, type: 3}
+  m_Name: AudioSettings
+  m_EditorClassIdentifier: 
+  _radioChannels:
+  - {fileID: 11400000, guid: 0cf0d42d1c2b54b358f9fe28af10db0c, type: 2}
+  - {fileID: 11400000, guid: bdf0d08db384d4eac907ec4f28f13787, type: 2}
+  - {fileID: 11400000, guid: ce84e96558af84c318b066dd18a275b5, type: 2}
+  _backgroundMusics:
+  - _name: Main Menu
+    _audioFile: {fileID: 8300000, guid: 8bd254088f9b649adbe6d874586359d9, type: 3}
+  - _name: End Game Win
+    _audioFile: {fileID: 8300000, guid: 8bd254088f9b649adbe6d874586359d9, type: 3}
+  - _name: End Game Loose
+    _audioFile: {fileID: 8300000, guid: 8bd254088f9b649adbe6d874586359d9, type: 3}
+  _soundEffects:
+  - _name: Post-It
+    _audioFile: {fileID: 8300000, guid: 7c110d9393f7f4e459efd01084902e3f, type: 3}
+  - _name: Added File
+    _audioFile: {fileID: 8300000, guid: 7c110d9393f7f4e459efd01084902e3f, type: 3}
+  - _name: Removed File
+    _audioFile: {fileID: 8300000, guid: 7c110d9393f7f4e459efd01084902e3f, type: 3}
+  - _name: New Perfect Pair
+    _audioFile: {fileID: 8300000, guid: 7c110d9393f7f4e459efd01084902e3f, type: 3}
+  - _name: Generic Object Button
+    _audioFile: {fileID: 8300000, guid: 7c110d9393f7f4e459efd01084902e3f, type: 3}
+  - _name: Paper Interaction
+    _audioFile: {fileID: 8300000, guid: 7c110d9393f7f4e459efd01084902e3f, type: 3}

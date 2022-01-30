@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 
@@ -24,6 +25,6 @@ public class LoveIconSettings : ScriptableObject
 
     public Sprite GetSprite(LoveStatus status)
     {
-        return _icons.Find(e => e.LoveStatus == status).Icon;
+        return _icons.Where(e => e.LoveStatus == status).FirstOrDefault()?.Icon;
     }
 }

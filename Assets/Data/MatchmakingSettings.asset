@@ -37,26 +37,36 @@ MonoBehaviour:
   - _low: -200
     _hight: 10
     _result: Entretue
-    _resultIcon: {fileID: 0}
+    _resultIcon: {fileID: 21300000, guid: d6dbd5a36286a6348b3e2e9314a847c9, type: 3}
     _scoring: -100
+    _classificationName: 0
+    _status: 4
   - _low: 11
     _hight: 60
     _result: Match Pas
-    _resultIcon: {fileID: 0}
+    _resultIcon: {fileID: 21300000, guid: 2d4a76ee5cc9a7f49b52f22ff62f4a8f, type: 3}
     _scoring: -50
+    _classificationName: 1
+    _status: 3
   - _low: 61
     _hight: 80
     _result: "\xE7a matche"
-    _resultIcon: {fileID: 0}
+    _resultIcon: {fileID: 21300000, guid: 359302e51ad6a3f4aa7a9fa43576cc3a, type: 3}
     _scoring: 50
+    _classificationName: 2
+    _status: 1
   - _low: 81
     _hight: 200
     _result: Couple parfait
-    _resultIcon: {fileID: 0}
+    _resultIcon: {fileID: 21300000, guid: af40426213ce59c40a93f800ab64ae67, type: 3}
     _scoring: 100
+    _classificationName: 3
+    _status: 0
   _singleClassification:
     _low: 0
     _hight: 0
     _result: "C\xE9libataire"
     _resultIcon: {fileID: 0}
     _scoring: 0
+    _classificationName: -1
+    _status: 0

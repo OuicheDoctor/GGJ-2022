@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a2f56132f4b06f94996708adb5a3ed6a, type: 3}
+  m_Name: "Event - Diversit\xE9"
+  m_EditorClassIdentifier: 
+  _probability: 15
+  _headline: Diversity is a gift! We should encourage interracial love.
+  _radioFlashInfoSubtitle: 'Diversity is the new trend! Specialists claim that interracial
+    unions are the future of relationships for its numerous benefits: cultural exchanges,
+    height differences for getting this damn can out of the top shelf, you name it.'
+  _picture: {fileID: 0}
+  _announcement: {fileID: 8300000, guid: c52b91bfd7b074ebeb6d72126c7c2093, type: 3}

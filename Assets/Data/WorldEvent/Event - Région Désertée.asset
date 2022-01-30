@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 28695e31c2e2f894c9fd06f21d8d87f7, type: 3}
+  m_Name: "Event - R\xE9gion D\xE9sert\xE9e"
+  m_EditorClassIdentifier: 
+  _probability: 15
+  _headline: Because of big city weddings, the rural {0} is losing its population.
+  _radioFlashInfoSubtitle: 'Young folks don''t want to take on family farms anymore:
+    the big city way of life is luring all youngsters out of {0} with its nightlife
+    and its gorgeous weddings. {0} governor is looking for solutions.'
+  _picture: {fileID: 0}
+  _announcement: {fileID: 8300000, guid: c52b91bfd7b074ebeb6d72126c7c2093, type: 3}

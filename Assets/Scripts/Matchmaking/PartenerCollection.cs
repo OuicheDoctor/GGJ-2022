@@ -9,24 +9,24 @@ namespace GGJ.Matchmaking
 {
     public struct Partener
     {
-        public Partener(ICharacter character1, ICharacter character2, int score)
+        public Partener(ICharacter character1, ICharacter character2, Rating rating)
         {
             Character1 = character1;
             Character2 = character2;
-            Score = score;
+            Rating = rating;
         }
 
         public ICharacter Character1 { get; private set; }
         public ICharacter Character2 { get; private set; }
 
-        public int Score { get; private set; }
+        public Rating Rating { get; private set; }
 
-        public override string ToString() => $"{Character1.Name} x {Character2.Name} : {Score}";
+        public override string ToString() => $"{Character1.Name} x {Character2.Name} : {Rating}";
     }
 
     public class PartenerCollection : IEnumerable<Partener>
     {
-        private Dictionary<Tuple<ICharacter, ICharacter>, int> _parteners;
+        private Dictionary<Tuple<ICharacter, ICharacter>, Rating> _parteners;
         private Dictionary<ICharacter, int> _counters = new Dictionary<ICharacter, int>();
         private int _limit = 0;
 
@@ -34,7 +34,7 @@ namespace GGJ.Matchmaking
 
         public PartenerCollection(int limit)
         {
-            _parteners = new Dictionary<Tuple<ICharacter, ICharacter>, int>();
+            _parteners = new Dictionary<Tuple<ICharacter, ICharacter>, Rating>();
             _limit = limit;
             Singles = new List<ICharacter>();
         }
@@ -42,6 +42,26 @@ namespace GGJ.Matchmaking
         public bool IsPartener(ICharacter character)
         {
             return _parteners.Keys.ToList().Where(e => e.Item1 == character || e.Item2 == character).Any();
+        }
+
+        public bool IntegrityCheck()
+        {
+            List<ICharacter> chars = new List<ICharacter>();
+            foreach (var pair in _parteners)
+            {
+                if (chars.Contains(pair.Key.Item1) || chars.Contains(pair.Key.Item2))
+                    return false;
+
+                chars.Add(pair.Key.Item1);
+                chars.Add(pair.Key.Item2);
+            }
+
+            return !Singles.Any(s => chars.Contains(s));
+        }
+
+        public int GetEstimation()
+        {
+            return _parteners.Sum(p => p.Value.Scoring);
         }
 
         public bool RemoveByCharacter(ICharacter character)
@@ -61,7 +81,7 @@ namespace GGJ.Matchmaking
             return true;
         }
 
-        public int GetActualScore(ICharacter character)
+        public Rating GetActualScore(ICharacter character)
         {
             Tuple<ICharacter, ICharacter> key = _parteners.Keys.Where(e => e.Item1 == character || e.Item2 == character).First();
             return _parteners[key];
@@ -91,10 +111,10 @@ namespace GGJ.Matchmaking
             }
         }
 
-        public void Add(ICharacter character1, ICharacter character2, int score)
+        public void Add(ICharacter character1, ICharacter character2, Rating rating)
         {
             Tuple<ICharacter, ICharacter> key = new Tuple<ICharacter, ICharacter>(character1, character2);
-            _parteners.Add(key, score);
+            _parteners.Add(key, rating);
         }
 
         public void AddSingle(ICharacter character)
@@ -108,7 +128,7 @@ namespace GGJ.Matchmaking
 
             foreach (var pair in tempPairs)
             {
-                if (pair.Value <= 0)
+                if (pair.Value.Classification < Classification.Match)
                 {
                     _parteners.Remove(pair.Key);
                     AddSingle(pair.Key.Item1);

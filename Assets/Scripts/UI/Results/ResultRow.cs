@@ -17,7 +17,7 @@ public class ResultRow : MonoBehaviour
     [SerializeField] private Image _matchResult;
     [SerializeField] private TextMeshProUGUI _matchResultText;
 
-    public void Setup(ICharacter partner1, ICharacter partner2, Range rangeResult, string resultExplanation = null)
+    public void Setup(ICharacter partner1, ICharacter partner2, Rating rangeResult, string resultExplanation = null)
     {
         _leftCharName.text = partner1.Name;
         _leftPicture.sprite = partner1.Race.Drawing;

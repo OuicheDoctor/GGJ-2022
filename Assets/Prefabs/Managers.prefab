@@ -11,6 +11,13 @@ GameObject:
   - component: {fileID: 2551857596955237733}
   - component: {fileID: 2551857596955237732}
   - component: {fileID: 274343298403659799}
+  - component: {fileID: 7209535390517905887}
+  - component: {fileID: 1198831883715175294}
+  - component: {fileID: 483726349}
+  - component: {fileID: 483726350}
+  - component: {fileID: 483726351}
+  - component: {fileID: 483726353}
+  - component: {fileID: 4755413904817402602}
   m_Layer: 0
   m_Name: Managers
   m_TagString: Untagged
@@ -46,13 +53,65 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _unzoomedContainer: {fileID: 0}
   _zoomedContainer: {fileID: 0}
-  _formsSpawnLocation: {fileID: 0}
+  _formsSpawnLocations:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  _folders:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   _hourDisplay: {fileID: 0}
   _mainMenu: {fileID: 0}
   _optionsMenu: {fileID: 0}
   _achievementsMenu: {fileID: 0}
   _creditsMenu: {fileID: 0}
-  _dragDropPrefab: {fileID: 3052962945502373876, guid: 015aca10a411e28459d266cdc8a83d25, type: 3}
+  _formPrefab: {fileID: 8086049433149130907, guid: 1dd7379b12dc64d45bf7c7dad3fcea3e, type: 3}
+  _resultPanel: {fileID: 0}
+  _leftColumn: {fileID: 0}
+  _rightColumn: {fileID: 0}
+  _playerRows:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  _expectedRows:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  _scoreText: {fileID: 0}
+  _lovePolaroids:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  _previousButton: {fileID: 0}
+  _nextButton: {fileID: 0}
+  _megaHeartFilterButton: {fileID: 0}
+  _heartFilterButton: {fileID: 0}
+  _brokenHeartFilterButton: {fileID: 0}
+  _skullFilterButton: {fileID: 0}
 --- !u!114 &274343298403659799
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -66,3 +125,103 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _gameplaySettings: {fileID: 11400000, guid: 308427a872a7a4deb97a24338a6f5aa5, type: 2}
+--- !u!114 &7209535390517905887
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2551857596955237735}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 16df31b111f1d480a90dff954e6e693c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _audioSettings: {fileID: 11400000, guid: 4e81c4d38bc9d4f4ca4bda09e0a405bb, type: 2}
+  _audioSources: []
+--- !u!114 &1198831883715175294
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2551857596955237735}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e48d6aed10dd4d7bae2b096a6a81b65, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _audioSettings: {fileID: 11400000, guid: 4e81c4d38bc9d4f4ca4bda09e0a405bb, type: 2}
+  _bgmAudioSource: {fileID: 0}
+--- !u!114 &483726349
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2551857596955237735}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5e39d8d05829d58499e94d2edb234bec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _settings: {fileID: 11400000, guid: dda5c9b3ea26cdf45b7ee72efcfa707b, type: 2}
+--- !u!114 &483726350
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2551857596955237735}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 40768faeffa1b6d4cb0a466652c121cd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _settings: {fileID: 11400000, guid: 93e9ba8e9384c3e4fad9b5cb0855e693, type: 2}
+--- !u!114 &483726351
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2551857596955237735}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5a810244ffa79174e91058d7d23ab5ec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _uiManager: {fileID: 2551857596955237732}
+  _playerActionsManager: {fileID: 483726353}
+  _achivementManager: {fileID: 4755413904817402602}
+  _settings: {fileID: 11400000, guid: 308427a872a7a4deb97a24338a6f5aa5, type: 2}
+  _secondsPerHour: 60
+  _startingHour: 9
+  _endingHour: 17
+  _eventDisplay: {fileID: 0}
+--- !u!114 &483726353
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2551857596955237735}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5da8e340461d9bf45ac330cf333e1621, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _folderCount: 4
+--- !u!114 &4755413904817402602
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2551857596955237735}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8fb31b8de18576848ab8a492e9afca7b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _settings: {fileID: 0}

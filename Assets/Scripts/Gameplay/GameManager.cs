@@ -2,7 +2,9 @@ using GGJ.Characters;
 using GGJ.Matchmaking;
 using System.Collections.Generic;
 using System.Linq;
+using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
@@ -11,12 +13,15 @@ public class GameManager : MonoBehaviour
     [Header("Dependencies")]
     [SerializeField] private UIManager _uiManager;
     [SerializeField] private PlayerActionsManager _playerActionsManager;
+    [SerializeField] private AchivementManager _achivementManager;
     [SerializeField] private GameplaySettings _settings;
 
     [Header("Time params")]
     [SerializeField] private int _secondsPerHour = 60;
     [SerializeField] private int _startingHour = 9;
     [SerializeField] private int _endingHour = 17;
+
+    [SerializeField] private TextMeshProUGUI _eventDisplay;
 
     private IList<ICharacter> _characters;
     private PartenerCollection _expectedResult;
@@ -26,6 +31,7 @@ public class GameManager : MonoBehaviour
 
     public int CurrentDay { get; set; }
     public int CurrentHour { get; set; }
+    public WorldEventData CurrentEvent { get; set; }
     public List<(Character character, GeneratedForm form)> CurrentCharactersAndForms { get; set; }
     public GameplaySettings Settings => _settings;
 
@@ -38,10 +44,13 @@ public class GameManager : MonoBehaviour
         SetupStressLevel(!_settings.StressLess);
         _uiManager.SetMainMenuVisible(false);
         _secondsBuffer = 0;
-
-        CurrentCharactersAndForms = CharactersGenerationManager.Instance.GenerateCharactersWithForm(8);
+        CurrentEvent = PickEvent();
+        CurrentCharactersAndForms = CharactersGenerationManager.Instance.GenerateCharactersWithForm(8, CurrentEvent);
         GenerateSolution();
         GenerateFormsDocs();
+        _eventDisplay.text = CurrentEvent.Headline;
+        AudioManager.Instance.StopCurrentBGM();
+        RadioManager.Instance.InitState();
         enabled = true;
     }
 
@@ -55,6 +64,7 @@ public class GameManager : MonoBehaviour
     public void OnButtonNextDayClick()
     {
         enabled = false;
+        RadioManager.Instance.ResetState();
         InitiateNewDay();
         Resolve();
     }
@@ -69,18 +79,16 @@ public class GameManager : MonoBehaviour
     public void GenerateSolution()
     {
         _characters = CurrentCharactersAndForms.ConvertAll<ICharacter>(e => e.character);
-        _expectedResult = BruteForcePairMatching.Instance.Process(_characters);
+        _expectedResult = BestTenPairMatching.Instance.Process(_characters, CurrentEvent);
         _playerResult = new PartenerCollection(_characters.Count);
-        foreach (var partener in _expectedResult)
-        {
-            Debug.Log(partener);
-        }
     }
 
     public void OnButtonBackToMainMenuClick()
     {
         enabled = false;
         _playerActionsManager.Clear();
+        RadioManager.Instance.ResetState();
+        AudioManager.Instance.PlayBGM("Main Menu");
         _uiManager.SetMainMenuVisible(true);
     }
 
@@ -91,7 +99,7 @@ public class GameManager : MonoBehaviour
 
     private void Resolve()
     {
-        int score;
+        Rating rating;
 
         // Treat unmatched as singles
         foreach (var unmatched in _characters.Where(c => !_playerActionsManager.StoredMatches.SelectMany(m => m).Contains(c)))
@@ -101,8 +109,8 @@ public class GameManager : MonoBehaviour
         {
             if (pairing.Count > 1)
             {
-                score = MatchmakingManager.Instance.Match(pairing[0], pairing[1]);
-                _playerResult.Add(pairing[0], pairing[1], score);
+                rating = MatchmakingManager.Instance.Match(pairing[0], pairing[1]);
+                _playerResult.Add(pairing[0], pairing[1], rating);
             }
             else
             {
@@ -110,6 +118,11 @@ public class GameManager : MonoBehaviour
                     _playerResult.AddSingle(single);
             }
         }
+
+        // TODO maybe clean percentage calculation code location
+        var percentage = _playerResult.GetEstimation() * 100 / _expectedResult.GetEstimation();
+        if (percentage >= 60) AudioManager.Instance.PlayBGM("End Game Win");
+        else AudioManager.Instance.PlayBGM("End Game Loose");
 
         _uiManager.DisplayResult(_playerResult, _expectedResult);
     }
@@ -122,6 +135,23 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    private WorldEventData PickEvent()
+    {
+        var availableEvents = _settings.Events.Concat(_settings.NonChillEvents).ToList();
+        int maxProba = Mathf.CeilToInt(availableEvents.Sum(e => e.Probability));
+        availableEvents.Shuffle();
+        int rand = Random.Range(0, maxProba);
+        float current = 0;
+        foreach (var ev in availableEvents)
+        {
+            current += ev.Probability;
+            if (rand < current)
+                return ev;
+        }
+
+        return availableEvents.Last();
+    }
+
     private void Awake()
     {
         if (Instance != null)
@@ -131,6 +161,7 @@ public class GameManager : MonoBehaviour
         }
 
         Instance = this;
+        AudioManager.Instance.PlayBGM("Main Menu");
     }
 
     private void Update()
@@ -139,13 +170,9 @@ public class GameManager : MonoBehaviour
         if ((int)_secondsBuffer > _secondsPerHour)
         {
             CurrentHour++;
-            if (Settings.StressLess && CurrentHour > 23)
+            if (CurrentHour > 23)
             {
-                InitiateNewDay();
-            }
-            else if (!Settings.StressLess && CurrentHour > _endingHour)
-            {
-                OnButtonNextDayClick();
+                CurrentHour = 0;
             }
 
             _uiManager.DisplayHour(CurrentHour);
