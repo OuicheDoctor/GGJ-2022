@@ -12,7 +12,7 @@ public abstract class WorldEventData : ScriptableObject
     [SerializeField] protected AudioClip _announcement;
 
     public float Probability => _probability;
-    public string Headline => _headline;
+    public virtual string Headline => _headline;
     public Sprite Picture => _picture;
     public AudioClip Announcement => _announcement;
 

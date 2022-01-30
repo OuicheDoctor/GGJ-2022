@@ -11,6 +11,8 @@ public class EnnemiEventData : WorldEventData
 
     public override WorldEventType Type => WorldEventType.Ennemi;
 
+    public override string Headline => string.Format(base.Headline, Target.Name);
+
     public override void FixGeneration(List<Character> characters)
     {
         var matchMaker = MatchmakingManager.Instance;

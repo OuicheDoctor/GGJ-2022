@@ -10,6 +10,8 @@ public class AffrontementsEventData : WorldEventData
 {
     public List<string> ConflictedRegions { get; private set; }
 
+    public override string Headline => string.Format(base.Headline, ConflictedRegions[0], ConflictedRegions[1]);
+
     public override WorldEventType Type => WorldEventType.Affrontements;
 
     public override void FixGeneration(List<Character> characters)

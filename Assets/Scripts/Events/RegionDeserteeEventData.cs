@@ -12,6 +12,8 @@ public class RegionDeserteeEventData : WorldEventData
 
     public override WorldEventType Type => WorldEventType.RegionDesertee;
 
+    public override string Headline => string.Format(base.Headline, DesertedRegion);
+
     public override void FixGeneration(List<Character> characters)
     {
         var mostRepresentedRegion = characters.Select(c => (c.Region, Count: characters.Count(cB => cB.Region == c.Region))).OrderByDescending(r => r.Count).Distinct().FirstOrDefault();
