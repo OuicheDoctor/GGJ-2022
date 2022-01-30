@@ -15,10 +15,15 @@ public class UIFormDoc : MonoBehaviour
     [SerializeField] private TextMeshProUGUI _characterRaceText;
     [SerializeField] private TextMeshProUGUI _characterRegionText;
     [SerializeField] private TextMeshProUGUI _characterHobbiesText;
-    [SerializeField] private RectTransform _questionsContainer;
+    [SerializeField] private RectTransform _questionsAContainer;
+    [SerializeField] private RectTransform _questionsBContainer;
+    [SerializeField] private RectTransform _questionsCContainer;
+    [SerializeField] private RectTransform _questionsDContainer;
     [SerializeField] private DropZone[] _pages;
     [SerializeField] private Zoomable _zoomable;
     [SerializeField] private DragAndDroppable _dndComp;
+    [SerializeField] private CanvasGroup _canvasGroup;
+    public FormPageHeader[] Headers;
 
     [Header("Prefabs")]
     [SerializeField] private GameObject _questionItemPrefab;
@@ -28,9 +33,15 @@ public class UIFormDoc : MonoBehaviour
 
     private int _pageIndex = 0;
     private List<Image> _pageGraphics;
+    private Dictionary<MBTITrait, RectTransform> _containerPerTrait = new Dictionary<MBTITrait, RectTransform>();
 
     public void FillForm(Character character, GeneratedForm form)
     {
+        _containerPerTrait.Add(MBTITrait.ExtravertiIntraverti, _questionsAContainer);
+        _containerPerTrait.Add(MBTITrait.JugementPerception, _questionsBContainer);
+        _containerPerTrait.Add(MBTITrait.PenseeSentiments, _questionsCContainer);
+        _containerPerTrait.Add(MBTITrait.SensationIntuition, _questionsDContainer);
+
         Character = character;
         Form = form;
 
@@ -42,10 +53,15 @@ public class UIFormDoc : MonoBehaviour
         var hobbiesName = (character.Hobbies as List<HobbyData>).ConvertAll(h => h.hobbyName);
         _characterHobbiesText.text = string.Join(", ", hobbiesName);
 
+        foreach (var he in Headers)
+        {
+            he.Setup(character.Race.Drawing, character.Name, character.Region, character.Race.Name, _characterHobbiesText.text);
+        }
+
         foreach (FormResponse formResponse in form.Responses)
         {
             var questionItem = Instantiate(_questionItemPrefab);
-            questionItem.GetComponent<RectTransform>().SetParent(_questionsContainer, false);
+            questionItem.GetComponent<RectTransform>().SetParent(_containerPerTrait[formResponse.QuestionReference.AssociatedTrait], false);
             questionItem.GetComponent<UIFormQuestion>().FillFields(formResponse);
         }
     }
@@ -80,14 +96,14 @@ public class UIFormDoc : MonoBehaviour
 
         _dndComp.OnBeginDragCallback += () =>
         {
-            foreach (var gr in _pageGraphics)
-                gr.raycastTarget = false;
+            _canvasGroup.interactable = false;
+            _canvasGroup.blocksRaycasts = false;
         };
 
         _dndComp.OnEndDragCallback += _ =>
         {
-            foreach (var gr in _pageGraphics)
-                gr.raycastTarget = true;
+            _canvasGroup.interactable = true;
+            _canvasGroup.blocksRaycasts = true;
         };
     }
 

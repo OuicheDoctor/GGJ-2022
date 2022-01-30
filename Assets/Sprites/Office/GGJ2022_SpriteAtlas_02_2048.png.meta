@@ -17,6 +17,12 @@ TextureImporter:
   - first:
       213: -5427319346790030343
     second: Office_Frame_Photo
+  - first:
+      213: 171497132427179389
+    second: PostProcess_Vignette
+  - first:
+      213: 7350443676523395167
+    second: Office_Shadow
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -189,7 +195,7 @@ TextureImporter:
         width: 253
         height: 130
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -210,7 +216,7 @@ TextureImporter:
         width: 235
         height: 115
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -218,6 +224,48 @@ TextureImporter:
       bones: []
       spriteID: 9f3a9fb2fc94ea4b0800000000000000
       internalID: -5427319346790030343
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PostProcess_Vignette
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 2033
+        height: 1168
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d75f15abbb7416200800000000000000
+      internalID: 171497132427179389
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Office_Shadow
+      rect:
+        serializedVersion: 2
+        x: 864
+        y: 1768
+        width: 258
+        height: 257
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f5871b85495020660800000000000000
+      internalID: 7350443676523395167
       vertices: []
       indices: 
       edges: []
