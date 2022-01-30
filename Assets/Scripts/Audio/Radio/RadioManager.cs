@@ -8,6 +8,7 @@ public class RadioManager: MonoBehaviour
 
     private RadioChannelSource _activeChannelSource = null;
     private List<RadioChannelSource> _radioChannelSources = new List<RadioChannelSource>();
+    private UIRadio _uiRadio;
     private bool _isRadioOn = false;
     private bool _isActive = false;
 
@@ -100,10 +101,13 @@ public class RadioManager: MonoBehaviour
                 if (radioChannelSource.IsCurrentClipAFlashInfo(GameManager.Instance.CurrentEvent)) {
                     // End of a flash info, restart paused clip
                     radioChannelSource.RestartPausedClip();
+                    _uiRadio.HideFlashInfoBubble();
                 } else if (radioChannelSource.IsCurrentClipAJingle()) {
                     // End of a jingle, launch flash info or restart music
-                    if (!radioChannelSource.HasAlreadyLaunchedFlashInfo)
+                    if (!radioChannelSource.HasAlreadyLaunchedFlashInfo) {
                         radioChannelSource.LaunchFlashInfo(GameManager.Instance.CurrentEvent);
+                        _uiRadio.DisplayFlashInfoText(GameManager.Instance.CurrentEvent);
+                    }
                     else radioChannelSource.RestartPausedClip();
 
                 } else {
@@ -127,6 +131,11 @@ public class RadioManager: MonoBehaviour
                 radioChannelSource.LaunchJingle(jingle);
             }
         }
+    }
+
+    private void Start()
+    {
+        _uiRadio = FindObjectOfType<UIRadio>();
     }
 
     private void Awake()
