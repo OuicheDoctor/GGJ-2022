@@ -6,7 +6,6 @@ using UnityEngine.UI;
 
 public class UIFormQuestion : MonoBehaviour
 {
-
     [Header("Question Elements")]
     [SerializeField] private TextMeshProUGUI _questionText;
     [SerializeField] private TextMeshProUGUI _value0ResponseText;
@@ -25,8 +24,8 @@ public class UIFormQuestion : MonoBehaviour
         _neutralResponseText.text = formResponse.QuestionReference.NeutralResponse;
 
         // TODO: Change UI visual return later
-        _response0CheckImage.color = formResponse.Response == formResponse.QuestionReference.Value0Response ? Color.green : Color.gray;
-        _response1CheckImage.color = formResponse.Response == formResponse.QuestionReference.Value1Response ? Color.green : Color.gray;
-        _responseNeutralCheckImage.color = formResponse.Response == formResponse.QuestionReference.NeutralResponse ? Color.green : Color.gray;
+        _response0CheckImage.gameObject.SetActive(formResponse.Response == formResponse.QuestionReference.Value0Response);
+        _response1CheckImage.gameObject.SetActive(formResponse.Response == formResponse.QuestionReference.Value1Response);
+        _responseNeutralCheckImage.gameObject.SetActive(formResponse.Response == formResponse.QuestionReference.NeutralResponse);
     }
 }
