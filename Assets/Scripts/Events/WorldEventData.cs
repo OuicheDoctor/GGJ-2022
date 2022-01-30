@@ -14,8 +14,10 @@ public abstract class WorldEventData : ScriptableObject
 
     public float Probability => _probability;
     public virtual string Headline => _headline;
+    public virtual string RadioFlashInfoSubtitle => _radioFlashInfoSubtitle;
     public Sprite Picture => _picture;
     public AudioClip Announcement => _announcement;
+
 
     public abstract WorldEventType Type { get; }
 
