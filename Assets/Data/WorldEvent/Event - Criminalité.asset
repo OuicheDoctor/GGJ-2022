@@ -18,4 +18,4 @@ MonoBehaviour:
     all regions. Murders between monsters are becoming more and more common. We should
     stop it: no one deserves to die.'
   _picture: {fileID: 0}
-  _announcement: {fileID: 8300000, guid: c52b91bfd7b074ebeb6d72126c7c2093, type: 3}
+  _announcement: {fileID: 8300000, guid: 9aeb3f89ce04040d6a083a5b3750d312, type: 3}

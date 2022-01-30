@@ -18,4 +18,4 @@ MonoBehaviour:
     {0} & {1} have broken out in {2} and are spreading to all countries. The government
     is looking for solutions to stop this violence.
   _picture: {fileID: 0}
-  _announcement: {fileID: 8300000, guid: c52b91bfd7b074ebeb6d72126c7c2093, type: 3}
+  _announcement: {fileID: 8300000, guid: cbac06e30ef9f47dc8c9ecffd6d72328, type: 3}
