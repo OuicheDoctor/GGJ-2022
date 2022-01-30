@@ -48,7 +48,7 @@ public class GameManager : MonoBehaviour
         CurrentCharactersAndForms = CharactersGenerationManager.Instance.GenerateCharactersWithForm(8, CurrentEvent);
         GenerateSolution();
         GenerateFormsDocs();
-        _eventDisplay.text = CurrentEvent.Headline;
+        //_eventDisplay.text = CurrentEvent.Headline;
         AudioManager.Instance.StopCurrentBGM();
         RadioManager.Instance.InitState();
         enabled = true;
