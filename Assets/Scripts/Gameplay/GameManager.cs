@@ -94,6 +94,7 @@ public class GameManager : MonoBehaviour
 
     public void OnButtonQuitClick()
     {
+        AchivementManager.Instance.Save();
         Application.Quit();
     }
 
