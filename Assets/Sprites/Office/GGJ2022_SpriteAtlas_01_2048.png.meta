@@ -1,0 +1,792 @@
+fileFormatVersion: 2
+guid: be14130a18627184888f93440e1da9e3
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -7214647535598214348
+    second: Office_Desk
+  - first:
+      213: 764630286160487184
+    second: Office_Pen
+  - first:
+      213: -5142767256966900331
+    second: Office_Pencil
+  - first:
+      213: 1401733178143372112
+    second: Office_ChewingGum
+  - first:
+      213: 2399351871164584360
+    second: Office_Radio_Button
+  - first:
+      213: 941997805483673393
+    second: Office_PostIt_01
+  - first:
+      213: -3538458288161709451
+    second: Office_PostIt_03
+  - first:
+      213: 6010824225270776904
+    second: Office_PostIt_04
+  - first:
+      213: 7044118786373596816
+    second: Office_Cupidon_Bow
+  - first:
+      213: -5716566938083735971
+    second: Office_Cupidon_Arrow
+  - first:
+      213: -7490216528210113444
+    second: Office_Drawer
+  - first:
+      213: 5479145936064312052
+    second: Office_List
+  - first:
+      213: 868017119410973830
+    second: Office_Phone
+  - first:
+      213: 2628366237916996228
+    second: Office_Notebook
+  - first:
+      213: 6629201912279013503
+    second: Office_Antistress
+  - first:
+      213: -3763558364372999106
+    second: Office_Plant_top
+  - first:
+      213: 1703619333990347041
+    second: Office_Cupidon
+  - first:
+      213: 877217161659777054
+    second: Office_Files_left
+  - first:
+      213: 4499058680433265489
+    second: Office_CoffeeCup
+  - first:
+      213: -153080440212232428
+    second: Office_Radio
+  - first:
+      213: -8150315421167435380
+    second: Office_Plant_Pot
+  - first:
+      213: -8906034352187472346
+    second: Office_Plant_Bottom
+  - first:
+      213: -3123635193024989672
+    second: Office_PostIt_02
+  - first:
+      213: 8136909993389180105
+    second: Office_Organizer
+  - first:
+      213: 1374659628186423548
+    second: Office_Tissue
+  - first:
+      213: -8652071255682543415
+    second: Office_Files_Right
+  - first:
+      213: 300955094102832567
+    second: Office_Letter
+  - first:
+      213: -4571004409634692379
+    second: Office_PostIt
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 0
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 0
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Office_Desk
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 939
+        width: 1977
+        height: 1109
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 433650d8a4c60eb90800000000000000
+      internalID: -7214647535598214348
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Office_Pen
+      rect:
+        serializedVersion: 2
+        x: 1979
+        y: 1827
+        width: 26
+        height: 217
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 013e91fa1338c9a00800000000000000
+      internalID: 764630286160487184
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Office_Pencil
+      rect:
+        serializedVersion: 2
+        x: 2009
+        y: 1826
+        width: 20
+        height: 200
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5955af56d6831a8b0800000000000000
+      internalID: -5142767256966900331
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Office_ChewingGum
+      rect:
+        serializedVersion: 2
+        x: 1979
+        y: 1798
+        width: 27
+        height: 26
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0537d1916e4f37310800000000000000
+      internalID: 1401733178143372112
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Office_Radio_Button
+      rect:
+        serializedVersion: 2
+        x: 2017
+        y: 1805
+        width: 22
+        height: 12
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8a11fe380d53c4120800000000000000
+      internalID: 2399351871164584360
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Office_PostIt_01
+      rect:
+        serializedVersion: 2
+        x: 1979
+        y: 1653
+        width: 60
+        height: 144
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1374d0f5306a21d00800000000000000
+      internalID: 941997805483673393
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Office_PostIt_03
+      rect:
+        serializedVersion: 2
+        x: 1981
+        y: 1364
+        width: 52
+        height: 144
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 572a5993feed4eec0800000000000000
+      internalID: -3538458288161709451
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Office_PostIt_04
+      rect:
+        serializedVersion: 2
+        x: 1983
+        y: 1220
+        width: 52
+        height: 143
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 844c39249ccba6350800000000000000
+      internalID: 6010824225270776904
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Office_Cupidon_Bow
+      rect:
+        serializedVersion: 2
+        x: 1977
+        y: 1154
+        width: 58
+        height: 44
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 096347107bcb1c160800000000000000
+      internalID: 7044118786373596816
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Office_Cupidon_Arrow
+      rect:
+        serializedVersion: 2
+        x: 1983
+        y: 1127
+        width: 25
+        height: 26
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d56c6c058acaaa0b0800000000000000
+      internalID: -5716566938083735971
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Office_Drawer
+      rect:
+        serializedVersion: 2
+        x: 13
+        y: 220
+        width: 1448
+        height: 717
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c5cc641a0c76d0890800000000000000
+      internalID: -7490216528210113444
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Office_List
+      rect:
+        serializedVersion: 2
+        x: 1763
+        y: 794
+        width: 100
+        height: 145
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4f273a7f236d90c40800000000000000
+      internalID: 5479145936064312052
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Office_Notebook
+      rect:
+        serializedVersion: 2
+        x: 1463
+        y: 669
+        width: 299
+        height: 266
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4822caeea25d97420800000000000000
+      internalID: 2628366237916996228
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Office_Antistress
+      rect:
+        serializedVersion: 2
+        x: 1863
+        y: 857
+        width: 87
+        height: 71
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f781bb52408affb50800000000000000
+      internalID: 6629201912279013503
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Office_Plant_top
+      rect:
+        serializedVersion: 2
+        x: 1561
+        y: 292
+        width: 378
+        height: 375
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e34e8189b9725cbc0800000000000000
+      internalID: -3763558364372999106
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Office_Cupidon
+      rect:
+        serializedVersion: 2
+        x: 1863
+        y: 738
+        width: 118
+        height: 119
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1217bf212c874a710800000000000000
+      internalID: 1703619333990347041
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Office_Files_left
+      rect:
+        serializedVersion: 2
+        x: 1956
+        y: 330
+        width: 34
+        height: 294
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e108b9f5c508c2c00800000000000000
+      internalID: 877217161659777054
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Office_CoffeeCup
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 51
+        width: 209
+        height: 169
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 15bccd6680edf6e30800000000000000
+      internalID: 4499058680433265489
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Office_Radio
+      rect:
+        serializedVersion: 2
+        x: 530
+        y: 55
+        width: 363
+        height: 159
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 417e613962620edf0800000000000000
+      internalID: -153080440212232428
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Office_Plant_Pot
+      rect:
+        serializedVersion: 2
+        x: 1464
+        y: 45
+        width: 229
+        height: 232
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c814de18e4344ee80800000000000000
+      internalID: -8150315421167435380
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Office_Plant_Bottom
+      rect:
+        serializedVersion: 2
+        x: 1694
+        y: 31
+        width: 324
+        height: 260
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 626807061f8676480800000000000000
+      internalID: -8906034352187472346
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Office_PostIt_02
+      rect:
+        serializedVersion: 2
+        x: 1981
+        y: 1509
+        width: 51
+        height: 144
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 81636d7775e96a4d0800000000000000
+      internalID: -3123635193024989672
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Office_Phone
+      rect:
+        serializedVersion: 2
+        x: 1461
+        y: 467
+        width: 98
+        height: 195
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 68ce27d98f0db0c00800000000000000
+      internalID: 868017119410973830
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Office_Organizer
+      rect:
+        serializedVersion: 2
+        x: 210
+        y: 68
+        width: 317
+        height: 152
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9c4c94d178c1ce070800000000000000
+      internalID: 8136909993389180105
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Office_Tissue
+      rect:
+        serializedVersion: 2
+        x: 1763
+        y: 671
+        width: 75
+        height: 122
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cf05f1906a5c31310800000000000000
+      internalID: 1374659628186423548
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Office_Files_Right
+      rect:
+        serializedVersion: 2
+        x: 1996
+        y: 342
+        width: 42
+        height: 281
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9c09ca9980bade780800000000000000
+      internalID: -8652071255682543415
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Office_Letter
+      rect:
+        serializedVersion: 2
+        x: 896
+        y: 87
+        width: 204
+        height: 130
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7b5f75540153d2400800000000000000
+      internalID: 300955094102832567
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Office_PostIt
+      rect:
+        serializedVersion: 2
+        x: 1984
+        y: 966
+        width: 48
+        height: 144
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5e2eaf825b78090c0800000000000000
+      internalID: -4571004409634692379
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: c5b29824ea4c13946b22a25074a9d323
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
