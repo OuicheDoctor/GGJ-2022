@@ -1454,8 +1454,12 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4632282100563778749, guid: 2d696d2e5e8c8f240b5f66bf824d1b4a, type: 3}
       propertyPath: m_text
-      value: Ness
+      value: "In\xE8s \"Ness\" Lotfi"
       objectReference: {fileID: 0}
+    - target: {fileID: 5418900321466437969, guid: 2d696d2e5e8c8f240b5f66bf824d1b4a, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: fb64f6ff1de5be5469a137f98b55ad87, type: 3}
     - target: {fileID: 5790012895925306085, guid: 2d696d2e5e8c8f240b5f66bf824d1b4a, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -1560,7 +1564,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4632282100563778749, guid: 2d696d2e5e8c8f240b5f66bf824d1b4a, type: 3}
       propertyPath: m_text
-      value: Lucas
+      value: Lucas "OuicheDoctor" Junker
       objectReference: {fileID: 0}
     - target: {fileID: 5790012895925306085, guid: 2d696d2e5e8c8f240b5f66bf824d1b4a, type: 3}
       propertyPath: m_Pivot.x
@@ -1774,8 +1778,12 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4632282100563778749, guid: 2d696d2e5e8c8f240b5f66bf824d1b4a, type: 3}
       propertyPath: m_text
-      value: Yoann
+      value: Yoann "St0rmXI" Saunier
       objectReference: {fileID: 0}
+    - target: {fileID: 5418900321466437969, guid: 2d696d2e5e8c8f240b5f66bf824d1b4a, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 5906ad774da5f8b41a87cbdcae334549, type: 3}
     - target: {fileID: 5790012895925306085, guid: 2d696d2e5e8c8f240b5f66bf824d1b4a, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -1880,8 +1888,12 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4632282100563778749, guid: 2d696d2e5e8c8f240b5f66bf824d1b4a, type: 3}
       propertyPath: m_text
-      value: "Th\xE9o"
+      value: Thob
       objectReference: {fileID: 0}
+    - target: {fileID: 5418900321466437969, guid: 2d696d2e5e8c8f240b5f66bf824d1b4a, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: cc9727d97cfb76947ad021281499bb09, type: 3}
     - target: {fileID: 5790012895925306085, guid: 2d696d2e5e8c8f240b5f66bf824d1b4a, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -1984,14 +1996,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1968188888521567197}
     m_Modifications:
-    - target: {fileID: 2951573877018727043, guid: 2d696d2e5e8c8f240b5f66bf824d1b4a, type: 3}
-      propertyPath: m_Text
-      value: Louis
-      objectReference: {fileID: 0}
     - target: {fileID: 4632282100563778749, guid: 2d696d2e5e8c8f240b5f66bf824d1b4a, type: 3}
       propertyPath: m_text
-      value: Louis
+      value: Louis "luisoG" Godart
       objectReference: {fileID: 0}
+    - target: {fileID: 5418900321466437969, guid: 2d696d2e5e8c8f240b5f66bf824d1b4a, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 1d2c3009bfd88d34b86ea06f432bfbef, type: 3}
     - target: {fileID: 5790012895925306085, guid: 2d696d2e5e8c8f240b5f66bf824d1b4a, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -2011,50 +2023,6 @@ PrefabInstance:
     - target: {fileID: 5790012895925306085, guid: 2d696d2e5e8c8f240b5f66bf824d1b4a, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 61.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 5872569534323988954, guid: 2d696d2e5e8c8f240b5f66bf824d1b4a, type: 3}
-      propertyPath: m_RootOrder
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5872569534323988954, guid: 2d696d2e5e8c8f240b5f66bf824d1b4a, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5872569534323988954, guid: 2d696d2e5e8c8f240b5f66bf824d1b4a, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5872569534323988954, guid: 2d696d2e5e8c8f240b5f66bf824d1b4a, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5872569534323988954, guid: 2d696d2e5e8c8f240b5f66bf824d1b4a, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5872569534323988954, guid: 2d696d2e5e8c8f240b5f66bf824d1b4a, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5872569534323988954, guid: 2d696d2e5e8c8f240b5f66bf824d1b4a, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5872569534323988954, guid: 2d696d2e5e8c8f240b5f66bf824d1b4a, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5872569534323988954, guid: 2d696d2e5e8c8f240b5f66bf824d1b4a, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5872569534323988954, guid: 2d696d2e5e8c8f240b5f66bf824d1b4a, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5872569534323988954, guid: 2d696d2e5e8c8f240b5f66bf824d1b4a, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9223285535335094345, guid: 2d696d2e5e8c8f240b5f66bf824d1b4a, type: 3}
       propertyPath: m_Name
@@ -2078,6 +2046,10 @@ PrefabInstance:
       propertyPath: m_text
       value: Soen
       objectReference: {fileID: 0}
+    - target: {fileID: 5418900321466437969, guid: 2d696d2e5e8c8f240b5f66bf824d1b4a, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: d06c2ba07dee56045a07012ae2ab25a8, type: 3}
     - target: {fileID: 5790012895925306085, guid: 2d696d2e5e8c8f240b5f66bf824d1b4a, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -2182,8 +2154,12 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4632282100563778749, guid: 2d696d2e5e8c8f240b5f66bf824d1b4a, type: 3}
       propertyPath: m_text
-      value: "Myl\xE8ne"
+      value: "Myl\xE8ne \"Konala\" Lourdel"
       objectReference: {fileID: 0}
+    - target: {fileID: 5418900321466437969, guid: 2d696d2e5e8c8f240b5f66bf824d1b4a, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 9646fd47cc234ab41b40b5772a169990, type: 3}
     - target: {fileID: 5790012895925306085, guid: 2d696d2e5e8c8f240b5f66bf824d1b4a, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -2288,10 +2264,12 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4632282100563778749, guid: 2d696d2e5e8c8f240b5f66bf824d1b4a, type: 3}
       propertyPath: m_text
-      value: 'Fafodill
-
-'
+      value: Fanny "Fafodill" Baudraz
       objectReference: {fileID: 0}
+    - target: {fileID: 5418900321466437969, guid: 2d696d2e5e8c8f240b5f66bf824d1b4a, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 0a383ffd9165a8843aa2ac4edb6984d8, type: 3}
     - target: {fileID: 5790012895925306085, guid: 2d696d2e5e8c8f240b5f66bf824d1b4a, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -2396,8 +2374,12 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4632282100563778749, guid: 2d696d2e5e8c8f240b5f66bf824d1b4a, type: 3}
       propertyPath: m_text
-      value: Barbara
+      value: Barbara "Esokishi" Ouvrard
       objectReference: {fileID: 0}
+    - target: {fileID: 5418900321466437969, guid: 2d696d2e5e8c8f240b5f66bf824d1b4a, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: a89c54a3f027f1d4c9581566f19403e5, type: 3}
     - target: {fileID: 5790012895925306085, guid: 2d696d2e5e8c8f240b5f66bf824d1b4a, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -2502,7 +2484,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4632282100563778749, guid: 2d696d2e5e8c8f240b5f66bf824d1b4a, type: 3}
       propertyPath: m_text
-      value: Corentin
+      value: Corentin "Foglol" Dupont
       objectReference: {fileID: 0}
     - target: {fileID: 5790012895925306085, guid: 2d696d2e5e8c8f240b5f66bf824d1b4a, type: 3}
       propertyPath: m_Pivot.x
