@@ -20,9 +20,9 @@ MonoBehaviour:
   - _name: Main Menu
     _audioFile: {fileID: 8300000, guid: 8bd254088f9b649adbe6d874586359d9, type: 3}
   - _name: End Game Win
-    _audioFile: {fileID: 8300000, guid: 8bd254088f9b649adbe6d874586359d9, type: 3}
+    _audioFile: {fileID: 8300000, guid: 38a0899732c464245bf86239f2a79a27, type: 3}
   - _name: End Game Loose
-    _audioFile: {fileID: 8300000, guid: 8bd254088f9b649adbe6d874586359d9, type: 3}
+    _audioFile: {fileID: 8300000, guid: cc6d95785ddcd41a883d92d43c2d6e97, type: 3}
   _soundEffects:
   - _name: Post-It
     _audioFile: {fileID: 8300000, guid: 7c110d9393f7f4e459efd01084902e3f, type: 3}
