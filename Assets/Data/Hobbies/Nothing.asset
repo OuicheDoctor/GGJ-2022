@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5db3892ceff29f4cb2119ee949562ee, type: 3}
   m_Name: Nothing
   m_EditorClassIdentifier: 
-  hobbyName: 
+  hobbyName: I enjoy nothing
   description: 
   category: {fileID: 11400000, guid: 0563f3429c1af3d449c16381728a5246, type: 2}
   stressful: 0
