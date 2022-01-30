@@ -83,6 +83,9 @@ TextureImporter:
   - first:
       213: 300955094102832567
     second: Office_Letter
+  - first:
+      213: -4571004409634692379
+    second: Office_PostIt
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -738,7 +741,7 @@ TextureImporter:
         width: 204
         height: 130
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -746,6 +749,27 @@ TextureImporter:
       bones: []
       spriteID: 7b5f75540153d2400800000000000000
       internalID: 300955094102832567
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Office_PostIt
+      rect:
+        serializedVersion: 2
+        x: 1984
+        y: 966
+        width: 48
+        height: 144
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5e2eaf825b78090c0800000000000000
+      internalID: -4571004409634692379
       vertices: []
       indices: 
       edges: []
