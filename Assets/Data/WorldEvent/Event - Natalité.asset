@@ -15,4 +15,4 @@ MonoBehaviour:
   _probability: 10
   _headline: The population is declining. Marry your friends!
   _picture: {fileID: 0}
-  _announcement: {fileID: 0}
+  _announcement: {fileID: 8300000, guid: c52b91bfd7b074ebeb6d72126c7c2093, type: 3}
