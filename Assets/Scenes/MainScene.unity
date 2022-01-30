@@ -2187,6 +2187,11 @@ AudioSource:
   m_CorrespondingSourceObject: {fileID: 1369805019492490174, guid: 6ee8222f075cb4bec893a6968f42f7d6, type: 3}
   m_PrefabInstance: {fileID: 1409844634}
   m_PrefabAsset: {fileID: 0}
+--- !u!82 &1409844638 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 8036922916156366357, guid: 6ee8222f075cb4bec893a6968f42f7d6, type: 3}
+  m_PrefabInstance: {fileID: 1409844634}
+  m_PrefabAsset: {fileID: 0}
 --- !u!224 &1454735496 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 5926655989634025413, guid: a55e651600a4c164599f4aba4522cb6f, type: 3}
@@ -2847,6 +2852,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1198831883715175294, guid: c623a0dbef3c4fb4991fdcd38d0e9b59, type: 3}
+      propertyPath: _bgmAudioSource
+      value: 
+      objectReference: {fileID: 1409844638}
     - target: {fileID: 2551857596955237732, guid: c623a0dbef3c4fb4991fdcd38d0e9b59, type: 3}
       propertyPath: _mainMenu
       value: 
