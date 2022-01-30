@@ -2002,6 +2002,10 @@ PrefabInstance:
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 21300000, guid: 7d9865be116bbc842a519036a231b8a7, type: 3}
+    - target: {fileID: 3383897258389587076, guid: a1d71ea46fc8561408633d6e9fc9b8ff, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7415992621832471012, guid: a1d71ea46fc8561408633d6e9fc9b8ff, type: 3}
       propertyPath: m_SpriteState.m_PressedSprite
       value: 
