@@ -13,5 +13,9 @@ MonoBehaviour:
   m_Name: Merpeople
   m_EditorClassIdentifier: 
   _name: Merpeople
-  _drawing: {fileID: 21300000, guid: 718cf6f8567e4e444b8e4142d7d3a2af, type: 3}
+  _drawings:
+  - {fileID: 21300000, guid: 58d4b54203e8a17478efbe1e19d92335, type: 3}
+  - {fileID: 21300000, guid: b8c71fdd3a6761d4fb1610ac4c978e74, type: 3}
+  - {fileID: 21300000, guid: b41abf7dc0e564b448c8437a6e7aba41, type: 3}
+  - {fileID: 21300000, guid: ce795319d6cd2e2429828fc7aeb03ad2, type: 3}
   _names: {fileID: 11400000, guid: 4389bd72a1c1657459e34d789ba30467, type: 2}

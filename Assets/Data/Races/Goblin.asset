@@ -13,5 +13,7 @@ MonoBehaviour:
   m_Name: Goblin
   m_EditorClassIdentifier: 
   _name: Goblin
-  _drawing: {fileID: 21300000, guid: 8c0172f523e4b6142984bdbff8820cbc, type: 3}
+  _drawings:
+  - {fileID: 21300000, guid: 2ddb46c31bcecf44980ed30a45fb10ce, type: 3}
+  - {fileID: 21300000, guid: 0ab3fe6b9bb1b034c9db0b3d49c29428, type: 3}
   _names: {fileID: 11400000, guid: e0128f512bbcf2945b7cdcf40308a6a8, type: 2}

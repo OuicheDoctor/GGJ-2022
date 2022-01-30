@@ -58,6 +58,7 @@ namespace GGJ.Characters
                 {
                     Race = race,
                     Name = name,
+                    Drawing = GetRandomRaceDrawings(race),
                     Region = region,
                     TraitEI = traitEI,
                     TraitJP = traitJP,
@@ -104,6 +105,12 @@ namespace GGJ.Characters
             }
 
             return randomHobbies;
+        }
+
+        private Sprite GetRandomRaceDrawings(IRace race)
+        {
+            var randomDrawingRaceIndex = random.Next(0, race.Drawings.Count);
+            return race.Drawings[randomDrawingRaceIndex];
         }
 
         // Get one random race

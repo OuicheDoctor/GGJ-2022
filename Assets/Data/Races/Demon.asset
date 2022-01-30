@@ -13,5 +13,8 @@ MonoBehaviour:
   m_Name: Demon
   m_EditorClassIdentifier: 
   _name: Demon
-  _drawing: {fileID: 21300000, guid: 29a279819d14d704ea262df89edc3fdb, type: 3}
+  _drawings:
+  - {fileID: 21300000, guid: fed21145e791513469924c67cb10769c, type: 3}
+  - {fileID: 21300000, guid: 0e6b3faf5dde2ff45a432b5e6c1ba69d, type: 3}
+  - {fileID: 21300000, guid: 709a259649ef08b47959529078806ee4, type: 3}
   _names: {fileID: 11400000, guid: e1e73bc23e6f9ed4f8a90cca1ecb60bf, type: 2}
