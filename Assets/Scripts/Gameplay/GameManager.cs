@@ -2,6 +2,7 @@ using GGJ.Characters;
 using GGJ.Matchmaking;
 using System.Collections.Generic;
 using System.Linq;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -20,7 +21,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private int _startingHour = 9;
     [SerializeField] private int _endingHour = 17;
 
-    [SerializeField] private Text _debugEvent;
+    [SerializeField] private TextMeshProUGUI _eventDisplay;
 
     private IList<ICharacter> _characters;
     private PartenerCollection _expectedResult;
@@ -44,10 +45,10 @@ public class GameManager : MonoBehaviour
         _uiManager.SetMainMenuVisible(false);
         _secondsBuffer = 0;
         CurrentEvent = PickEvent();
-        _debugEvent.text = CurrentEvent.name;
         CurrentCharactersAndForms = CharactersGenerationManager.Instance.GenerateCharactersWithForm(8, CurrentEvent);
         GenerateSolution();
         GenerateFormsDocs();
+        _eventDisplay.text = CurrentEvent.Headline;
         AudioManager.Instance.StopCurrentBGM();
         RadioManager.Instance.InitState();
         enabled = true;
@@ -169,13 +170,9 @@ public class GameManager : MonoBehaviour
         if ((int)_secondsBuffer > _secondsPerHour)
         {
             CurrentHour++;
-            if (Settings.StressLess && CurrentHour > 23)
+            if (CurrentHour > 23)
             {
-                InitiateNewDay();
-            }
-            else if (!Settings.StressLess && CurrentHour > _endingHour)
-            {
-                OnButtonNextDayClick();
+                CurrentHour = 0;
             }
 
             _uiManager.DisplayHour(CurrentHour);

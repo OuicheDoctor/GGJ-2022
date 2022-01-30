@@ -9,6 +9,8 @@ public class CelebriteEventData : WorldEventData
 {
     public Character Celebrity { get; set; }
 
+    public override string Headline => string.Format(base.Headline, Celebrity.Name);
+
     public override WorldEventType Type => WorldEventType.Celebrite;
 
     public override void FixGeneration(List<Character> characters)
