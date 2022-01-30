@@ -8,10 +8,30 @@ public class RadioManager: MonoBehaviour
 
     private RadioChannelSource _activeChannelSource = null;
     private List<RadioChannelSource> _radioChannelSources = new List<RadioChannelSource>();
-    private bool isRadioOn = true;
+    private bool _isRadioOn = false;
+    private bool _isActive = false;
 
     [SerializeField] private AudioSettings _audioSettings;
     [SerializeField] private List<AudioSource> _audioSources;
+
+    // Prepare radio for a new day
+    public void InitState()
+    {
+        InitRadioChannelSources();
+        ToggleAllRadioChannelSources(true);
+        ToggleOnOff();
+        _isActive = true;
+    }
+
+    // Reset the radio to the inital state. Need to Init after this.
+    public void ResetState()
+    {
+        _isActive = false;
+        ToggleAllRadioChannelSources(false);
+        _radioChannelSources = new List<RadioChannelSource>();
+        _activeChannelSource = null;
+        _isRadioOn = false;
+    }
 
     public void ChangeChannel(int channelIndex)
     {
@@ -23,25 +43,22 @@ public class RadioManager: MonoBehaviour
 
     public void ToggleOnOff()
     {
-        if (isRadioOn) {
+        if (_isRadioOn) {
             MuteAllRadioChannelSources();
         } else if (_activeChannelSource != null) {
             _activeChannelSource.AudioSource.mute = false;
         }
 
-        isRadioOn = !isRadioOn;
-    }
-
-    private void Start()
-    {
-        InitRadioChannelSources();
-        StartAllRadioChannelSources();
+        _isRadioOn = !_isRadioOn;
     }
 
     private void Update()
     {
-        CheckEndOfPlay();
-        CheckJingles();
+        if (_isActive)
+        {
+            CheckEndOfPlay();
+            CheckJingles();
+        }
     }
 
     private void InitRadioChannelSources()
@@ -53,13 +70,16 @@ public class RadioManager: MonoBehaviour
             radioChannelSource.AudioSource.mute = true;
             _radioChannelSources.Add(radioChannelSource);
         }
+        _activeChannelSource = _radioChannelSources[0];
     }
 
-    private void StartAllRadioChannelSources()
+    // Play or stop every audio sources
+    private void ToggleAllRadioChannelSources(bool play)
     {
         foreach (var radioChannelSource in _radioChannelSources)
         {
-            radioChannelSource.AudioSource.Play();
+            if (play) radioChannelSource.AudioSource.Play();
+            else radioChannelSource.AudioSource.Stop();
         }
     }
 

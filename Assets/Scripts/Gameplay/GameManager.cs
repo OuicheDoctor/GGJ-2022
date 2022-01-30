@@ -44,6 +44,7 @@ public class GameManager : MonoBehaviour
         CurrentCharactersAndForms = CharactersGenerationManager.Instance.GenerateCharactersWithForm(8, CurrentEvent);
         GenerateSolution();
         GenerateFormsDocs();
+        RadioManager.Instance.InitState();
         enabled = true;
     }
 
@@ -57,6 +58,7 @@ public class GameManager : MonoBehaviour
     public void OnButtonNextDayClick()
     {
         enabled = false;
+        RadioManager.Instance.ResetState();
         InitiateNewDay();
         Resolve();
     }
