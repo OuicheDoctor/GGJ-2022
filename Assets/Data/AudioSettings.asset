@@ -13,6 +13,26 @@ MonoBehaviour:
   m_Name: AudioSettings
   m_EditorClassIdentifier: 
   _radioChannels:
-  - {fileID: 11400000, guid: 956d0cee11a2f4628bfdaea2a3570918, type: 2}
-  - {fileID: 11400000, guid: 956d0cee11a2f4628bfdaea2a3570918, type: 2}
-  - {fileID: 11400000, guid: 956d0cee11a2f4628bfdaea2a3570918, type: 2}
+  - {fileID: 11400000, guid: 0cf0d42d1c2b54b358f9fe28af10db0c, type: 2}
+  - {fileID: 11400000, guid: bdf0d08db384d4eac907ec4f28f13787, type: 2}
+  - {fileID: 11400000, guid: ce84e96558af84c318b066dd18a275b5, type: 2}
+  _backgroundMusics:
+  - _name: Main Menu
+    _audioFile: {fileID: 8300000, guid: 8bd254088f9b649adbe6d874586359d9, type: 3}
+  - _name: End Game Win
+    _audioFile: {fileID: 8300000, guid: 8bd254088f9b649adbe6d874586359d9, type: 3}
+  - _name: End Game Loose
+    _audioFile: {fileID: 8300000, guid: 8bd254088f9b649adbe6d874586359d9, type: 3}
+  _soundEffects:
+  - _name: Post-It
+    _audioFile: {fileID: 8300000, guid: 7c110d9393f7f4e459efd01084902e3f, type: 3}
+  - _name: Added File
+    _audioFile: {fileID: 8300000, guid: 7c110d9393f7f4e459efd01084902e3f, type: 3}
+  - _name: Removed File
+    _audioFile: {fileID: 8300000, guid: 7c110d9393f7f4e459efd01084902e3f, type: 3}
+  - _name: New Perfect Pair
+    _audioFile: {fileID: 8300000, guid: 7c110d9393f7f4e459efd01084902e3f, type: 3}
+  - _name: Generic Object Button
+    _audioFile: {fileID: 8300000, guid: 7c110d9393f7f4e459efd01084902e3f, type: 3}
+  - _name: Paper Interaction
+    _audioFile: {fileID: 8300000, guid: 7c110d9393f7f4e459efd01084902e3f, type: 3}
