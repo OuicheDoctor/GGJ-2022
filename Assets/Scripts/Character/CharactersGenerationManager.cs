@@ -22,9 +22,11 @@ namespace GGJ.Characters
             _worldEventData = worldEvent;
             var characters = GetRandomCharacters(count);
             worldEvent.FixGeneration(characters);
+
+            var questions = FormManager.Instance.GenerateQuestions();
             var charactersWithForm = characters.Select(character => (
                 character,
-                FormManager.Instance.GenerateFormFor(character)
+                FormManager.Instance.GenerateFormFor(character, questions)
             )).ToList();
 
             return charactersWithForm;

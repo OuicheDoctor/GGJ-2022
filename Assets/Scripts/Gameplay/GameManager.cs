@@ -170,13 +170,9 @@ public class GameManager : MonoBehaviour
         if ((int)_secondsBuffer > _secondsPerHour)
         {
             CurrentHour++;
-            if (Settings.StressLess && CurrentHour > 23)
+            if (CurrentHour > 23)
             {
-                InitiateNewDay();
-            }
-            else if (!Settings.StressLess && CurrentHour > _endingHour)
-            {
-                OnButtonNextDayClick();
+                CurrentHour = 0;
             }
 
             _uiManager.DisplayHour(CurrentHour);

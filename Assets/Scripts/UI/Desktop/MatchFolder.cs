@@ -15,6 +15,8 @@ public class MatchFolder : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
     [SerializeField] private Color _fullColor;
     [SerializeField] private TextMeshProUGUI _fileCount;
     [SerializeField] private int _maxFiles = 2;
+    [SerializeField] private GameObject _fileLeft;
+    [SerializeField] private GameObject _fileRight;
 
     private Color _defaultColor;
     private PlayerActionsManager _playerMgr;
@@ -27,7 +29,7 @@ public class MatchFolder : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
         _dropZone.OnDropCallback += go =>
         {
             var form = go.GetComponent<UIFormDoc>();
-            if (form != null && _storedFormDocs.Count < _maxFiles)
+            if (form != null && !form.GetComponent<Zoomable>().Zoomed && _storedFormDocs.Count < _maxFiles)
                 ProcessFormDrop(form, go);
         };
         _playerMgr = PlayerActionsManager.Instance;
@@ -93,6 +95,7 @@ public class MatchFolder : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
 
     private void Update()
     {
-        _fileCount.text = $"{_storedFormDocs.Count}/{_maxFiles}";
+        _fileLeft.SetActive(_storedFormDocs.Count > 0);
+        _fileRight.SetActive(_storedFormDocs.Count > 1);
     }
 }
