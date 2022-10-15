@@ -37,6 +37,7 @@ public class GameManager : MonoBehaviour
 
     public void StartGame()
     {
+        _playerActionsManager?.Clear();
         _uiManager.Clear();
         CurrentDay = 1;
         CurrentHour = _startingHour;
@@ -101,6 +102,8 @@ public class GameManager : MonoBehaviour
     private void Resolve()
     {
         Rating rating;
+
+        _playerResult = new PartenerCollection(_characters.Count);
 
         // Treat unmatched as singles
         foreach (var unmatched in _characters.Where(c => !_playerActionsManager.StoredMatches.SelectMany(m => m).Contains(c)))
