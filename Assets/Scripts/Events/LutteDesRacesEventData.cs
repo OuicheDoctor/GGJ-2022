@@ -12,7 +12,7 @@ public class LutteDesRacesEventData : WorldEventData
 
     public override WorldEventType Type => WorldEventType.LutteDeRaces;
 
-    public override string Headline => string.Format(base.Headline, ConflictedRaces[0], ConflictedRaces[1]);
+    public override string Headline => string.Format(base.Headline, ConflictedRaces[0].Name, ConflictedRaces[1].Name);
 
     public override string RadioFlashInfoSubtitle => string.Format(base.RadioFlashInfoSubtitle, ConflictedRaces[0], ConflictedRaces[1], "a region");
 
