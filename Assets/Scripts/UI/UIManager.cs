@@ -92,9 +92,9 @@ public class UIManager : MonoBehaviour
 
             var polaroidData = new LovePolaroidData(
                 nameA: p.Character1.Name,
-                imageA: p.Character1.Drawing,
+                imageA: p.Character1.Skin.Avatar,
                 nameB: p.Character2.Name,
-                imageB: p.Character2.Drawing,
+                imageB: p.Character2.Skin.Avatar,
                 status: currentRange.Status
                 );
             AchivementManager.Instance.Collection.Add(polaroidData);

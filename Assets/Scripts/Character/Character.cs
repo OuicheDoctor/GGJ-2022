@@ -17,7 +17,6 @@ namespace GGJ.Characters
 
         public string Name { get; set; }
         public RaceData Race { get; set; }
-        public Sprite Drawing { get; set; }
         public bool TraitEI { get; set; }
         public bool TraitSN { get; set; }
         public bool TraitTF { get; set; }
