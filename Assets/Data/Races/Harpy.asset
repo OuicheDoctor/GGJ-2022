@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: Harpy
   m_EditorClassIdentifier: 
   _name: Harpy
-  _drawings:
-  - {fileID: 21300000, guid: 63821941f614acc44bb11d0ee920d958, type: 3}
-  - {fileID: 21300000, guid: 238d619fe60ee754b88657b94370c5ec, type: 3}
-  - {fileID: 21300000, guid: 04fdb352e5271ab439e8c321ae11edb6, type: 3}
+  _skins:
+  - {fileID: 11400000, guid: 62fb222f7ad888744a5be6bb02b05e86, type: 2}
+  - {fileID: 11400000, guid: 41dcd07719bbac3489e1e9924deecf7a, type: 2}
+  - {fileID: 11400000, guid: 6e174415108dbe94284d034866c950a5, type: 2}
   _names: {fileID: 11400000, guid: 2e6f6491208d61342826a9ac818ee48a, type: 2}

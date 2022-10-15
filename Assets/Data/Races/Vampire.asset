@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Vampire
   m_EditorClassIdentifier: 
   _name: Vampire
-  _drawings:
-  - {fileID: 21300000, guid: 65150bac5d004174cbeecce1b713fa8f, type: 3}
-  - {fileID: 21300000, guid: adad2561b3d55e9409888141548b9849, type: 3}
+  _skins:
+  - {fileID: 11400000, guid: 8e808d74c51aa6642b6a084829e16c79, type: 2}
+  - {fileID: 11400000, guid: cde42cc73640d854987267b8a1b1d2dd, type: 2}
   _names: {fileID: 11400000, guid: fb6c49080264c7b41978496b8f11db56, type: 2}

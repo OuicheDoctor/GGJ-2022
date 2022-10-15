@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: Werebear
   m_EditorClassIdentifier: 
   _name: Werebear
-  _drawings:
-  - {fileID: 21300000, guid: 29e1504d7b8142b4fab411c9ad29f606, type: 3}
-  - {fileID: 21300000, guid: 560f27a573910ad40a137666e8411b46, type: 3}
-  - {fileID: 21300000, guid: aa21d9a258dd98640a14d0447a5cb375, type: 3}
+  _skins:
+  - {fileID: 11400000, guid: 3eff641d008247d44987e2f0370fe205, type: 2}
+  - {fileID: 11400000, guid: bfe21f7ef410c4747b57d899351f547b, type: 2}
+  - {fileID: 11400000, guid: bb269824dcef678409c686024ad09eea, type: 2}
   _names: {fileID: 11400000, guid: b636019b4bc64354ca2347b15ade6854, type: 2}

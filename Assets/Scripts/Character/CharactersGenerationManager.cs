@@ -57,6 +57,7 @@ namespace GGJ.Characters
                 var character = new Character()
                 {
                     Race = race,
+                    Skin = race.Skins.PickOne(),
                     Name = name,
                     Drawing = GetRandomRaceDrawings(race),
                     Region = region,

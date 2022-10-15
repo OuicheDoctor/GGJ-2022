@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: Troll
   m_EditorClassIdentifier: 
   _name: Troll
-  _drawings:
-  - {fileID: 21300000, guid: aafdf222cfffa1047900470288075825, type: 3}
-  - {fileID: 21300000, guid: c0df44ca0baab88418d161079c36885f, type: 3}
-  - {fileID: 21300000, guid: a5aa14ee289221c48b2af77c94377a7e, type: 3}
+  _skins:
+  - {fileID: 11400000, guid: d398da4cb208d754ead73a0b3a1ccdbc, type: 2}
+  - {fileID: 11400000, guid: c8032dc327c8ea648800c482cbb61a61, type: 2}
+  - {fileID: 11400000, guid: 82b11ac75e36c7b42b085a5a3e67c901, type: 2}
   _names: {fileID: 11400000, guid: 88330b6d2561e894bbed64338a5f0a42, type: 2}

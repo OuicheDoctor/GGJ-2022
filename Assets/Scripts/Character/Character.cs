@@ -24,6 +24,7 @@ namespace GGJ.Characters
         public bool TraitJP { get; set; }
         public IList<HobbyData> Hobbies { get; private set; }
         public string Region { get; set; }
+        public RaceSkin Skin { get; set; }
 
         public Character()
         {
@@ -34,6 +35,7 @@ namespace GGJ.Characters
         {
             Race = newRace;
             Name = newRace.Names.Where(n => !usedNames.Contains(n)).PickOne();
+            Skin = Race.Skins.PickOne();
         }
 
         public void ChangeRegion(string newRegion)

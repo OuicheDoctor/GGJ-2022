@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Faun
   m_EditorClassIdentifier: 
   _name: Faun
-  _drawings:
-  - {fileID: 21300000, guid: da7ebb5bd0f29f14e874830797c395a9, type: 3}
-  - {fileID: 21300000, guid: da7ebb5bd0f29f14e874830797c395a9, type: 3}
+  _skins:
+  - {fileID: 11400000, guid: e619770fe16dcaf4ea422bfd6b3ba6e8, type: 2}
+  - {fileID: 11400000, guid: 106a0b4cd6ad46642a1d2b1092c42110, type: 2}
   _names: {fileID: 11400000, guid: 822c45bfcc4149242be5af279d7f24df, type: 2}

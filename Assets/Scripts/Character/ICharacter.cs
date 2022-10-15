@@ -16,6 +16,7 @@ namespace GGJ.Characters
         public bool TraitJP { get; set; }
         public IList<HobbyData> Hobbies { get; }
         public string Region { get; set; }
+        public RaceSkin Skin { get; set; }
 
         public bool GetMBTITrait(MBTITrait axis);
     }

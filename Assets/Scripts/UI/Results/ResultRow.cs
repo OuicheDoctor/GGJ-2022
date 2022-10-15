@@ -20,9 +20,9 @@ public class ResultRow : MonoBehaviour
     public void Setup(ICharacter partner1, ICharacter partner2, Rating rangeResult, string resultExplanation = null)
     {
         _leftCharName.text = partner1.Name;
-        _leftPicture.sprite = partner1.Drawing;
+        _leftPicture.sprite = partner1.Skin.Avatar;
         _rightCharName.text = partner2.Name;
-        _rightPicture.sprite = partner2.Drawing;
+        _rightPicture.sprite = partner2.Skin.Avatar;
         _matchResultText.text = rangeResult.Result;
         if (rangeResult.ResultIcon != null)
             _matchResult.sprite = rangeResult.ResultIcon;
